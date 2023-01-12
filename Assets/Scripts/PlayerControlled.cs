@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Liminal.SDK.Input;
+using Liminal.SDK.VR.Input;
 
 public class PlayerControlled : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class PlayerControlled : MonoBehaviour
     float horizontalInput,verticalInput;
     float moveSpeed = 2f;
     float rightHorizontalInput, rightVerticalInput;
+    public float rHoriSpeed, rVertSpeed, lHoriSpeed, lVertSpeed;
     Rigidbody rb;
     
 
