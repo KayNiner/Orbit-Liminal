@@ -28,6 +28,8 @@ public class Draw_Beam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lineRenderer.SetPosition(0, origin.position);
+
         if(counter < dist)
         {
             counter += .1f / lineDrawSpeed;
