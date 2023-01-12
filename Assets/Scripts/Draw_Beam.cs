@@ -12,7 +12,7 @@ public class Draw_Beam : MonoBehaviour
     public Transform Destination;
 
     public float lineDrawSpeed = 6f;
-    //public float speed = 1f;
+    public float speed = 1f;
 
 
     // Start is called before the first frame update
@@ -34,9 +34,8 @@ public class Draw_Beam : MonoBehaviour
        
             float x = Mathf.Lerp(0, dist, counter);
 
-            Vector3 pointA = origin.Position;
+            Vector3 pointA = origin.position;
             Vector3 pointB = Destination.position;
-            //transfrom.translate(transform.parent.rotation * Vector3.up * speed);
 
             Vector3 pointAlongLine = x * Vector3.Normalize(pointB - pointA) + pointA;
 
