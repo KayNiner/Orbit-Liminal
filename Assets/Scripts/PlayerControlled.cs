@@ -29,12 +29,12 @@ public class PlayerControlled : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float lHoriSpeed = Input.GetAxis("Oculus_GearVR_LThumbstick") * Time.deltaTime;
-        float lVertSpeed = Input.GetAxis("Oculus_GearVR_LThumbstickY") * Time.deltaTime;
-        float rHoriSpeed = Input.GetAxis("Oculus_GearVR_RThumbstickX") * Time.deltaTime;
-        float rVertSpeed = Input.GetAxis("Oculus_GearVR_RThumbstickY") * Time.deltaTime;
-        Debug.Log(lHoriSpeed);
-        Debug.Log(lVertSpeed);
+        //float lHoriSpeed = Input.GetAxis("Oculus_GearVR_LThumbstick") * Time.deltaTime;
+        //float lVertSpeed = Input.GetAxis("Oculus_GearVR_LThumbstickY") * Time.deltaTime;
+        float rHoriSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickHorizontal") * Time.deltaTime;
+        float rVertSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical") * Time.deltaTime;
+        //Debug.Log(lHoriSpeed);
+        //Debug.Log(lVertSpeed);
         Debug.Log(rVertSpeed);
         Debug.Log(rHoriSpeed);
         

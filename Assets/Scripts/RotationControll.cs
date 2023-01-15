@@ -1,30 +1,57 @@
-﻿using Liminal.SDK.VR.Input;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Liminal.Platform.Experimental.App.Experiences;
-using Liminal.SDK.Core;
-using Liminal.SDK.VR.Avatars;
-using Liminal.SDK.VR;
+using Liminal.SDK.Input;
+using Liminal.SDK.VR.Input;
 
 public class RotationControll : MonoBehaviour
 {
-    public float horizontalInput, verticalInput;
-    public float horiSpeed, vertiSpeed;
+    Transform cylinder;
+    float pcHorizontalInput, pcVerticalInput;
+    float moveSpeed = 2f;
+    float rightHorizontalInput, rightVerticalInput;
+    public float rHoriSpeed, rVertSpeed, lHoriSpeed, lVertSpeed;
+    Rigidbody rb;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        horizontalInput = Input.GetAxis("Oculus_GearVR_RThumbstickX");
-        verticalInput = Input.GetAxis("Oculus_GearVR_RThumbstickY");
+        pcHorizontalInput = Input.GetAxis("Horizontal");
+        pcVerticalInput = Input.GetAxis("Vertical");
+        //rightHorizontalInput = Input.GetAxis("Oculus_GearVR_RThumbstickX");
+        //rightVerticalInput = Input.GetAxis("Oculus_GearVR_RThumbstickY");
+        string[] joyName = Input.GetJoystickNames();
+        rb = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-       horiSpeed = horizontalInput * Time.deltaTime;
-       vertiSpeed = verticalInput * Time.deltaTime;
+        float pclHoriSpeed = Input.GetAxis("Horizontal") * Time.deltaTime;
+        float pclVertSpeed = Input.GetAxis("Vertical") * Time.deltaTime;
+        //float rHoriSpeed = Input.GetAxis("Oculus_GearVR_RThumbstickX") * Time.deltaTime;
+        //float rVertSpeed = Input.GetAxis("Oculus_GearVR_RThumbstickY") * Time.deltaTime;
+        Debug.Log(pclHoriSpeed);
+        Debug.Log(pclVertSpeed);
+        //Debug.Log(rVertSpeed);
+        //Debug.Log(rHoriSpeed);
 
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(horiSpeed, vertiSpeed, 0));
+        if (pcHorizontalInput != 0 || pcVerticalInput != 0)
+        {
+            Debug.Log(pcHorizontalInput);
+            Debug.Log(pcVerticalInput);
+        }
+        /*if (rightVerticalInput != 0 || rightHorizontalInput != 0)
+        {
+            Debug.Log(rightVerticalInput);
+            Debug.Log(rightHorizontalInput);
+        }*/
+        //transform.localRotation = Quaternion.Euler(0, 0, (rVertSpeed-rHoriSpeed)*2000*Time.deltaTime);
+
+        //MOVEMENT
+        transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(pclHoriSpeed, pclVertSpeed, 0));
+        //transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(lHoriSpeed, lVertSpeed, 0));
     }
 }
