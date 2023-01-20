@@ -638,6 +638,12 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!4 &596655974 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 960566226514341241, guid: b8c96c3541420f342a2db17feff7c0a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5791357703095995891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &892343727
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,8 +826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f1f3a07ea13e94428f9fe96e31dfd78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 0}
-  Destination: {fileID: 0}
+  origin: {fileID: 1832082694}
+  Destination: {fileID: 596655974}
   lineDrawSpeed: 6
   speed: 1
 --- !u!120 &1056829033
@@ -911,7 +917,7 @@ LineRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
+    numCornerVertices: 4
     numCapVertices: 0
     alignment: 0
     textureMode: 0
@@ -1500,6 +1506,12 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!4 &1832082694 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8801551162338851990, guid: 56a40a9134acba74cb8c7dcf553a0932,
+    type: 3}
+  m_PrefabInstance: {fileID: 8260698084576110500}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2112550167
 GameObject:
   m_ObjectHideFlags: 0

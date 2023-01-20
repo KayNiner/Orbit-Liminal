@@ -20,7 +20,7 @@ public class Draw_Beam : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, origin.position);
-        lineRenderer.SetWidth(7f, 7f);
+        lineRenderer.SetWidth(0.3f, 0.3f);
 
         dist = Vector3.Distance(origin.position, Destination.position);
     }
