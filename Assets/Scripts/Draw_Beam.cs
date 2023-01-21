@@ -12,7 +12,7 @@ public class Draw_Beam : MonoBehaviour
     public Transform Destination;
 
     public float lineDrawSpeed = 6f;
-    //public float speed = 1f;
+    public float speed = 1f;
 
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class Draw_Beam : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, origin.position);
-        lineRenderer.SetWidth(7f, 7f);
+        lineRenderer.SetWidth(0.3f, 0.3f);
 
         dist = Vector3.Distance(origin.position, Destination.position);
     }
@@ -30,7 +30,7 @@ public class Draw_Beam : MonoBehaviour
     {
         lineRenderer.SetPosition(0, origin.position);
 
-        if (counter < dist)
+        if(counter < dist)
         {
             counter += .1f / lineDrawSpeed;
        
@@ -38,10 +38,9 @@ public class Draw_Beam : MonoBehaviour
 
             Vector3 pointA = origin.position;
             Vector3 pointB = Destination.position;
-            //transfrom.translate(transform.parent.rotation * Vector3.up * speed);
 
             Vector3 pointAlongLine = x * Vector3.Normalize(pointB - pointA) + pointA;
- 
+
             lineRenderer.SetPosition(1, pointAlongLine);
         }
     }
