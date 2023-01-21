@@ -12,6 +12,9 @@ public class RotationControll : MonoBehaviour
     float rightHorizontalInput, rightVerticalInput;
     public float rHoriSpeed, rVertSpeed, lHoriSpeed, lVertSpeed;
     Rigidbody rb;
+    bool hasInput;
+    float lerpSpeed = 0.7f ;
+    Quaternion targetRotation;
 
 
     // Start is called before the first frame update
@@ -42,16 +45,51 @@ public class RotationControll : MonoBehaviour
         {
             Debug.Log(pcHorizontalInput);
             Debug.Log(pcVerticalInput);
+            hasInput = true;
+        }
+        else if (rightVerticalInput != 0 || rightHorizontalInput != 0)
+        {
+            Debug.Log(rightVerticalInput);
+            Debug.Log(rightHorizontalInput);
+            hasInput = true;
+        }
+        else
+        {
+            hasInput = false;
+        }
+
+        //if the player has made an input, use update the target position with the thumbsticks.
+        if (hasInput)
+        {
+            targetRotation = Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed, rVertSpeed, 0));
+        }
+
+        //Lerp to the target rotation to get a smooth movement.
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, lerpSpeed);
+
+
+        //transform.localRotation = Quaternion.Euler(0, 0, (rVertSpeed-rHoriSpeed)*2000*Time.deltaTime);
+
+        //MOVEMENT
+
+
+        //transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(lHoriSpeed, lVertSpeed, 0));
+
+        /*if (pcHorizontalInput != 0 || pcVerticalInput != 0)
+        {
+            Debug.Log(pcHorizontalInput);
+            Debug.Log(pcVerticalInput);
         }
         /*if (rightVerticalInput != 0 || rightHorizontalInput != 0)
         {
             Debug.Log(rightVerticalInput);
             Debug.Log(rightHorizontalInput);
-        }*/
+        }
         //transform.localRotation = Quaternion.Euler(0, 0, (rVertSpeed-rHoriSpeed)*2000*Time.deltaTime);
 
         //MOVEMENT
         transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(pclHoriSpeed, pclVertSpeed, 0));
         //transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(lHoriSpeed, lVertSpeed, 0));
+        */
     }
 }
