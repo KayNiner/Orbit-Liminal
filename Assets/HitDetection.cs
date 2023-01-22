@@ -6,16 +6,15 @@ public class HitDetection : MonoBehaviour
 {
     [SerializeField]
     GameObject coneDetection;
+    [SerializeField]
     Collider coneCollider;
-    float timer;
+    public float timer;
     AudioSource correctSound;
-    bool isPassed;
+    public bool isPassed;
     // Start is called before the first frame update
     void Start()
     {
-        correctSound = GetComponent<AudioSource>();
-        coneDetection = GetComponentInChildren<GameObject>();
-        coneCollider = GetComponentInChildren<Collider>();
+        coneCollider = GetComponent<Collider>();
         correctSound = GetComponent<AudioSource>();
         timer = 0;
         isPassed = false;
@@ -24,9 +23,10 @@ public class HitDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Collided Timer: " + timer);
+       //Debug.Log("Collided Timer: " + timer);
+        
 
-        if (timer > 5 && isPassed == false)
+        if (timer > 4 && isPassed == false)
         {
             correctSound.Play();
             Debug.Log("Next Level");
@@ -36,11 +36,13 @@ public class HitDetection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        //Debug.Log(other.name);
         timer =+ 1*Time.deltaTime;
     }
 
     void OnTriggerStay(Collider other)
     {
+        //Debug.Log (other.name);
         timer += 1 * Time.deltaTime;
     }
 

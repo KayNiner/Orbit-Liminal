@@ -43,8 +43,8 @@ public class PlayerControlled : MonoBehaviour
         float rVertSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical");
         //Debug.Log(lHoriSpeed);
         //Debug.Log(lVertSpeed);
-        Debug.Log("Y input: "+ rVertSpeed);
-        Debug.Log("X input: "+ rHoriSpeed);
+        //Debug.Log("Y input: "+ rVertSpeed);
+        //Debug.Log("X input: "+ rHoriSpeed);
 
         if (rHoriSpeed !=0  )
         {
