@@ -15,7 +15,8 @@ public class PlayerControlled : MonoBehaviour
     [SerializeField]
     float slerpSpeed;
     [SerializeField]
-    float fixedRotation = 0;
+    float fixedRotation = 60f;
+    bool hasXInput, hasYInput;
 
 
     // Start is called before the first frame update
@@ -28,6 +29,8 @@ public class PlayerControlled : MonoBehaviour
         string[] joyName = Input.GetJoystickNames();
         rb = GetComponent<Rigidbody>();
         transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
+        hasXInput = false;
+        hasYInput = false;
 
     }
 
@@ -42,13 +45,46 @@ public class PlayerControlled : MonoBehaviour
         //Debug.Log(lVertSpeed);
         Debug.Log("Y input: "+ rVertSpeed);
         Debug.Log("X input: "+ rHoriSpeed);
-         
+
+        if (rHoriSpeed !=0  )
+        {
+            hasXInput=true;
+        }
+        else
+        {
+            hasXInput = false;
+        }
+        if (rVertSpeed !=0)
+        {
+            hasYInput=true;
+        }    
+        else
+        {
+            hasYInput = true;
+        }
+            
+
         //transform.localRotation = Quaternion.Euler(0, 0, (rVertSpeed-rHoriSpeed)*2000*Time.deltaTime);
 
         //MOVEMENT
+        //Quaternion target = Quaternion.Euler(rVertSpeed, 0, -rHoriSpeed);
+        Quaternion target = Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed, rVertSpeed, 0));
+        Quaternion target2 = Quaternion.Euler(0, 0, 180);
         
         //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed,rVertSpeed, 0)), slerpSpeed);
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed,rVertSpeed,0)), slerpSpeed);
+        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed,rVertSpeed,0)), slerpSpeed);
         //transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(lHoriSpeed, lVertSpeed, 0));
+        
+        //Dampen toward the target roation
+        //transform.rotation = Quaternion.Slerp(transform.rotation, target, slerpSpeed);
+
+        if(rVertSpeed == -1)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, target2, slerpSpeed);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, target, slerpSpeed);
+        }
     }
 }
