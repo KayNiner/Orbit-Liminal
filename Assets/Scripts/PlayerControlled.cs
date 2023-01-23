@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Liminal.SDK.Input;
 using Liminal.SDK.VR.Input;
+using UnityEngine.UI;
 
 public class PlayerControlled : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class PlayerControlled : MonoBehaviour
     float fixedRotation = 60f;
     bool hasXInput, hasYInput;
 
+    [Header("UI")]
+    [SerializeField]
+    Text uiOutPut;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +48,9 @@ public class PlayerControlled : MonoBehaviour
         //Debug.Log(lHoriSpeed);
         //Debug.Log(lVertSpeed);
         //Debug.Log("Y input: "+ rVertSpeed);
-        //Debug.Log("X input: "+ rHoriSpeed);
+        Debug.Log("X input: "+ rHoriSpeed);
+        Debug.Log(hasXInput.ToString());
+        uiOutPut.text = rVertSpeed.ToString();
 
         if (rHoriSpeed !=0  )
         {
@@ -78,7 +84,11 @@ public class PlayerControlled : MonoBehaviour
         //Dampen toward the target roation
         //transform.rotation = Quaternion.Slerp(transform.rotation, target, slerpSpeed);
 
-        if(rVertSpeed == -1)
+        if(rVertSpeed >= -1f && rVertSpeed<-0.97)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, target2, slerpSpeed);
+        }
+        else if (hasXInput == false && rVertSpeed<0)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target2, slerpSpeed);
         }

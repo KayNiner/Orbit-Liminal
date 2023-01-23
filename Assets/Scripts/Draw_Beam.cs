@@ -29,8 +29,7 @@ public class Draw_Beam : MonoBehaviour
     void Update()
     {
         lineRenderer.SetPosition(0, origin.position);
-
-        if(counter < dist)
+        if (counter < dist)
         {
             counter += .1f / lineDrawSpeed;
        
@@ -43,5 +42,6 @@ public class Draw_Beam : MonoBehaviour
 
             lineRenderer.SetPosition(1, pointAlongLine);
         }
+        lineRenderer.SetPosition(1, Destination.position);
     }
 }
