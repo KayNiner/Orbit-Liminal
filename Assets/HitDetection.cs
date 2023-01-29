@@ -9,15 +9,23 @@ public class HitDetection : MonoBehaviour
     [SerializeField]
     Collider coneCollider;
     public float timer;
-    AudioSource correctSound;
+    [SerializeField] AudioSource correctSound;
     public bool isPassed;
+
+    [Header("LineDraw Script")]
+    [SerializeField]
+    Draw_Beam lineDrawer;
+
+    [Header("LaserAudio")]
+    [SerializeField] AudioSource laserStart, laserStay;
+
     // Start is called before the first frame update
     void Start()
     {
         coneCollider = GetComponent<Collider>();
-        correctSound = GetComponent<AudioSource>();
         timer = 0;
         isPassed = false;
+        
     }
 
     // Update is called once per frame
@@ -38,17 +46,23 @@ public class HitDetection : MonoBehaviour
     {
         //Debug.Log(other.name);
         timer =+ 1*Time.deltaTime;
+        lineDrawer.drawLine();
+        laserStart.Play();
     }
 
     void OnTriggerStay(Collider other)
     {
         //Debug.Log (other.name);
         timer += 1 * Time.deltaTime;
+        lineDrawer.drawLine();
+        laserStay.Play();
     }
 
     void OnTriggerExit(Collider other)
     {
         timer = 0;
         isPassed=false;
+        lineDrawer.endLine();
+        laserStay.Stop();
     }
 }
