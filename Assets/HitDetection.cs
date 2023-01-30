@@ -34,7 +34,7 @@ public class HitDetection : MonoBehaviour
        //Debug.Log("Collided Timer: " + timer);
         
 
-        if (timer > 4 && isPassed == false)
+        if (timer > 6 && isPassed == false)
         {
             correctSound.Play();
             Debug.Log("Next Level");

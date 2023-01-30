@@ -48,7 +48,7 @@ public class StageManager : MonoBehaviour
         {
             currentStage = Stages.STAGE2;
             hitDetection.isPassed = false;
-            hitDetection.timer = 1;
+            hitDetection.timer = 0;
             light1.intensity = Mathf.Lerp(0, 0.5f, 1);
         }
         if (currentStage == Stages.STAGE2 && hitDetection.isPassed == true)
@@ -62,7 +62,7 @@ public class StageManager : MonoBehaviour
         {
             currentStage = Stages.STAGE4;
             hitDetection.isPassed = false;
-            hitDetection.timer = 1;
+            hitDetection.timer = 2;
             light3.intensity = Mathf.Lerp(0, 0.5f, 1);
         }
         if (currentStage == Stages.STAGE4 && hitDetection.isPassed == true)
