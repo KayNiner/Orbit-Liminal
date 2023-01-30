@@ -55,14 +55,14 @@ public class StageManager : MonoBehaviour
         {
             currentStage = Stages.STAGE3;
             hitDetection.isPassed = false;
-            hitDetection.timer = 0;
+            hitDetection.timer = 1;
             light2.intensity = Mathf.Lerp(0, 0.5f, 1);
         }
         if (currentStage == Stages.STAGE3 && hitDetection.isPassed == true)
         {
             currentStage = Stages.STAGE4;
             hitDetection.isPassed = false;
-            hitDetection.timer = 0;
+            hitDetection.timer = 2;
             light3.intensity = Mathf.Lerp(0, 0.5f, 1);
         }
         if (currentStage == Stages.STAGE4 && hitDetection.isPassed == true)
@@ -86,8 +86,8 @@ public class StageManager : MonoBehaviour
     {
         //Entering Stage 1
         Debug.Log("Start Stage 1");
-        slerpSpeed = 0.03f;
-        rotationAngle = 20;
+        slerpSpeed = 10f;
+        rotationAngle = 10;
         yield return new WaitForSeconds(2f);
 
         //Loop while in Stage1
@@ -102,8 +102,9 @@ public class StageManager : MonoBehaviour
     IEnumerator STAGE2()
     {
         //Entering Stage 2
-        slerpSpeed = 0.08f;
-        rotationAngle = -40;
+        slerpSpeed = 10f;
+        rotationAngle = -12;
+        yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
         while (currentStage == Stages.STAGE2)
@@ -117,8 +118,9 @@ public class StageManager : MonoBehaviour
     IEnumerator STAGE3()
     {
         //Entering Stage 3
-        slerpSpeed = 0.09f;
-        rotationAngle = 60;
+        slerpSpeed = 10f;
+        rotationAngle = 13;
+        yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
         while (currentStage == Stages.STAGE3)
@@ -132,13 +134,14 @@ public class StageManager : MonoBehaviour
     IEnumerator STAGE4()
     {
         //Entering Stage 4
-        slerpSpeed = 0.09f;
-        rotationAngle = -70;
+        slerpSpeed = 10f;
+        rotationAngle = -14;
+        yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
         while (currentStage == Stages.STAGE4)
         {
-            Debug.Log("Srage 4");
+            Debug.Log("Stage 4");
             outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
