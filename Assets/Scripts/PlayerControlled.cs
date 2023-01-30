@@ -69,7 +69,7 @@ public class PlayerControlled : MonoBehaviour
         Quaternion target = Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed, rVertSpeed, 0));
         Quaternion target2 = Quaternion.Euler(0, 0, 180);
 
-        if (rVertSpeed >= -1f && rVertSpeed < -0.97)
+        if (rVertSpeed >= -1f && rVertSpeed < -1)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target2, slerpSpeed);
         }

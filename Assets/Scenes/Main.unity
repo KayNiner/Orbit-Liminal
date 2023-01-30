@@ -6961,7 +6961,7 @@ MonoBehaviour:
   rVertSpeed: 0
   lHoriSpeed: 0
   lVertSpeed: 0
-  slerpSpeed: 0.01
+  slerpSpeed: 0.015
   fixedRotation: 1
   uiOutPut: {fileID: 1294963506}
 --- !u!1 &1732459990
