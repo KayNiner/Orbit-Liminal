@@ -102,7 +102,7 @@ public class StageManager : MonoBehaviour
     IEnumerator STAGE2()
     {
         //Entering Stage 2
-        slerpSpeed = 0.08f;
+        slerpSpeed = 0.032f;
         rotationAngle = -40;
 
         //Loop while in Stage1
@@ -117,7 +117,7 @@ public class StageManager : MonoBehaviour
     IEnumerator STAGE3()
     {
         //Entering Stage 3
-        slerpSpeed = 0.09f;
+        slerpSpeed = 0.035f;
         rotationAngle = 60;
 
         //Loop while in Stage1
@@ -132,7 +132,7 @@ public class StageManager : MonoBehaviour
     IEnumerator STAGE4()
     {
         //Entering Stage 4
-        slerpSpeed = 0.09f;
+        slerpSpeed = 0.037f;
         rotationAngle = -70;
 
         //Loop while in Stage1
