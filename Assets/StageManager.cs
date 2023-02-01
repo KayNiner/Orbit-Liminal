@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Liminal.SDK.Core;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-    public enum Stages{ STAGE1, STAGE2,STAGE3,STAGE4}
+    public enum Stages{ STAGE1, STAGE2,STAGE3,STAGE4, STAGE5, STAGE6}
     public Stages currentStage;
 
     public float slerpSpeed;
@@ -14,8 +15,8 @@ public class StageManager : MonoBehaviour
 
     [Header("Star Setting")]
     [SerializeField]
-    GameObject level1, level2, level3, level4;
-    Light light1, light2, light3, light4;
+    GameObject level1, level2, level3, level4, level5, level6;
+    Light light1, light2, light3, light4, light5, light6;
     
 
     [SerializeField]
@@ -31,6 +32,8 @@ public class StageManager : MonoBehaviour
         light2 = level2.GetComponent<Light>();
         light3 = level3.GetComponent<Light>();
         light4 = level4.GetComponent<Light>();
+        light5 = level5.GetComponent<Light>();
+        light6 = level6.GetComponent<Light>();
     }
 
     // Start is called before the first frame update
@@ -67,8 +70,23 @@ public class StageManager : MonoBehaviour
         }
         if (currentStage == Stages.STAGE4 && hitDetection.isPassed == true)
         {
+            currentStage = Stages.STAGE5;
+            hitDetection.isPassed = false;
+            hitDetection.timer = 3;
+            light3.intensity = Mathf.Lerp(0, 0.5f, 1);
+        }
+        if (currentStage == Stages.STAGE5 && hitDetection.isPassed == true)
+        {
+            currentStage = Stages.STAGE6;
+            hitDetection.isPassed = false;
+            hitDetection.timer = 4;
+            light3.intensity = Mathf.Lerp(0, 0.5f, 1);
+        }
+        if (currentStage == Stages.STAGE6 && hitDetection.isPassed == true)
+        {
             Debug.Log("Experience Over");
             light4.intensity = Mathf.Lerp(0, 0.5f, 1);
+            ExperienceApp.End();
         }
     }
     
@@ -146,6 +164,38 @@ public class StageManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         
+    }
+    IEnumerator STAGE5()
+    {
+        //Entering Stage 5
+        slerpSpeed = 10f;
+        rotationAngle = 14;
+        yield return new WaitForSeconds(0.5f);
+
+        //Loop while in Stage1
+        while (currentStage == Stages.STAGE5)
+        {
+            Debug.Log("Stage 5");
+            outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+
+    }
+    IEnumerator STAGE6()
+    {
+        //Entering Stage 6
+        slerpSpeed = 10f;
+        rotationAngle = -15;
+        yield return new WaitForSeconds(0.5f);
+
+        //Loop while in Stage1
+        while (currentStage == Stages.STAGE6)
+        {
+            Debug.Log("Stage 6");
+            outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+
     }
 
     #endregion
