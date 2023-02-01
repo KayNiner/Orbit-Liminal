@@ -48,6 +48,7 @@ public class HitDetection : MonoBehaviour
         timer =+ 1 * Time.deltaTime;
         lineDrawer.drawLine();
         laserStart.Play();
+        lineDrawer.particleTrail.GetComponent<ParticleSystem>().Play();
     }
 
     void OnTriggerStay(Collider other)
@@ -56,7 +57,7 @@ public class HitDetection : MonoBehaviour
         timer += 1 * Time.deltaTime;
         lineDrawer.drawLine();
         laserStay.Play();
-        lineDrawer.particleTrail.Play();
+        
     }
 
     void OnTriggerExit(Collider other)
@@ -65,6 +66,6 @@ public class HitDetection : MonoBehaviour
         isPassed=false;
         lineDrawer.endLine();
         laserStay.Stop();
-        lineDrawer.particleTrail.Stop();
+        lineDrawer.particleTrail.GetComponent<ParticleSystem>().Stop() ;
     }
 }

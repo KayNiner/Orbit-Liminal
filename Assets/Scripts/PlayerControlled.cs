@@ -19,9 +19,9 @@ public class PlayerControlled : MonoBehaviour
     float fixedRotation = 60f;
     bool hasXInput, hasYInput;
 
-    [Header("UI")]
+    /*[Header("UI")]
     [SerializeField]
-    Text uiOutPut;
+    Text uiOutPut;*/
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +48,7 @@ public class PlayerControlled : MonoBehaviour
         //Debug.Log("Y input: "+ rVertSpeed);
         //Debug.Log("X input: "+ rHoriSpeed);
         Debug.Log(hasXInput.ToString());
-        uiOutPut.text = rVertSpeed.ToString();
+        //uiOutPut.text = rVertSpeed.ToString();
 
         if (rHoriSpeed !=0  )
         {

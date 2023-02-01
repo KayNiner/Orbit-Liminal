@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Liminal.SDK.Core;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
@@ -12,27 +13,42 @@ public class StageManager : MonoBehaviour
     public float rotationAngle;
     public GameObject hitChecker;
     public HitDetection hitDetection;
-
+    Renderer starRend;
+    
     [Header("Star Setting")]
     [SerializeField]
     GameObject level1, level2, level3, level4, level5, level6;
+    [SerializeField]
     Material star1, star2, star3, star4, star5, star6;
-    
+    Material starRendMat;
+    public float intensityValue;
+    public Color starColour;
+
+
+
     [SerializeField]
     GameObject outerRing;
 
     [SerializeField]
     bool stagePass;
 
+    [Header("UI")]
+    [SerializeField]
+    Text intensityValueUI;
+
     void Awake()
     {
         hitDetection = hitChecker.GetComponent<HitDetection>();
-        //star1 = level1.GetComponent<Star_Shader.intensityAdjust>();
-        //star2 = level2.GetComponent<Star_Shader.intensityAdjust>();
-        //star3 = level3.GetComponent<Star_Shader.intensityAdjust>();
-        //star4 = level4.GetComponent<Star_Shader.intensityAdjust>();
-        //star5 = level5.GetComponent<Star_Shader.intensityAdjust>();
-        //star6 = level6.GetComponent<Star_Shader.intensityAdjust>();
+        //starRend = level1.GetComponent<Renderer>();
+        /*
+        star1 = level1.GetComponent<Renderer>().material;
+        star2 = level2.GetComponent<Renderer>().material;
+        star3 = level3.GetComponent<Renderer>().material;
+        star4 = level4.GetComponent<Renderer>().material;
+        star5 = level5.GetComponent<Renderer>().material;
+        star6 = level6.GetComponent<Renderer>().material;
+        */
+
     }
 
     // Start is called before the first frame update
@@ -40,54 +56,93 @@ public class StageManager : MonoBehaviour
     {
         currentStage = Stages.STAGE1;
         StartCoroutine(StagingMachine());
+        starRendMat = level1.GetComponent<Renderer>().material;
+        //intensityValue = starRendMat.GetFloat("_intensityAdjust");
+        
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currentStage==Stages.STAGE1 && hitDetection.isPassed == true)
+        intensityValue = starRendMat.GetFloat("_intensityAdjust");
+        starRendMat.SetColor("_starColorAdjust", starColour);
+        intensityValueUI.text = currentStage.ToString();
+       
+        
+        if (currentStage==Stages.STAGE1 && hitDetection.isPassed == true)
         {
-            currentStage = Stages.STAGE2;
+            StartCoroutine("lightUpStar");
             hitDetection.isPassed = false;
             hitDetection.timer = 0;
-            //star1.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            starRendMat = level2.GetComponent<Renderer>().material;
+            currentStage = Stages.STAGE2;
+            starColour = Color.red;
+             
         }
         if (currentStage == Stages.STAGE2 && hitDetection.isPassed == true)
         {
-            currentStage = Stages.STAGE3;
+            StartCoroutine("lightUpStar");
             hitDetection.isPassed = false;
             hitDetection.timer = 1;
-            //star2.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            starRendMat = level3.GetComponent<Renderer>().material;
+            currentStage = Stages.STAGE3;
+            starColour = Color.yellow;
+
         }
         if (currentStage == Stages.STAGE3 && hitDetection.isPassed == true)
         {
-            currentStage = Stages.STAGE4;
+            StartCoroutine("lightUpStar");
             hitDetection.isPassed = false;
             hitDetection.timer = 2;
-            //star3.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            starRendMat = level4.GetComponent<Renderer>().material;
+            currentStage = Stages.STAGE4;
+            starColour = Color.blue;
+
         }
         if (currentStage == Stages.STAGE4 && hitDetection.isPassed == true)
         {
+            StartCoroutine("lightUpStar");
             currentStage = Stages.STAGE5;
             hitDetection.isPassed = false;
             hitDetection.timer = 3;
-            //star4.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            starRendMat = level5.GetComponent<Renderer>().material;
+            currentStage = Stages.STAGE5;
+            starColour = Color.green;
         }
         if (currentStage == Stages.STAGE5 && hitDetection.isPassed == true)
         {
-            currentStage = Stages.STAGE6;
+            StartCoroutine("lightUpStar");
             hitDetection.isPassed = false;
             hitDetection.timer = 4;
-            //star5.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            starRendMat = level6.GetComponent<Renderer>().material;
+            currentStage = Stages.STAGE6;
+            starColour = Color.red;
         }
         if (currentStage == Stages.STAGE6 && hitDetection.isPassed == true)
         {
+            StartCoroutine("lightUpStar");
+            starRendMat = level1.GetComponent<Renderer>().material;
             Debug.Log("Experience Over");
-            //star6.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
             ExperienceApp.End();
         }
+        
     }
     
+    IEnumerator lightUpStar()
+    {
+        float t = 0;
+        while (t < 2)
+        {
+            t += Time.deltaTime;
+
+            starRendMat.SetFloat("_intensityAdjust", Mathf.Lerp(intensityValue, 0f,0.01f));
+
+            yield return new WaitForEndOfFrame() ;
+        }
+    }
+
     IEnumerator StagingMachine()
     {
         while (true)
