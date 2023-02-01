@@ -34,7 +34,7 @@ public class HitDetection : MonoBehaviour
        //Debug.Log("Collided Timer: " + timer);
         
 
-        if (timer > 4 && isPassed == false)
+        if (timer > 15 && isPassed == false)
         {
             correctSound.Play();
             Debug.Log("Next Level");
@@ -45,7 +45,7 @@ public class HitDetection : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         //Debug.Log(other.name);
-        timer =+ 1*Time.deltaTime;
+        timer =+ 1 * Time.deltaTime;
         lineDrawer.drawLine();
         laserStart.Play();
     }
