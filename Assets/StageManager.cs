@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
-    public enum Stages{ STAGE1, STAGE2,STAGE3,STAGE4, STAGE5, STAGE6}
+    public enum Stages { STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 }
     public Stages currentStage;
 
     public float slerpSpeed;
@@ -14,16 +14,15 @@ public class StageManager : MonoBehaviour
     public GameObject hitChecker;
     public HitDetection hitDetection;
     Renderer starRend;
-    
+
     [Header("Star Setting")]
     [SerializeField]
     GameObject level1, level2, level3, level4, level5, level6;
     [SerializeField]
-    Material star1, star2, star3, star4, star5, star6;
     Material starRendMat;
-    public float intensityValue;
+    public float intensityValue = -1;
     public Color starColour;
-
+    public float t;
 
 
     [SerializeField]
@@ -57,89 +56,91 @@ public class StageManager : MonoBehaviour
         currentStage = Stages.STAGE1;
         StartCoroutine(StagingMachine());
         starRendMat = level1.GetComponent<Renderer>().material;
-        //intensityValue = starRendMat.GetFloat("_intensityAdjust");
-        
-        
-        
+
+        intensityValue = starRendMat.GetFloat("_intensityAdjust");
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        intensityValue = starRendMat.GetFloat("_intensityAdjust");
-        starRendMat.SetColor("_starColorAdjust", starColour);
-        intensityValueUI.text = currentStage.ToString();
-       
-        
-        if (currentStage==Stages.STAGE1 && hitDetection.isPassed == true)
+        //intensityValueUI.text = currentStage.ToString();
+        if(hitDetection.isPassed == true)
         {
-            StartCoroutine("lightUpStar");
-            hitDetection.isPassed = false;
-            hitDetection.timer = 0;
-            starRendMat = level2.GetComponent<Renderer>().material;
-            currentStage = Stages.STAGE2;
-            starColour = Color.red;
-             
-        }
-        if (currentStage == Stages.STAGE2 && hitDetection.isPassed == true)
-        {
-            StartCoroutine("lightUpStar");
-            hitDetection.isPassed = false;
-            hitDetection.timer = 1;
-            starRendMat = level3.GetComponent<Renderer>().material;
-            currentStage = Stages.STAGE3;
-            starColour = Color.yellow;
+            if (currentStage == Stages.STAGE1)
+            {
+                StartCoroutine("lightUpStar");
+                //hitDetection.isPassed = false;
+                //hitDetection.timer = 0;
+                starRendMat = level2.GetComponent<Renderer>().material;
+                currentStage = Stages.STAGE2;
+                starColour = Color.red;
 
-        }
-        if (currentStage == Stages.STAGE3 && hitDetection.isPassed == true)
-        {
-            StartCoroutine("lightUpStar");
-            hitDetection.isPassed = false;
-            hitDetection.timer = 2;
-            starRendMat = level4.GetComponent<Renderer>().material;
-            currentStage = Stages.STAGE4;
-            starColour = Color.blue;
+            }
+            else if (currentStage == Stages.STAGE2)
+            {
+                StartCoroutine("lightUpStar");
+                hitDetection.isPassed = false;
+                hitDetection.timer = 1;
+                starRendMat = level3.GetComponent<Renderer>().material;
+                currentStage = Stages.STAGE3;
+                starColour = Color.yellow;
 
+            }
+            else if (currentStage == Stages.STAGE3)
+            {
+                StartCoroutine("lightUpStar");
+                hitDetection.isPassed = false;
+                hitDetection.timer = 2;
+                starRendMat = level4.GetComponent<Renderer>().material;
+                currentStage = Stages.STAGE4;
+                starColour = Color.blue;
+
+            }
+            else if (currentStage == Stages.STAGE4)
+            {
+
+                StartCoroutine("lightUpStar");
+                currentStage = Stages.STAGE5;
+                hitDetection.isPassed = false;
+                hitDetection.timer = 3;
+                starRendMat = level5.GetComponent<Renderer>().material;
+                currentStage = Stages.STAGE5;
+                starColour = Color.green;
+            }
+            else if (currentStage == Stages.STAGE5)
+            {
+                StartCoroutine("lightUpStar");
+                hitDetection.isPassed = false;
+                hitDetection.timer = 4;
+                starRendMat = level6.GetComponent<Renderer>().material;
+                currentStage = Stages.STAGE6;
+                starColour = Color.cyan;
+            }
+            else if (currentStage == Stages.STAGE6)
+            {
+                StartCoroutine("lightUpStar");
+                starRendMat = level1.GetComponent<Renderer>().material;
+                starColour = Color.white;
+                Debug.Log("Experience Over");
+                ExperienceApp.End();
+            }
         }
-        if (currentStage == Stages.STAGE4 && hitDetection.isPassed == true)
-        {
-            StartCoroutine("lightUpStar");
-            currentStage = Stages.STAGE5;
-            hitDetection.isPassed = false;
-            hitDetection.timer = 3;
-            starRendMat = level5.GetComponent<Renderer>().material;
-            currentStage = Stages.STAGE5;
-            starColour = Color.green;
-        }
-        if (currentStage == Stages.STAGE5 && hitDetection.isPassed == true)
-        {
-            StartCoroutine("lightUpStar");
-            hitDetection.isPassed = false;
-            hitDetection.timer = 4;
-            starRendMat = level6.GetComponent<Renderer>().material;
-            currentStage = Stages.STAGE6;
-            starColour = Color.red;
-        }
-        if (currentStage == Stages.STAGE6 && hitDetection.isPassed == true)
-        {
-            StartCoroutine("lightUpStar");
-            starRendMat = level1.GetComponent<Renderer>().material;
-            Debug.Log("Experience Over");
-            ExperienceApp.End();
-        }
-        
+
     }
-    
     IEnumerator lightUpStar()
     {
-        float t = 0;
+        t = 0;
         while (t < 2)
         {
             t += Time.deltaTime;
-
+            starRendMat.SetColor("_starColorAdjust", starColour);
             starRendMat.SetFloat("_intensityAdjust", Mathf.Lerp(intensityValue, 0f,0.01f));
+            intensityValue = starRendMat.GetFloat("_intensityAdjust");
 
-            yield return new WaitForEndOfFrame() ;
+            yield return null ;
         }
     }
 
@@ -168,6 +169,7 @@ public class StageManager : MonoBehaviour
             outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
+
         
     }
     IEnumerator STAGE2()

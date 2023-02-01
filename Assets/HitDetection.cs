@@ -34,11 +34,19 @@ public class HitDetection : MonoBehaviour
        //Debug.Log("Collided Timer: " + timer);
         
 
-        if (timer > 15 && isPassed == false)
+        if (timer > 15)
         {
-            correctSound.Play();
-            Debug.Log("Next Level");
-            isPassed = true;
+           if(isPassed == false)
+           {
+                correctSound.Play();
+                Debug.Log("Next Level");
+                isPassed = true;
+           }
+           else
+           {
+                timer = 0;
+                isPassed = false;
+           }
         }
     }
 
@@ -56,7 +64,7 @@ public class HitDetection : MonoBehaviour
         //Debug.Log (other.name);
         timer += 1 * Time.deltaTime;
         lineDrawer.drawLine();
-        laserStay.Play();
+        //laserStay.Play();
         
     }
 
