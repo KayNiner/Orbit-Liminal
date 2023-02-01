@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Liminal.SDK.Core;
-using Unity.ShaderGraph;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
@@ -28,12 +27,12 @@ public class StageManager : MonoBehaviour
     void Awake()
     {
         hitDetection = hitChecker.GetComponent<HitDetection>();
-        star1 = level1.GetComponent<Star_Shader.intensityAdjust>();
-        star2 = level2.GetComponent<Star_Shader.intensityAdjust>();
-        star3 = level3.GetComponent<Star_Shader.intensityAdjust>();
-        star4 = level4.GetComponent<Star_Shader.intensityAdjust>();
-        star5 = level5.GetComponent<Star_Shader.intensityAdjust>();
-        star6 = level6.GetComponent<Star_Shader.intensityAdjust>();
+        //star1 = level1.GetComponent<Star_Shader.intensityAdjust>();
+        //star2 = level2.GetComponent<Star_Shader.intensityAdjust>();
+        //star3 = level3.GetComponent<Star_Shader.intensityAdjust>();
+        //star4 = level4.GetComponent<Star_Shader.intensityAdjust>();
+        //star5 = level5.GetComponent<Star_Shader.intensityAdjust>();
+        //star6 = level6.GetComponent<Star_Shader.intensityAdjust>();
     }
 
     // Start is called before the first frame update
@@ -51,40 +50,40 @@ public class StageManager : MonoBehaviour
             currentStage = Stages.STAGE2;
             hitDetection.isPassed = false;
             hitDetection.timer = 0;
-            star1.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            //star1.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
         }
         if (currentStage == Stages.STAGE2 && hitDetection.isPassed == true)
         {
             currentStage = Stages.STAGE3;
             hitDetection.isPassed = false;
             hitDetection.timer = 1;
-            star2.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            //star2.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
         }
         if (currentStage == Stages.STAGE3 && hitDetection.isPassed == true)
         {
             currentStage = Stages.STAGE4;
             hitDetection.isPassed = false;
             hitDetection.timer = 2;
-            star3.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            //star3.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
         }
         if (currentStage == Stages.STAGE4 && hitDetection.isPassed == true)
         {
             currentStage = Stages.STAGE5;
             hitDetection.isPassed = false;
             hitDetection.timer = 3;
-            star4.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            //star4.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
         }
         if (currentStage == Stages.STAGE5 && hitDetection.isPassed == true)
         {
             currentStage = Stages.STAGE6;
             hitDetection.isPassed = false;
             hitDetection.timer = 4;
-            star5.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            //star5.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
         }
         if (currentStage == Stages.STAGE6 && hitDetection.isPassed == true)
         {
             Debug.Log("Experience Over");
-            star6.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
+            //star6.intensityAdjust = Mathf.Lerp(0, 0.5f, 0);
             ExperienceApp.End();
         }
     }
