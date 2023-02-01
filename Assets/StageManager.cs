@@ -62,68 +62,69 @@ public class StageManager : MonoBehaviour
     void Update()
     {
         //intensityValueUI.text = currentStage.ToString();
+        
         if(hitDetection.isPassed == true)
         {
             if (currentStage == Stages.STAGE1)
             {
-                StartCoroutine("lightUpStar");
+                //StartCoroutine("lightUpStar");
                 //hitDetection.isPassed = false;
                 //hitDetection.timer = 0;
-                starRendMat = level2.GetComponent<Renderer>().material;
+                //starRendMat = level2.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE2;
-                starColour = Color.red;
+                //starColour = Color.red;
 
             }
             else if (currentStage == Stages.STAGE2)
             {
-                StartCoroutine("lightUpStar");
-                hitDetection.isPassed = false;
-                hitDetection.timer = 1;
-                starRendMat = level3.GetComponent<Renderer>().material;
+                //StartCoroutine("lightUpStar");
+                //hitDetection.isPassed = false;
+                //hitDetection.timer = 1;
+                //starRendMat = level3.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE3;
-                starColour = Color.yellow;
+                //starColour = Color.yellow;
 
             }
             else if (currentStage == Stages.STAGE3)
             {
-                StartCoroutine("lightUpStar");
-                hitDetection.isPassed = false;
-                hitDetection.timer = 2;
-                starRendMat = level4.GetComponent<Renderer>().material;
+                //StartCoroutine("lightUpStar");
+               // hitDetection.isPassed = false;
+                //hitDetection.timer = 2;
+                //starRendMat = level4.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE4;
-                starColour = Color.blue;
+                //starColour = Color.blue;
 
             }
             else if (currentStage == Stages.STAGE4)
             {
 
-                StartCoroutine("lightUpStar");
+               // StartCoroutine("lightUpStar");
+                //currentStage = Stages.STAGE5;
+                //hitDetection.isPassed = false;
+                //hitDetection.timer = 3;
+                //starRendMat = level5.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE5;
-                hitDetection.isPassed = false;
-                hitDetection.timer = 3;
-                starRendMat = level5.GetComponent<Renderer>().material;
-                currentStage = Stages.STAGE5;
-                starColour = Color.green;
+                //starColour = Color.green;
             }
             else if (currentStage == Stages.STAGE5)
             {
-                StartCoroutine("lightUpStar");
-                hitDetection.isPassed = false;
-                hitDetection.timer = 4;
-                starRendMat = level6.GetComponent<Renderer>().material;
+                //StartCoroutine("lightUpStar");
+                //hitDetection.isPassed = false;
+               // hitDetection.timer = 4;
+                //starRendMat = level6.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE6;
-                starColour = Color.cyan;
+                //starColour = Color.cyan;
             }
             else if (currentStage == Stages.STAGE6)
             {
-                StartCoroutine("lightUpStar");
-                starRendMat = level1.GetComponent<Renderer>().material;
-                starColour = Color.white;
+                //StartCoroutine("lightUpStar");
+               // starRendMat = level1.GetComponent<Renderer>().material;
+                //starColour = Color.white;
                 Debug.Log("Experience Over");
                 ExperienceApp.End();
             }
         }
-
+        
     }
     IEnumerator lightUpStar()
     {
@@ -137,6 +138,8 @@ public class StageManager : MonoBehaviour
 
             yield return null ;
         }
+
+        yield break;
     }
 
     IEnumerator StagingMachine()
