@@ -16,7 +16,9 @@ public class StageManager : MonoBehaviour
     [Header("Star Setting")]
     [SerializeField]
     GameObject level1, level2, level3, level4, level5, level6;
-    Material star1, star2, star3, star4, star5, star6;
+
+    [SerializeField]
+    Shader star1, star2, star3, star4, star5, star6;
     
     [SerializeField]
     GameObject outerRing;
