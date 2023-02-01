@@ -167,7 +167,7 @@ public class StageManager : MonoBehaviour
     {
         //Entering Stage 5
         slerpSpeed = 10f;
-        rotationAngle = 14;
+        rotationAngle = -10;
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -183,7 +183,7 @@ public class StageManager : MonoBehaviour
     {
         //Entering Stage 6
         slerpSpeed = 10f;
-        rotationAngle = -15;
+        rotationAngle = 15;
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
