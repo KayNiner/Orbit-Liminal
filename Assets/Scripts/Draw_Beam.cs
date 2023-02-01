@@ -108,7 +108,7 @@ public class Draw_Beam : MonoBehaviour
 
     private void particleOnMove()
     {
-        Debug.Log("Coroutine Start");
+        //Debug.Log("Coroutine Start");
         particleTrail.transform.position = origin.position;
         lineRenderer.SetPosition(0, origin.position);
         

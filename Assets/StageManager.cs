@@ -13,16 +13,15 @@ public class StageManager : MonoBehaviour
     public float rotationAngle;
     public GameObject hitChecker;
     public HitDetection hitDetection;
-    Renderer starRend;
 
     [Header("Star Setting")]
     [SerializeField]
     GameObject level1, level2, level3, level4, level5, level6;
     [SerializeField]
     Material starRendMat;
-    public float intensityValue = -1;
-    public Color starColour;
-    public float t;
+    float intensityValue = -1;
+    Color starColour;
+    float t;
 
 
     [SerializeField]
@@ -56,11 +55,7 @@ public class StageManager : MonoBehaviour
         currentStage = Stages.STAGE1;
         StartCoroutine(StagingMachine());
         starRendMat = level1.GetComponent<Renderer>().material;
-
         intensityValue = starRendMat.GetFloat("_intensityAdjust");
-
-
-
     }
 
     // Update is called once per frame

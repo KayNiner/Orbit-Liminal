@@ -36,21 +36,21 @@ public class RotationControll : MonoBehaviour
         float pclVertSpeed = Input.GetAxis("Vertical") * Time.deltaTime;
         //float rHoriSpeed = Input.GetAxis("Oculus_GearVR_RThumbstickX") * Time.deltaTime;
         //float rVertSpeed = Input.GetAxis("Oculus_GearVR_RThumbstickY") * Time.deltaTime;
-        Debug.Log(pclHoriSpeed);
-        Debug.Log(pclVertSpeed);
+        //Debug.Log(pclHoriSpeed);
+        //Debug.Log(pclVertSpeed);
         //Debug.Log(rVertSpeed);
         //Debug.Log(rHoriSpeed);
 
         if (pcHorizontalInput != 0 || pcVerticalInput != 0)
         {
-            Debug.Log(pcHorizontalInput);
-            Debug.Log(pcVerticalInput);
+            //Debug.Log(pcHorizontalInput);
+            //Debug.Log(pcVerticalInput);
             hasInput = true;
         }
         else if (rightVerticalInput != 0 || rightHorizontalInput != 0)
         {
-            Debug.Log(rightVerticalInput);
-            Debug.Log(rightHorizontalInput);
+            //Debug.Log(rightVerticalInput);
+            //Debug.Log(rightHorizontalInput);
             hasInput = true;
         }
         else
