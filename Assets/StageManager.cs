@@ -1,20 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using Liminal.SDK.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
-    public enum Stages { TUTORIAL1, TUTORIAL2, TUTORIAL3, NEEDINPUT,STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 }
+    public enum Stages { STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 }
     public Stages currentStage;
 
     public float slerpSpeed;
     public float rotationAngle;
     public GameObject hitChecker;
     public HitDetection hitDetection;
-    public PlayerControlled playerControl;
 
     [Header("Star Setting")]
     [SerializeField]
@@ -24,45 +22,47 @@ public class StageManager : MonoBehaviour
     float intensityValue = -1;
     Color starColour;
     float t;
-    public bool hasInput;
 
 
     [SerializeField]
     GameObject outerRing;
-
 
     [SerializeField]
     bool stagePass;
 
     [Header("UI")]
     [SerializeField]
-    Text UIText;
-    [SerializeField]
-    CanvasGroup canvasGroup;
-
-
+    Text intensityValueUI;
 
     void Awake()
     {
         hitDetection = hitChecker.GetComponent<HitDetection>();
+        //starRend = level1.GetComponent<Renderer>();
+        /*
+        star1 = level1.GetComponent<Renderer>().material;
+        star2 = level2.GetComponent<Renderer>().material;
+        star3 = level3.GetComponent<Renderer>().material;
+        star4 = level4.GetComponent<Renderer>().material;
+        star5 = level5.GetComponent<Renderer>().material;
+        star6 = level6.GetComponent<Renderer>().material;
+        */
 
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        currentStage = Stages.TUTORIAL1;
+        currentStage = Stages.STAGE1;
         StartCoroutine(StagingMachine());
         starRendMat = level1.GetComponent<Renderer>().material;
         intensityValue = starRendMat.GetFloat("_intensityAdjust");
-        canvasGroup.alpha = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         //intensityValueUI.text = currentStage.ToString();
-
+        
         if(hitDetection.isPassed == true)
         {
             if (currentStage == Stages.STAGE1)
@@ -122,15 +122,7 @@ public class StageManager : MonoBehaviour
                 Debug.Log("Experience Over");
                 ExperienceApp.End();
             }
-			else if (currentStage == Stages.TUTORIAL2)
-			{
-				currentStage = Stages.TUTORIAL3;
-			}
-            else if (currentStage == Stages.TUTORIAL3)
-            {
-                currentStage = Stages.STAGE1;
-            }
-		}
+        }
         
     }
     IEnumerator lightUpStar()
@@ -148,29 +140,8 @@ public class StageManager : MonoBehaviour
 
         yield break;
     }
-    IEnumerator canvasAlphaIn()
-    {
-        float c = 0;
-        while (c <2)
-        {
-			canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 1, 0.1f);
-            c += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-		}
-      yield break;
-    }
-    IEnumerator canvasAlphaOut()
-    {
-        float c = 0;
-        while (c <2)
-        {
-            canvasGroup.alpha = Mathf.Lerp(canvasGroup.alpha, 0, 0.1f);
-            c += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-        yield break;
-    }
-	IEnumerator StagingMachine()
+
+    IEnumerator StagingMachine()
     {
         while (true)
         {
@@ -179,89 +150,8 @@ public class StageManager : MonoBehaviour
         }
     }
 
-
-	#region Tutorials
-	IEnumerator TUTORIAL1()
-    {
-		//Start of the Experience
-		//Wait for a few seconds before starting.
-		outerRing.transform.Rotate(0, 180,0);
-		yield return new WaitForSeconds(1f);
-        Debug.Log("Start of Experience - Tutorial 1");
-
-        //Tutorial Settings
-
-        //slerpSpeed = 3f;
-        //rotationAngle = 10;
-
-        //Looping/ Stageing
-        while (currentStage == Stages.TUTORIAL1)
-        {
-            Debug.Log("Tutorial 1 - LOOPING");
-
-
-            UIText.text = "Welcome to Orbit";
-            StartCoroutine(canvasAlphaIn());
-            yield return new WaitForSeconds(2f);
-            StartCoroutine(canvasAlphaOut());
-            yield return new WaitForSeconds(2f);
-            UIText.text = "Use your controller <b>Rightstick</b> to Rotate the inner ring.";
-            StartCoroutine(canvasAlphaIn());
-            yield return new WaitForSeconds(2f);
-            StartCoroutine(canvasAlphaOut());
-            yield return new WaitForSeconds(2f);
-            UIText.text = "Rotate the inner ring to the bottom and hold the position";
-			StartCoroutine(canvasAlphaIn());
-			yield return new WaitForSeconds(5f);
-			StartCoroutine(canvasAlphaOut());
-			yield return new WaitForSeconds(2f);
-			StartCoroutine(canvasAlphaOut());
-            currentStage = Stages.TUTORIAL2;
-			//outerRing.transform.Rotate(new Vector3(0,rotationAngle, 0)* Time.deltaTime);
-			yield return new WaitForEndOfFrame();
-        }    
-
-
-        yield return null;
-    }
-    IEnumerator TUTORIAL2()
-    {
-        hitDetection.requiredTime = 5f;
-        while(currentStage == Stages.TUTORIAL2)
-        {
-			UIText.text = "Hold the position for a period of timer to complete the task";
-			StartCoroutine(canvasAlphaIn());
-			yield return new WaitForSeconds(2f);
-			StartCoroutine(canvasAlphaOut());
-			yield return new WaitForSeconds(2f);
-
-		}
-
-    }
-    IEnumerator TUTORIAL3()
-    {
-        hitDetection.requiredTime = 20f;
-        slerpSpeed = 10f;
-        rotationAngle = 6;
-        yield return new WaitForSeconds(0.5f);
-		UIText.text = "Now keep match the inner ring and outer ring rotation";
-		StartCoroutine(canvasAlphaIn());
-		yield return new WaitForSeconds(2f);
-		StartCoroutine(canvasAlphaOut());
-
-		//Looping Tutorial 3
-		while (currentStage == Stages.TUTORIAL3)
-        {
-            Debug.Log("Tutorial 3");
-			outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0)* Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
-    }
-
-	#endregion
-
-	#region Staging
-	IEnumerator STAGE1()
+    #region Staging
+    IEnumerator STAGE1()
     {
         //Entering Stage 1
         Debug.Log("Start Stage 1");

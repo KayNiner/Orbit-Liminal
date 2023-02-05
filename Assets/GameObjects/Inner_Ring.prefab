@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4024337810706831941}
   - component: {fileID: 5368949731208044659}
   - component: {fileID: 1855164458240728202}
+  - component: {fileID: 8260698085362184539}
+  - component: {fileID: 8260698085362184538}
   m_Layer: 0
   m_Name: Inner_Ring
   m_TagString: Untagged
@@ -82,6 +84,40 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8260698085362184539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108658353207273558}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e2899a7fa434ea458bf6b09eec7c30e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rHoriSpeed: 0
+  rVertSpeed: 0
+  lHoriSpeed: 0
+  lVertSpeed: 0
+--- !u!114 &8260698085362184538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108658353207273558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46dfa71c10ea9f549b0ec12c9dd7e550, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rHoriSpeed: 0
+  rVertSpeed: 0
+  lHoriSpeed: 0
+  lVertSpeed: 0
+  slerpSpeed: 0
+  fixedRotation: 60
 --- !u!1 &179956365221443425
 GameObject:
   m_ObjectHideFlags: 0

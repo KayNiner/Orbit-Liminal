@@ -15,8 +15,9 @@ public class PlayerControlled : MonoBehaviour
     Rigidbody rb;
     [SerializeField]
     float slerpSpeed;
-	
-	public bool hasXInput, hasYInput;
+    [SerializeField]
+    float fixedRotation = 60f;
+    bool hasXInput, hasYInput;
 
     /*[Header("UI")]
     [SerializeField]
@@ -59,12 +60,11 @@ public class PlayerControlled : MonoBehaviour
         }
         if (rVertSpeed !=0)
         {
-            Debug.Log(rVertSpeed);
             hasYInput=true;
         }    
         else
         {
-            hasYInput = false;
+            hasYInput = true;
         }
         Quaternion target = Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed, rVertSpeed, 0));
         Quaternion target2 = Quaternion.Euler(0, 0, 180);

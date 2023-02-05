@@ -9,7 +9,6 @@ public class HitDetection : MonoBehaviour
     [SerializeField]
     Collider coneCollider;
     public float timer;
-    public float requiredTime;
     [SerializeField] AudioSource correctSound;
     public bool isPassed;
 
@@ -25,7 +24,6 @@ public class HitDetection : MonoBehaviour
     {
         coneCollider = GetComponent<Collider>();
         timer = 0;
-        requiredTime = 15f;
         isPassed = false;
         
     }
@@ -36,7 +34,7 @@ public class HitDetection : MonoBehaviour
        //Debug.Log("Collided Timer: " + timer);
         
 
-        if (timer > requiredTime)
+        if (timer > 15)
         {
            if(isPassed == false)
            {
