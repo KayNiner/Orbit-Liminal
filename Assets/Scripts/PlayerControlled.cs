@@ -15,13 +15,12 @@ public class PlayerControlled : MonoBehaviour
     Rigidbody rb;
     [SerializeField]
     float slerpSpeed;
-    [SerializeField]
-    float fixedRotation = 60f;
-    bool hasXInput, hasYInput;
+	
+	public bool hasXInput, hasYInput;
 
-    [Header("UI")]
+    /*[Header("UI")]
     [SerializeField]
-    Text uiOutPut;
+    Text uiOutPut;*/
 
     // Start is called before the first frame update
     void Start()
@@ -47,8 +46,8 @@ public class PlayerControlled : MonoBehaviour
         float rVertSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical");
         //Debug.Log("Y input: "+ rVertSpeed);
         //Debug.Log("X input: "+ rHoriSpeed);
-        Debug.Log(hasXInput.ToString());
-        uiOutPut.text = rVertSpeed.ToString();
+        //Debug.Log(hasXInput.ToString());
+        //uiOutPut.text = rVertSpeed.ToString();
 
         if (rHoriSpeed !=0  )
         {
@@ -60,11 +59,12 @@ public class PlayerControlled : MonoBehaviour
         }
         if (rVertSpeed !=0)
         {
+            Debug.Log(rVertSpeed);
             hasYInput=true;
         }    
         else
         {
-            hasYInput = true;
+            hasYInput = false;
         }
         Quaternion target = Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed, rVertSpeed, 0));
         Quaternion target2 = Quaternion.Euler(0, 0, 180);

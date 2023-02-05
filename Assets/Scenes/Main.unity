@@ -50,7 +50,7 @@ LightmapSettings:
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
@@ -71,7 +71,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 2
+    m_MixedBakeMode: 1
     m_BakeBackend: 1
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
@@ -162,7 +162,7 @@ SphereCollider:
   m_GameObject: {fileID: 8709396}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -326,16 +326,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.025123306
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.013360609
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
-        type: 3}
       propertyPath: m_LocalPosition.z
       value: -3.841
       objectReference: {fileID: 0}
@@ -343,6 +333,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.018766703
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.010740505
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0075300285
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8260698085362184538, guid: 56a40a9134acba74cb8c7dcf553a0932, type: 3}
@@ -440,6 +445,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1676988090}
     m_Modifications:
+    - target: {fileID: 1260162970045296579, guid: 22276a8657744e04cba8ad0a2caf4195,
+        type: 3}
+      propertyPath: m_Name
+      value: VRAvatar
+      objectReference: {fileID: 0}
     - target: {fileID: 1260162969423114810, guid: 22276a8657744e04cba8ad0a2caf4195,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -494,11 +504,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1260162970045296579, guid: 22276a8657744e04cba8ad0a2caf4195,
-        type: 3}
-      propertyPath: m_Name
-      value: VRAvatar
       objectReference: {fileID: 0}
     - target: {fileID: 1260162969793040547, guid: 22276a8657744e04cba8ad0a2caf4195,
         type: 3}
@@ -768,7 +773,7 @@ SphereCollider:
   m_GameObject: {fileID: 535309371}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -1471,7 +1476,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 75
+    maxNumParticles: 10
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -5750,7 +5755,7 @@ SphereCollider:
   m_GameObject: {fileID: 892343727}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -5844,6 +5849,7 @@ GameObject:
   - component: {fileID: 1055610007}
   - component: {fileID: 1055610006}
   - component: {fileID: 1055610005}
+  - component: {fileID: 1055610009}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -5928,9 +5934,21 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 47, y: 314}
+  m_AnchoredPosition: {x: 47, y: -79}
   m_SizeDelta: {x: 700, y: 648}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1055610009
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055610004}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1056829031
 GameObject:
   m_ObjectHideFlags: 0
@@ -6211,7 +6229,7 @@ SphereCollider:
   m_GameObject: {fileID: 1207336662}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -6382,8 +6400,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21, y: -292}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -45, y: -292}
+  m_SizeDelta: {x: 1000, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294963506
 MonoBehaviour:
@@ -6412,13 +6430,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: 
 --- !u!222 &1294963507
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6469,7 +6487,7 @@ SphereCollider:
   m_GameObject: {fileID: 1374925535}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -6657,8 +6675,8 @@ MonoBehaviour:
   lHoriSpeed: 0
   lVertSpeed: 0
   slerpSpeed: 0.015
-  fixedRotation: 1
-  uiOutPut: {fileID: 1294963506}
+  hasXInput: 0
+  hasYInput: 0
 --- !u!1 &1732459990
 GameObject:
   m_ObjectHideFlags: 0
@@ -6701,7 +6719,7 @@ SphereCollider:
   m_GameObject: {fileID: 1732459990}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
@@ -7070,20 +7088,19 @@ MonoBehaviour:
   rotationAngle: 0
   hitChecker: {fileID: 1244597313}
   hitDetection: {fileID: 0}
+  playerControl: {fileID: 1680835685}
   level1: {fileID: 535309371}
   level2: {fileID: 1732459990}
   level3: {fileID: 892343727}
   level4: {fileID: 1374925535}
   level5: {fileID: 8709396}
   level6: {fileID: 1207336662}
-  star1: {fileID: -6465566751694194690, guid: 0652a6133feb0d54c953bd09f8359746, type: 3}
-  star2: {fileID: -6465566751694194690, guid: 0652a6133feb0d54c953bd09f8359746, type: 3}
-  star3: {fileID: -6465566751694194690, guid: 0652a6133feb0d54c953bd09f8359746, type: 3}
-  star4: {fileID: -6465566751694194690, guid: 0652a6133feb0d54c953bd09f8359746, type: 3}
-  star5: {fileID: -6465566751694194690, guid: 0652a6133feb0d54c953bd09f8359746, type: 3}
-  star6: {fileID: -6465566751694194690, guid: 0652a6133feb0d54c953bd09f8359746, type: 3}
+  starRendMat: {fileID: 0}
+  hasInput: 0
   outerRing: {fileID: 1656540229}
   stagePass: 0
+  UIText: {fileID: 1294963506}
+  canvasGroup: {fileID: 1055610009}
 --- !u!1 &2112550167
 GameObject:
   m_ObjectHideFlags: 0
@@ -7829,7 +7846,7 @@ PrefabInstance:
     - target: {fileID: 1523832866873457896, guid: b8c96c3541420f342a2db17feff7c0a7,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1523832866873457896, guid: b8c96c3541420f342a2db17feff7c0a7,
         type: 3}
@@ -7849,7 +7866,7 @@ PrefabInstance:
     - target: {fileID: 1523832866873457896, guid: b8c96c3541420f342a2db17feff7c0a7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1523832866873457896, guid: b8c96c3541420f342a2db17feff7c0a7,
         type: 3}

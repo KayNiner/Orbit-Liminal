@@ -9,6 +9,7 @@ public class HitDetection : MonoBehaviour
     [SerializeField]
     Collider coneCollider;
     public float timer;
+    public float requiredTime;
     [SerializeField] AudioSource correctSound;
     public bool isPassed;
 
@@ -24,6 +25,7 @@ public class HitDetection : MonoBehaviour
     {
         coneCollider = GetComponent<Collider>();
         timer = 0;
+        requiredTime = 15f;
         isPassed = false;
         
     }
@@ -34,11 +36,19 @@ public class HitDetection : MonoBehaviour
        //Debug.Log("Collided Timer: " + timer);
         
 
-        if (timer > 15 && isPassed == false)
+        if (timer > requiredTime)
         {
-            correctSound.Play();
-            Debug.Log("Next Level");
-            isPassed = true;
+           if(isPassed == false)
+           {
+                correctSound.Play();
+                Debug.Log("Next Level");
+                isPassed = true;
+           }
+           else
+           {
+                timer = 0;
+                isPassed = false;
+           }
         }
     }
 
@@ -48,6 +58,7 @@ public class HitDetection : MonoBehaviour
         timer =+ 1 * Time.deltaTime;
         lineDrawer.drawLine();
         laserStart.Play();
+        lineDrawer.particleTrail.GetComponent<ParticleSystem>().Play();
     }
 
     void OnTriggerStay(Collider other)
@@ -55,7 +66,8 @@ public class HitDetection : MonoBehaviour
         //Debug.Log (other.name);
         timer += 1 * Time.deltaTime;
         lineDrawer.drawLine();
-        laserStay.Play();
+        //laserStay.Play();
+        
     }
 
     void OnTriggerExit(Collider other)
@@ -64,5 +76,6 @@ public class HitDetection : MonoBehaviour
         isPassed=false;
         lineDrawer.endLine();
         laserStay.Stop();
+        lineDrawer.particleTrail.GetComponent<ParticleSystem>().Stop() ;
     }
 }

@@ -16,7 +16,7 @@ public class Draw_Beam : MonoBehaviour
 
     [Header("Particle Trails")]
     [SerializeField]
-    ParticleSystem particleTrail;
+    public ParticleSystem particleTrail;
     [SerializeField]
     float distParticleToOrigin, distParticleToDestination;
     
@@ -29,7 +29,8 @@ public class Draw_Beam : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         //lineRenderer.SetPosition(0, origin.position);
-        lineRenderer.SetWidth(0f, 0f);
+        lineRenderer.startWidth = 0f;
+        lineRenderer.endWidth= 0f;
         particleTrail.transform.position = origin.position;
         dist = Vector3.Distance(origin.position, Destination.position);
         
@@ -108,19 +109,22 @@ public class Draw_Beam : MonoBehaviour
 
     private void particleOnMove()
     {
-       Debug.Log("Coroutine Start");
-       particleTrail.transform.position = origin.position;
-       lineRenderer.SetPosition(0, origin.position);
-       if (distParticleToOrigin < 0.2f)
-       {
+        //Debug.Log("Coroutine Start");
+        particleTrail.transform.position = origin.position;
+        lineRenderer.SetPosition(0, origin.position);
+        
+
+        if (distParticleToOrigin < 0.1f)
+        {
+            
             particleTrail.transform.position = Destination.position;
             
-       }
-       else if (distParticleToDestination<0.1f)
-       {
+        }
+        else if (distParticleToDestination<0.1f)
+        {
             particleTrail.transform.position = origin.position;
             
-       }
+        }
        
     }
 
