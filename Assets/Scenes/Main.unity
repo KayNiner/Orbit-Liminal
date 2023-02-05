@@ -231,7 +231,11 @@ PrefabInstance:
     - target: {fileID: 4024337810706831941, guid: 56a40a9134acba74cb8c7dcf553a0932,
         type: 3}
       propertyPath: m_LocalPosition.y
+<<<<<<< HEAD
       value: 0
+=======
+      value: 0.27000022
+>>>>>>> parent of 5432a69 (Ring Fixing)
       objectReference: {fileID: 0}
     - target: {fileID: 4024337810706831941, guid: 56a40a9134acba74cb8c7dcf553a0932,
         type: 3}
@@ -326,8 +330,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
         type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.841
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
+        type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.018766703
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.010740505
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0075300285
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8260698085362184538, guid: 56a40a9134acba74cb8c7dcf553a0932, type: 3}
@@ -6266,7 +6290,6 @@ MonoBehaviour:
   coneDetection: {fileID: 0}
   coneCollider: {fileID: 0}
   timer: 0
-  requiredTime: 0
   correctSound: {fileID: 1919670976}
   isPassed: 0
   lineDrawer: {fileID: 1056829032}
@@ -6285,7 +6308,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: -7371114799947081298, guid: d5d6f17737d8c564f9ab2b92dfeeb163, type: 3}
+  m_Mesh: {fileID: -7371114799947081298, guid: f463781a62137be48910b6065fc89d4e, type: 3}
 --- !u!54 &1244597319
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6619,7 +6642,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1680835683}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
   m_LocalPosition: {x: -2.321839, y: -3.76, z: 11.92223}
+=======
+  m_LocalPosition: {x: -2.321839, y: -4.07, z: 11.92223}
+>>>>>>> parent of 5432a69 (Ring Fixing)
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 46778661}
@@ -7578,7 +7605,7 @@ Transform:
   - {fileID: 5558098256209763084}
   - {fileID: 5558098256191861746}
   m_Father: {fileID: 46778661}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5558098254825667381
 GameObject:
