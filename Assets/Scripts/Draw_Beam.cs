@@ -29,7 +29,8 @@ public class Draw_Beam : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         //lineRenderer.SetPosition(0, origin.position);
-        lineRenderer.SetWidth(0f, 0f);
+        lineRenderer.startWidth = 0f;
+        lineRenderer.endWidth= 0f;
         particleTrail.transform.position = origin.position;
         dist = Vector3.Distance(origin.position, Destination.position);
         
