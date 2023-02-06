@@ -202,12 +202,12 @@ public class StageManager : MonoBehaviour
 
             UIText.text = "Welcome to Orbit";
             StartCoroutine(canvasAlphaIn());
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(5f);
             StartCoroutine(canvasAlphaOut());
             yield return new WaitForSeconds(2f);
-            UIText.text = "Use your controller <b>Rightstick</b> to Rotate the inner ring.";
+            UIText.text = "Use your controller <b>Rightstick</b> to rotate the inner ring.";
             StartCoroutine(canvasAlphaIn());
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(5f);
             StartCoroutine(canvasAlphaOut());
             yield return new WaitForSeconds(2f);
             UIText.text = "Rotate the inner ring to the bottom and hold the position";
@@ -229,7 +229,7 @@ public class StageManager : MonoBehaviour
         hitDetection.requiredTime = 5f;
         while(currentStage == Stages.TUTORIAL2)
         {
-			UIText.text = "Hold the position for a period of timer to complete the task";
+			UIText.text = "Hold the position for a period of time to complete the connection";
 			StartCoroutine(canvasAlphaIn());
 			yield return new WaitForSeconds(2f);
 			StartCoroutine(canvasAlphaOut());
@@ -244,7 +244,7 @@ public class StageManager : MonoBehaviour
         slerpSpeed = 10f;
         rotationAngle = 6;
         yield return new WaitForSeconds(0.5f);
-		UIText.text = "Now keep match the inner ring and outer ring rotation";
+		UIText.text = "Now match the inner ring and outer ring rotation";
 		StartCoroutine(canvasAlphaIn());
 		yield return new WaitForSeconds(2f);
 		StartCoroutine(canvasAlphaOut());
