@@ -6401,8 +6401,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -45, y: -292}
-  m_SizeDelta: {x: 1000, y: 30}
+  m_AnchoredPosition: {x: -44, y: 82}
+  m_SizeDelta: {x: 124.7, y: 150.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1294963506
 MonoBehaviour:
@@ -6426,10 +6426,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -7613,6 +7613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714600490400468360, guid: 77c4d3c4d0030c64891927592a6f11c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4714600490400468361, guid: 77c4d3c4d0030c64891927592a6f11c6,
         type: 3}
