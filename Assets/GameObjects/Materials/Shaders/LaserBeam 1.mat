@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7038629712252437598
+--- !u!114 &-8506192804023392017
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Star 2
-  m_Shader: {fileID: -6465566751694194690, guid: 0652a6133feb0d54c953bd09f8359746,
+  m_Name: LaserBeam 1
+  m_Shader: {fileID: -6465566751694194690, guid: fb9e006bc082c6447aa66384cb8c41d4,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -33,8 +33,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_FFE65A04:
-        m_Texture: {fileID: 2800000, guid: 45b6f67ee0ef37a46bee9b0abf0ab4fd, type: 3}
+    - Texture2D_861576C5:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D760A8D:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -61,21 +65,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_287F250B_Texture:
-        m_Texture: {fileID: 2800000, guid: 45b6f67ee0ef37a46bee9b0abf0ab4fd, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_223CEF10: 0.01
-    - Vector1_6C388CF: 0.1
-    - Vector1_6EBBDABA: -1
-    - Vector1_7F2FB7BE: 1
-    - Vector1_F06DE72D: 0.5
-    - Vector1_F5288487: 0.01
+    - Vector1_144910C: 25.3
+    - Vector1_1DC4918: 0.193
+    - Vector1_7E55D6B4: 2
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -97,12 +94,11 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _intensityAdjust: -1
     m_Colors:
-    - Color_7929EE86: {r: 0, g: 1.0039216, b: 0.14117648, a: 0}
-    - Vector2_628DF4D7: {r: 1, g: 1, b: 0, a: 0}
+    - Color_417387DB: {r: 5.8441167, g: 21.361254, b: 20.54884, a: 1}
+    - Vector2_8F96E805: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_A97D111A: {r: -0.7, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
-    - _starColorAdjust: {r: 0.5137255, g: 0.9686275, b: 0.9921569, a: 1}
