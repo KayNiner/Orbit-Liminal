@@ -20,7 +20,7 @@ public class StageManager : MonoBehaviour
     [SerializeField]
     GameObject level1, level2, level3, level4, level5, level6;
     [SerializeField]
-    Material starRendMat;
+    Material starRendMat, laserBeamMat;
     float intensityValue = -1;
     Color starColour;
     float t;
@@ -53,8 +53,10 @@ public class StageManager : MonoBehaviour
     {
         currentStage = Stages.TUTORIAL1;
         StartCoroutine(StagingMachine());
-        starRendMat = level1.GetComponent<Renderer>().material;
+        starRendMat = GetComponent<Renderer>().material;
+        laserBeamMat = GetComponent<Renderer>().material;
         intensityValue = starRendMat.GetFloat("_intensityAdjust");
+        //noiseAdjust = laserBeamMat.GetFloat("noiseAmount");
         canvasGroup.alpha = 0;
     }
 
@@ -70,7 +72,7 @@ public class StageManager : MonoBehaviour
                 StartCoroutine("lightUpStar");
                 //hitDetection.isPassed = false;
                 //hitDetection.timer = 0;
-                starRendMat = level2.GetComponent<Renderer>().material;
+                starRendMat = level1.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE2;
                 starColour = Color.red;
 
@@ -80,7 +82,7 @@ public class StageManager : MonoBehaviour
                 StartCoroutine("lightUpStar");
                 //hitDetection.isPassed = false;
                 //hitDetection.timer = 1;
-                starRendMat = level3.GetComponent<Renderer>().material;
+                starRendMat = level2.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE3;
                 starColour = Color.yellow;
 
@@ -90,7 +92,7 @@ public class StageManager : MonoBehaviour
                 StartCoroutine("lightUpStar");
                // hitDetection.isPassed = false;
                 //hitDetection.timer = 2;
-                starRendMat = level4.GetComponent<Renderer>().material;
+                starRendMat = level3.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE4;
                 starColour = Color.blue;
 
@@ -101,7 +103,7 @@ public class StageManager : MonoBehaviour
                 StartCoroutine("lightUpStar");
                 //hitDetection.isPassed = false;
                 //hitDetection.timer = 3;
-                starRendMat = level5.GetComponent<Renderer>().material;
+                starRendMat = level4.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE5;
                 starColour = Color.green;
             }
@@ -110,14 +112,14 @@ public class StageManager : MonoBehaviour
                 StartCoroutine("lightUpStar");
                 //hitDetection.isPassed = false;
                // hitDetection.timer = 4;
-                starRendMat = level6.GetComponent<Renderer>().material;
+                starRendMat = level5.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE6;
                 starColour = Color.cyan;
             }
             else if (currentStage == Stages.STAGE6)
             {
                 StartCoroutine("lightUpStar");
-                starRendMat = level1.GetComponent<Renderer>().material;
+                starRendMat = level6.GetComponent<Renderer>().material;
                 starColour = Color.white;
                 Debug.Log("Experience Over");
                 ExperienceApp.End();
@@ -148,6 +150,11 @@ public class StageManager : MonoBehaviour
 
         yield break;
     }
+
+    //IEnumerator laserBeamAdjust()
+    //{
+        //need something here to adjust noice level in the laser beam material to focus the laser
+    //}
     IEnumerator canvasAlphaIn()
     {
         float c = 0;
@@ -231,8 +238,8 @@ public class StageManager : MonoBehaviour
         hitDetection.requiredTime = 5f;
         while(currentStage == Stages.TUTORIAL2)
         {
-			//UIText.text = "Hold the position for a period of time to complete the connection";
-			StartCoroutine(canvasAlphaIn());
+            //UIText.text = "Hold the position for a period of time to complete the connection";
+            StartCoroutine(canvasAlphaIn());
 			yield return new WaitForSeconds(2f);
 			StartCoroutine(canvasAlphaOut());
 			yield return new WaitForSeconds(2f);
