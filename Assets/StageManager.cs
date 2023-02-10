@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
-    public enum Stages { TUTORIAL1, TUTORIAL2, TUTORIAL3, NEEDINPUT,STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 }
+    public enum Stages { TUTORIAL1, TUTORIAL2, TUTORIAL3, NEEDINPUT, STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 } 
     public Stages currentStage;
 
     public float slerpSpeed;
@@ -181,6 +181,7 @@ public class StageManager : MonoBehaviour
 
 
 	#region Tutorials
+    
 	IEnumerator TUTORIAL1()
     {
 		//Start of the Experience
@@ -199,26 +200,27 @@ public class StageManager : MonoBehaviour
         {
             Debug.Log("Tutorial 1 - LOOPING");
 
-
-            UIText.text = "Welcome to Orbit";
-            StartCoroutine(canvasAlphaIn());
-            yield return new WaitForSeconds(5f);
-            StartCoroutine(canvasAlphaOut());
-            yield return new WaitForSeconds(2f);
-            UIText.text = "Use your controller <b>Rightstick</b> to rotate the inner ring.";
-            StartCoroutine(canvasAlphaIn());
-            yield return new WaitForSeconds(5f);
-            StartCoroutine(canvasAlphaOut());
-            yield return new WaitForSeconds(2f);
-            UIText.text = "Rotate the inner ring to the bottom and hold the position";
-			StartCoroutine(canvasAlphaIn());
-			yield return new WaitForSeconds(5f);
-			StartCoroutine(canvasAlphaOut());
-			yield return new WaitForSeconds(2f);
-			StartCoroutine(canvasAlphaOut());
+            
+            //UIText.text = "Welcome to Orbit";
+           // StartCoroutine(canvasAlphaIn());
+           // yield return new WaitForSeconds(5f);
+           // StartCoroutine(canvasAlphaOut());
+           // yield return new WaitForSeconds(2f);
+            //UIText.text = "Use your controller <b>Rightstick</b> to rotate the inner ring.";
+           // StartCoroutine(canvasAlphaIn());
+           // yield return new WaitForSeconds(5f);
+           // StartCoroutine(canvasAlphaOut());
+           // yield return new WaitForSeconds(2f);
+            //UIText.text = "Rotate the inner ring to the bottom and hold the position";
+			//StartCoroutine(canvasAlphaIn());
+			//yield return new WaitForSeconds(5f);
+			//StartCoroutine(canvasAlphaOut());
+			//yield return new WaitForSeconds(2f);
+			//StartCoroutine(canvasAlphaOut());
             currentStage = Stages.TUTORIAL2;
-			//outerRing.transform.Rotate(new Vector3(0,rotationAngle, 0)* Time.deltaTime);
+			outerRing.transform.Rotate(new Vector3(0,rotationAngle, 0)* Time.deltaTime);
 			yield return new WaitForEndOfFrame();
+            
         }    
 
 
@@ -229,7 +231,7 @@ public class StageManager : MonoBehaviour
         hitDetection.requiredTime = 5f;
         while(currentStage == Stages.TUTORIAL2)
         {
-			UIText.text = "Hold the position for a period of time to complete the connection";
+			//UIText.text = "Hold the position for a period of time to complete the connection";
 			StartCoroutine(canvasAlphaIn());
 			yield return new WaitForSeconds(2f);
 			StartCoroutine(canvasAlphaOut());
@@ -238,16 +240,17 @@ public class StageManager : MonoBehaviour
 		}
 
     }
+    
     IEnumerator TUTORIAL3()
     {
         hitDetection.requiredTime = 20f;
         slerpSpeed = 10f;
         rotationAngle = 6;
         yield return new WaitForSeconds(0.5f);
-		UIText.text = "Now match the inner ring and outer ring rotation";
-		StartCoroutine(canvasAlphaIn());
-		yield return new WaitForSeconds(2f);
-		StartCoroutine(canvasAlphaOut());
+		//UIText.text = "Now match the inner ring and outer ring rotation";
+		//StartCoroutine(canvasAlphaIn());
+		//yield return new WaitForSeconds(2f);
+		//StartCoroutine(canvasAlphaOut());
 
 		//Looping Tutorial 3
 		while (currentStage == Stages.TUTORIAL3)
@@ -256,8 +259,8 @@ public class StageManager : MonoBehaviour
 			outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0)* Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
-    }
-
+    } 
+    
 	#endregion
 
 	#region Staging
