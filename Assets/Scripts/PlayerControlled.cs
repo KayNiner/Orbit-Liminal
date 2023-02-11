@@ -1,4 +1,4 @@
-using System.Collections;
+    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Liminal.SDK.Input;
@@ -15,8 +15,12 @@ public class PlayerControlled : MonoBehaviour
     Rigidbody rb;
     [SerializeField]
     float slerpSpeed;
-	
+    [SerializeField]
+    Transform tgt;
+    Quaternion rotationGoal;
+    Vector3 direction;
 	public bool hasXInput, hasYInput;
+
 
     /*[Header("UI")]
     [SerializeField]
@@ -31,23 +35,18 @@ public class PlayerControlled : MonoBehaviour
         rightVerticalInput = Input.GetAxis("Oculus_GearVR_RThumbstickY");
         string[] joyName = Input.GetJoystickNames();
         rb = GetComponent<Rigidbody>();
-        transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
         hasXInput = false;
-        hasYInput = false;
+        hasYInput = false; 
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //float lHoriSpeed = Input.GetAxis("Oculus_GearVR_LThumbstick") * Time.deltaTime;
-        //float lVertSpeed = Input.GetAxis("Oculus_GearVR_LThumbstickY") * Time.deltaTime;
+
         float rHoriSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickHorizontal");
         float rVertSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical");
-        //Debug.Log("Y input: "+ rVertSpeed);
-        //Debug.Log("X input: "+ rHoriSpeed);
-        //Debug.Log(hasXInput.ToString());
-        //uiOutPut.text = rVertSpeed.ToString();
+        direction = (tgt.position - transform.position).normalized;
 
         if (rHoriSpeed !=0  )
         {
@@ -77,7 +76,13 @@ public class PlayerControlled : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target2, slerpSpeed);
         }
-        else
+        else if (hasXInput == false && hasYInput == false)
+        {
+            rotationGoal = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotationGoal, 0.1f);
+            
+        }
+        else 
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target, slerpSpeed);
         }

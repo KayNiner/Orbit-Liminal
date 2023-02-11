@@ -20,6 +20,7 @@ public class HitDetection : MonoBehaviour
     [Header("LaserAudio")]
     [SerializeField] AudioSource laserStart, laserStay;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +60,7 @@ public class HitDetection : MonoBehaviour
         lineDrawer.drawLine();
         laserStart.Play();
         lineDrawer.particleTrail.GetComponent<ParticleSystem>().Play();
+
     }
 
     void OnTriggerStay(Collider other)
@@ -67,6 +69,7 @@ public class HitDetection : MonoBehaviour
         timer += 1 * Time.deltaTime;
         lineDrawer.drawLine();
         //laserStay.Play();
+        lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.Lerp(lineDrawer.beamColour, new Color(255,255,0),Time.deltaTime/requiredTime));
         
     }
 
@@ -77,5 +80,6 @@ public class HitDetection : MonoBehaviour
         lineDrawer.endLine();
         laserStay.Stop();
         lineDrawer.particleTrail.GetComponent<ParticleSystem>().Stop() ;
+        lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.white);
     }
 }

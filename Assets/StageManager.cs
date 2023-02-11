@@ -53,8 +53,8 @@ public class StageManager : MonoBehaviour
     {
         currentStage = Stages.TUTORIAL1;
         StartCoroutine(StagingMachine());
-        starRendMat = GetComponent<Renderer>().material;
-        laserBeamMat = GetComponent<Renderer>().material;
+        //starRendMat = GetComponent<Renderer>().material;
+        //laserBeamMat = GetComponent<Renderer>().material;
         intensityValue = starRendMat.GetFloat("_intensityAdjust");
         //noiseAdjust = laserBeamMat.GetFloat("noiseAmount");
         canvasGroup.alpha = 0;
@@ -70,6 +70,7 @@ public class StageManager : MonoBehaviour
             if (currentStage == Stages.STAGE1)
             {
                 StartCoroutine("lightUpStar");
+                StartCoroutine("switchingLevel");
                 //hitDetection.isPassed = false;
                 //hitDetection.timer = 0;
                 starRendMat = level1.GetComponent<Renderer>().material;
@@ -80,6 +81,7 @@ public class StageManager : MonoBehaviour
             else if (currentStage == Stages.STAGE2)
             {
                 StartCoroutine("lightUpStar");
+                StartCoroutine("switchingLevel");
                 //hitDetection.isPassed = false;
                 //hitDetection.timer = 1;
                 starRendMat = level2.GetComponent<Renderer>().material;
@@ -90,7 +92,8 @@ public class StageManager : MonoBehaviour
             else if (currentStage == Stages.STAGE3)
             {
                 StartCoroutine("lightUpStar");
-               // hitDetection.isPassed = false;
+                StartCoroutine("switchingLevel");
+                // hitDetection.isPassed = false;
                 //hitDetection.timer = 2;
                 starRendMat = level3.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE4;
@@ -101,6 +104,7 @@ public class StageManager : MonoBehaviour
             {
 
                 StartCoroutine("lightUpStar");
+                StartCoroutine("switchingLevel");
                 //hitDetection.isPassed = false;
                 //hitDetection.timer = 3;
                 starRendMat = level4.GetComponent<Renderer>().material;
@@ -110,8 +114,9 @@ public class StageManager : MonoBehaviour
             else if (currentStage == Stages.STAGE5)
             {
                 StartCoroutine("lightUpStar");
+                StartCoroutine("switchingLevel");
                 //hitDetection.isPassed = false;
-               // hitDetection.timer = 4;
+                // hitDetection.timer = 4;
                 starRendMat = level5.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE6;
                 starColour = Color.cyan;
@@ -119,6 +124,7 @@ public class StageManager : MonoBehaviour
             else if (currentStage == Stages.STAGE6)
             {
                 StartCoroutine("lightUpStar");
+                StartCoroutine("switchingLevel");
                 starRendMat = level6.GetComponent<Renderer>().material;
                 starColour = Color.white;
                 Debug.Log("Experience Over");
@@ -126,11 +132,14 @@ public class StageManager : MonoBehaviour
             }
 			else if (currentStage == Stages.TUTORIAL2)
 			{
-				currentStage = Stages.TUTORIAL3;
+                currentStage = Stages.TUTORIAL3;
+                
 			}
             else if (currentStage == Stages.TUTORIAL3)
             {
+                StartCoroutine("switchingLevel");
                 currentStage = Stages.STAGE1;
+
             }
 		}
         
@@ -193,7 +202,7 @@ public class StageManager : MonoBehaviour
     {
 		//Start of the Experience
 		//Wait for a few seconds before starting.
-		outerRing.transform.Rotate(0, 180,0);
+		outerRing.transform.Rotate(0, 0,180);
 		yield return new WaitForSeconds(1f);
         Debug.Log("Start of Experience - Tutorial 1");
 
@@ -225,7 +234,7 @@ public class StageManager : MonoBehaviour
 			//yield return new WaitForSeconds(2f);
 			//StartCoroutine(canvasAlphaOut());
             currentStage = Stages.TUTORIAL2;
-			outerRing.transform.Rotate(new Vector3(0,rotationAngle, 0)* Time.deltaTime);
+			outerRing.transform.Rotate(new Vector3(0,0, rotationAngle)* Time.deltaTime);
 			yield return new WaitForEndOfFrame();
             
         }    
@@ -236,6 +245,7 @@ public class StageManager : MonoBehaviour
     IEnumerator TUTORIAL2()
     {
         hitDetection.requiredTime = 5f;
+
         while(currentStage == Stages.TUTORIAL2)
         {
             //UIText.text = "Hold the position for a period of time to complete the connection";
@@ -263,7 +273,7 @@ public class StageManager : MonoBehaviour
 		while (currentStage == Stages.TUTORIAL3)
         {
             Debug.Log("Tutorial 3");
-			outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0)* Time.deltaTime);
+			outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle)* Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
     } 
@@ -283,7 +293,7 @@ public class StageManager : MonoBehaviour
         while(currentStage == Stages.STAGE1)
         {
             Debug.Log("Looping Stage 1");
-            outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
+            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
 
@@ -300,7 +310,7 @@ public class StageManager : MonoBehaviour
         while (currentStage == Stages.STAGE2)
         {
             Debug.Log("Stage2");
-            outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
+            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
         
@@ -316,7 +326,7 @@ public class StageManager : MonoBehaviour
         while (currentStage == Stages.STAGE3)
         {
             Debug.Log("Stage 3");
-            outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
+            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
         
@@ -332,7 +342,7 @@ public class StageManager : MonoBehaviour
         while (currentStage == Stages.STAGE4)
         {
             Debug.Log("Stage 4");
-            outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
+            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
         
@@ -348,7 +358,7 @@ public class StageManager : MonoBehaviour
         while (currentStage == Stages.STAGE5)
         {
             Debug.Log("Stage 5");
-            outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
+            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
 
@@ -364,10 +374,22 @@ public class StageManager : MonoBehaviour
         while (currentStage == Stages.STAGE6)
         {
             Debug.Log("Stage 6");
-            outerRing.transform.Rotate(new Vector3(0, rotationAngle, 0) * Time.deltaTime);
+            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
 
+    }
+
+    IEnumerator switchingLevel()
+    {
+        t = 0;
+        while (t < 1.2)
+        {
+            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * (Mathf.Lerp(0.35f, 0.1f,0.25f* Time.deltaTime)));
+            t += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+        yield break;
     }
 
     #endregion
