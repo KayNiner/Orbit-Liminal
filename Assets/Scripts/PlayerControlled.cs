@@ -20,6 +20,7 @@ public class PlayerControlled : MonoBehaviour
     Quaternion rotationGoal;
     Vector3 direction;
 	public bool hasXInput, hasYInput;
+    public float floatDirection;
 
 
     /*[Header("UI")]
@@ -36,18 +37,14 @@ public class PlayerControlled : MonoBehaviour
         string[] joyName = Input.GetJoystickNames();
         rb = GetComponent<Rigidbody>();
         hasXInput = false;
-        hasYInput = false; 
-
+        hasYInput = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         float rHoriSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickHorizontal");
         float rVertSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical");
-        direction = (tgt.position - transform.position).normalized;
-
         if (rHoriSpeed !=0  )
         {
             hasXInput=true;
@@ -65,6 +62,7 @@ public class PlayerControlled : MonoBehaviour
         {
             hasYInput = false;
         }
+    
         Quaternion target = Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed, rVertSpeed, 0));
         Quaternion target2 = Quaternion.Euler(0, 0, 180);
 
@@ -78,8 +76,7 @@ public class PlayerControlled : MonoBehaviour
         }
         else if (hasXInput == false && hasYInput == false)
         {
-            rotationGoal = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, rotationGoal, 0.1f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.01f*Time.deltaTime);
             
         }
         else 

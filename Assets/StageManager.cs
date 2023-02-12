@@ -383,7 +383,7 @@ public class StageManager : MonoBehaviour
     IEnumerator switchingLevel()
     {
         t = 0;
-        while (t < 1.2)
+        while (t < 1)
         {
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * (Mathf.Lerp(0.35f, 0.1f,0.25f* Time.deltaTime)));
             t += Time.deltaTime;
