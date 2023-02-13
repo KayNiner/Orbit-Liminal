@@ -76,7 +76,7 @@ public class PlayerControlled : MonoBehaviour
         }
         else if (hasXInput == false && hasYInput == false)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.01f*Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.3f*Time.deltaTime);
             
         }
         else 
