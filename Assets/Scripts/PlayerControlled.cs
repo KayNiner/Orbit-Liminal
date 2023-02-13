@@ -16,11 +16,11 @@ public class PlayerControlled : MonoBehaviour
     [SerializeField]
     float slerpSpeed;
     [SerializeField]
-    Transform tgt;
+    Transform tgt, starter, destination;
     Quaternion rotationGoal;
     Vector3 direction;
 	public bool hasXInput, hasYInput;
-    public float floatDirection;
+    public float distanceBetweenConnector;
 
 
     /*[Header("UI")]
@@ -43,6 +43,7 @@ public class PlayerControlled : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        distanceBetweenConnector = Vector3.Distance(starter.position, destination.position);
         float rHoriSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickHorizontal");
         float rVertSpeed = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical");
         if (rHoriSpeed !=0  )
@@ -74,10 +75,20 @@ public class PlayerControlled : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target2, slerpSpeed);
         }
-        else if (hasXInput == false && hasYInput == false)
+        else if (hasXInput == false && hasYInput == false &&distanceBetweenConnector >=4.5f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.3f*Time.deltaTime);
+
+            //transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.3f*Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.008f);
             
+        }
+        else if (hasXInput ==false && hasYInput == false && distanceBetweenConnector >2.5f && distanceBetweenConnector <4.5f )
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.01f);
+        }
+        else if (hasXInput == false && hasYInput == false && distanceBetweenConnector < 2.5f)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.02f);
         }
         else 
         {
