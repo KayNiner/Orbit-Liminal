@@ -4,7 +4,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Vector1ShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Name\": \"intensityAdjust\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"2010630d-bf1e-4f6b-8a93-a61b707ea61a\"\n    },\n    \"m_DefaultReferenceName\": \"Vector1_6EBBDABA\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_Value\": -1.0,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": -1.0,\n        \"y\": 0.0\n    },\n    \"m_Hidden\": false\n}"
+            "JSONnodeData": "{\n    \"m_Name\": \"intensityAdjust\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"2010630d-bf1e-4f6b-8a93-a61b707ea61a\"\n    },\n    \"m_DefaultReferenceName\": \"Vector1_6EBBDABA\",\n    \"m_OverrideReferenceName\": \"_intensityAdjust\",\n    \"m_Value\": -1.0,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": -1.0,\n        \"y\": 0.0\n    },\n    \"m_Hidden\": false\n}"
         },
         {
             "typeInfo": {
@@ -16,7 +16,7 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.ColorShaderProperty"
             },
-            "JSONnodeData": "{\n    \"m_Name\": \"colourAdjust\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"cedf0e08-fc73-4daf-a82c-611b4878459c\"\n    },\n    \"m_DefaultReferenceName\": \"Color_7929EE86\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_Value\": {\n        \"r\": 0.5137255191802979,\n        \"g\": 0.9686274528503418,\n        \"b\": 0.9921568632125855,\n        \"a\": 1.0\n    },\n    \"m_ColorMode\": 1,\n    \"m_Hidden\": false\n}"
+            "JSONnodeData": "{\n    \"m_Name\": \"colourAdjust\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"cedf0e08-fc73-4daf-a82c-611b4878459c\"\n    },\n    \"m_DefaultReferenceName\": \"Color_7929EE86\",\n    \"m_OverrideReferenceName\": \"_starColorAdjust\",\n    \"m_Value\": {\n        \"r\": 0.5137255191802979,\n        \"g\": 0.9686274528503418,\n        \"b\": 0.9921568632125855,\n        \"a\": 1.0\n    },\n    \"m_ColorMode\": 1,\n    \"m_Hidden\": false\n}"
         },
         {
             "typeInfo": {

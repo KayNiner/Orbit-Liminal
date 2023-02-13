@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Draw_Beam : MonoBehaviour
 {
-    private LineRenderer lineRenderer;
+    public LineRenderer lineRenderer;
     private float counter;
     private float dist;
 
@@ -19,7 +19,8 @@ public class Draw_Beam : MonoBehaviour
     public ParticleSystem particleTrail;
     [SerializeField]
     float distParticleToOrigin, distParticleToDestination;
-    
+
+    public Color beamColour;
     
 
 
@@ -33,7 +34,7 @@ public class Draw_Beam : MonoBehaviour
         lineRenderer.endWidth= 0.3f;
         particleTrail.transform.position = origin.position;
         dist = Vector3.Distance(origin.position, Destination.position);
-        
+        lineRenderer.material.SetColor("_beamColour", beamColour);
     }
 
     // Update is called once per frame
@@ -41,6 +42,7 @@ public class Draw_Beam : MonoBehaviour
     {
         distParticleToOrigin = Vector3.Distance(particleTrail.transform.position, origin.position);
         distParticleToDestination = Vector3.Distance(particleTrail.transform.position, Destination.position);
+        beamColour = lineRenderer.material.GetColor("_beamColour");
         #region previous code
         //lineRenderer.SetPosition(0, origin.position);
         /*if (counter < dist)
