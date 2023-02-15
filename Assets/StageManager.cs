@@ -17,6 +17,7 @@ public class StageManager : MonoBehaviour
     public PlayerControlled playerControl;
 
     public ParticleSystem particle;
+    public ParticleSystem endSceneParticle;
 
     [Header("Star Setting")]
     [SerializeField]
@@ -146,9 +147,10 @@ public class StageManager : MonoBehaviour
                 particle = level6.GetComponent<ParticleSystem>();
                 particle.Play();
                 Debug.Log("Experience Over");
+                endScene();
                 ExperienceApp.End();
             }
-			else if (currentStage == Stages.TUTORIAL2)
+            else if (currentStage == Stages.TUTORIAL2)
 			{
                 currentStage = Stages.TUTORIAL3;
                 
@@ -178,6 +180,11 @@ public class StageManager : MonoBehaviour
         }
 
         yield break;
+    }
+    void endScene()
+    {
+            endSceneParticle = GetComponent<ParticleSystem>();
+            endSceneParticle.Play();
     }
 
     //IEnumerator laserBeamAdjust()
@@ -399,7 +406,7 @@ public class StageManager : MonoBehaviour
         }
 
     }
-
+    
     IEnumerator switchingLevel()
     {
         t = 0;
