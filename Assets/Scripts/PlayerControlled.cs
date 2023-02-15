@@ -1,4 +1,4 @@
-    using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Liminal.SDK.Input;
@@ -7,12 +7,8 @@ using UnityEngine.UI;
 
 public class PlayerControlled : MonoBehaviour
 {
-    Transform cylinder;
     float horizontalInput,verticalInput;
-    float moveSpeed = 2f;
-    float rightHorizontalInput, rightVerticalInput;
     public float rHoriSpeed, rVertSpeed, lHoriSpeed, lVertSpeed;
-    Rigidbody rb;
     [SerializeField]
     float slerpSpeed;
     [SerializeField]
@@ -32,10 +28,6 @@ public class PlayerControlled : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Oculus_GearVR_LThumbstick");
         verticalInput = Input.GetAxis("Oculus_GearVR_LThumbstickY");
-        rightHorizontalInput = Input.GetAxis("Oculus_GearVR_RThumbstickX");
-        rightVerticalInput = Input.GetAxis("Oculus_GearVR_RThumbstickY");
-        string[] joyName = Input.GetJoystickNames();
-        rb = GetComponent<Rigidbody>();
         hasXInput = false;
         hasYInput = false;
     }

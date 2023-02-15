@@ -5235,6 +5235,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1676988090}
     m_Modifications:
+    - target: {fileID: 1260162970045296579, guid: 22276a8657744e04cba8ad0a2caf4195,
+        type: 3}
+      propertyPath: m_Name
+      value: VRAvatar
+      objectReference: {fileID: 0}
     - target: {fileID: 1260162969423114810, guid: 22276a8657744e04cba8ad0a2caf4195,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5289,11 +5294,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1260162970045296579, guid: 22276a8657744e04cba8ad0a2caf4195,
-        type: 3}
-      propertyPath: m_Name
-      value: VRAvatar
       objectReference: {fileID: 0}
     - target: {fileID: 1260162969793040547, guid: 22276a8657744e04cba8ad0a2caf4195,
         type: 3}
@@ -31284,9 +31284,11 @@ MonoBehaviour:
   lVertSpeed: 0
   slerpSpeed: 0.015
   tgt: {fileID: 2141233617}
+  starter: {fileID: 736657596}
+  destination: {fileID: 596655974}
   hasXInput: 0
   hasYInput: 1
-  floatDirection: 0
+  distanceBetweenConnector: 0
 --- !u!1 &1732459990
 GameObject:
   m_ObjectHideFlags: 0
