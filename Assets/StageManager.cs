@@ -16,6 +16,8 @@ public class StageManager : MonoBehaviour
     public HitDetection hitDetection;
     public PlayerControlled playerControl;
 
+    public ParticleSystem particle;
+
     [Header("Star Setting")]
     [SerializeField]
     GameObject level1, level2, level3, level4, level5, level6;
@@ -58,6 +60,9 @@ public class StageManager : MonoBehaviour
         intensityValue = starRendMat.GetFloat("_intensityAdjust");
         //noiseAdjust = laserBeamMat.GetFloat("noiseAmount");
         canvasGroup.alpha = 0;
+
+        particle = gameObject.GetComponent<ParticleSystem>();
+        //particle.Stop();
     }
 
     // Update is called once per frame
@@ -76,6 +81,9 @@ public class StageManager : MonoBehaviour
                 starRendMat = level1.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE2;
                 starColour = Color.red;
+                particle = level1.GetComponent<ParticleSystem>();
+                particle.Play();
+
 
             }
             else if (currentStage == Stages.STAGE2)
@@ -87,6 +95,8 @@ public class StageManager : MonoBehaviour
                 starRendMat = level2.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE3;
                 starColour = Color.yellow;
+                particle = level2.GetComponent<ParticleSystem>();
+                particle.Play();
 
             }
             else if (currentStage == Stages.STAGE3)
@@ -98,6 +108,8 @@ public class StageManager : MonoBehaviour
                 starRendMat = level3.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE4;
                 starColour = Color.blue;
+                particle = level3.GetComponent<ParticleSystem>();
+                particle.Play();
 
             }
             else if (currentStage == Stages.STAGE4)
@@ -110,6 +122,8 @@ public class StageManager : MonoBehaviour
                 starRendMat = level4.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE5;
                 starColour = Color.green;
+                particle = level4.GetComponent<ParticleSystem>();
+                particle.Play();
             }
             else if (currentStage == Stages.STAGE5)
             {
@@ -120,6 +134,8 @@ public class StageManager : MonoBehaviour
                 starRendMat = level5.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE6;
                 starColour = Color.cyan;
+                particle = level5.GetComponent<ParticleSystem>();
+                particle.Play();
             }
             else if (currentStage == Stages.STAGE6)
             {
@@ -127,6 +143,8 @@ public class StageManager : MonoBehaviour
                 StartCoroutine("switchingLevel");
                 starRendMat = level6.GetComponent<Renderer>().material;
                 starColour = Color.white;
+                particle = level6.GetComponent<ParticleSystem>();
+                particle.Play();
                 Debug.Log("Experience Over");
                 ExperienceApp.End();
             }
@@ -153,6 +171,8 @@ public class StageManager : MonoBehaviour
             starRendMat.SetColor("_starColorAdjust", starColour);
             starRendMat.SetFloat("_intensityAdjust", Mathf.Lerp(intensityValue, 0f,0.01f));
             intensityValue = starRendMat.GetFloat("_intensityAdjust");
+
+
 
             yield return null ;
         }
