@@ -147,8 +147,7 @@ public class StageManager : MonoBehaviour
                 particle = level6.GetComponent<ParticleSystem>();
                 particle.Play();
                 Debug.Log("Experience Over");
-                Invoke("endScene", 2.0f);
-                ExperienceApp.End();
+                Invoke("endScene", 5.0f);
             }
             else if (currentStage == Stages.TUTORIAL2)
 			{
@@ -184,7 +183,7 @@ public class StageManager : MonoBehaviour
     void endScene()
     {
         endSceneParticle.Play();
-        //InnerRingHolder.GetComponent<ParticleSystem>().Play();
+        ExperienceApp.End();
     }
 
     //IEnumerator laserBeamAdjust()
