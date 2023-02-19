@@ -30,6 +30,7 @@ public class PlayerControlled : MonoBehaviour
         verticalInput = Input.GetAxis("Oculus_GearVR_LThumbstickY");
         hasXInput = false;
         hasYInput = false;
+        
     }
 
     // Update is called once per frame
@@ -71,16 +72,16 @@ public class PlayerControlled : MonoBehaviour
         {
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.3f*Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.008f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.001f);
             
         }
         else if (hasXInput ==false && hasYInput == false && distanceBetweenConnector >2.5f && distanceBetweenConnector <4.5f )
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.01f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.005f);
         }
         else if (hasXInput == false && hasYInput == false && distanceBetweenConnector < 2.5f)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.02f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.007f);
         }
         else 
         {

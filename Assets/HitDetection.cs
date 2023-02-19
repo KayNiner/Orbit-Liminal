@@ -75,11 +75,23 @@ public class HitDetection : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        timer = 0;
+        timerDecrease();
         isPassed=false;
         lineDrawer.endLine();
         laserStay.Stop();
         lineDrawer.particleTrail.GetComponent<ParticleSystem>().Stop() ;
         lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.white);
+    }
+
+    void timerDecrease()
+    {
+        while (timer >0)
+        {
+            timer -= 1;
+        }
+        if (timer <=0)
+        {
+            timer = 0;
+        }    
     }
 }
