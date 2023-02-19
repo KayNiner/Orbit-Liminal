@@ -5116,28 +5116,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.841
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
-        type: 3}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.018766703
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.010740505
-      objectReference: {fileID: 0}
-    - target: {fileID: 3757141753288639858, guid: 56a40a9134acba74cb8c7dcf553a0932,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.0075300285
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8260698085362184538, guid: 56a40a9134acba74cb8c7dcf553a0932, type: 3}
@@ -20967,7 +20947,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &884968787
 RectTransform:
   m_ObjectHideFlags: 0
@@ -36416,7 +36396,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: -7371114799947081298, guid: f463781a62137be48910b6065fc89d4e, type: 3}
+  m_Mesh: {fileID: -7371114799947081298, guid: d5d6f17737d8c564f9ab2b92dfeeb163, type: 3}
 --- !u!54 &1244597319
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -61196,6 +61176,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1926683216}
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1748524419
@@ -61341,6 +61332,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1301989495}
         m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 2114603184}
+        m_MethodName: Stop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
