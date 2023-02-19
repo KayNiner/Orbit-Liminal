@@ -182,7 +182,7 @@ public class StageManager : MonoBehaviour
             }
             else if (currentStage == Stages.TUTORIAL1)
             {
-                currentStage = Stages.TUTORIAL2;
+                currentStage = Stages.TUTORIAL4;
             }
             else if (currentStage == Stages.TUTORIAL2)
 			{
@@ -254,6 +254,7 @@ public class StageManager : MonoBehaviour
     
 	IEnumerator TUTORIAL1()
     {
+
 		//Start of the Experience
 		//Wait for a few seconds before starting.
 		outerRing.transform.Rotate(0, 0,180);
@@ -329,6 +330,7 @@ public class StageManager : MonoBehaviour
 	#region Staging
 	IEnumerator STAGE1()
     {
+        radialBar.enabled = false;
         //Entering Stage 1
         fadeToBlackInTimer(1f);
         yield return new WaitForSeconds(1.5f);
