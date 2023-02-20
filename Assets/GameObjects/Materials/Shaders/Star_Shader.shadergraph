@@ -4,6 +4,12 @@
             "typeInfo": {
                 "fullName": "UnityEditor.ShaderGraph.Vector1ShaderProperty"
             },
+            "JSONnodeData": "{\n    \"m_Name\": \"intensityAdjust\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"2010630d-bf1e-4f6b-8a93-a61b707ea61a\"\n    },\n    \"m_DefaultReferenceName\": \"Vector1_6EBBDABA\",\n    \"m_OverrideReferenceName\": \"_intensityAdjust\",\n    \"m_Value\": -1.0,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": -1.0,\n        \"y\": 0.0\n    },\n    \"m_Hidden\": false\n}"
+        },
+        {
+            "typeInfo": {
+                "fullName": "UnityEditor.ShaderGraph.Vector1ShaderProperty"
+            },
             "JSONnodeData": "{\n    \"m_Name\": \"Offset\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"6e5731b3-3be8-4c36-b2fb-d7fa9db8ff54\"\n    },\n    \"m_DefaultReferenceName\": \"Vector1_F06DE72D\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_Value\": 0.5,\n    \"m_FloatType\": 0,\n    \"m_RangeValues\": {\n        \"x\": 0.0,\n        \"y\": 1.0\n    },\n    \"m_Hidden\": false\n}"
         },
         {
@@ -47,12 +53,6 @@
                 "fullName": "UnityEditor.ShaderGraph.Vector2ShaderProperty"
             },
             "JSONnodeData": "{\n    \"m_Name\": \"DistortionPower\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"38447530-8324-4fdd-8c11-1bece9b89f76\"\n    },\n    \"m_DefaultReferenceName\": \"Vector2_628DF4D7\",\n    \"m_OverrideReferenceName\": \"\",\n    \"m_Value\": {\n        \"x\": 1.0,\n        \"y\": 1.0,\n        \"z\": 0.0,\n        \"w\": 0.0\n    },\n    \"m_Hidden\": false\n}"
-        },
-        {
-            "typeInfo": {
-                "fullName": "UnityEditor.ShaderGraph.Vector1ShaderProperty"
-            },
-            "JSONnodeData": "{\n    \"m_Name\": \"intensityAdjust\",\n    \"m_GeneratePropertyBlock\": true,\n    \"m_Guid\": {\n        \"m_GuidSerialized\": \"2010630d-bf1e-4f6b-8a93-a61b707ea61a\"\n    },\n    \"m_DefaultReferenceName\": \"Vector1_6EBBDABA\",\n    \"m_OverrideReferenceName\": \"_intensityAdjust\",\n    \"m_Value\": -1.0,\n    \"m_FloatType\": 1,\n    \"m_RangeValues\": {\n        \"x\": -1.0,\n        \"y\": 0.0\n    },\n    \"m_Hidden\": false\n}"
         }
     ],
     "m_GUID": {

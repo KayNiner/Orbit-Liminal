@@ -9,6 +9,7 @@ public class HitDetection : MonoBehaviour
     [SerializeField]
     Collider coneCollider;
     public float timer;
+    public float requiredTime;
     [SerializeField] AudioSource correctSound;
     public bool isPassed;
 
@@ -19,11 +20,13 @@ public class HitDetection : MonoBehaviour
     [Header("LaserAudio")]
     [SerializeField] AudioSource laserStart, laserStay;
 
+
     // Start is called before the first frame update
     void Start()
     {
         coneCollider = GetComponent<Collider>();
         timer = 0;
+        requiredTime = 15f;
         isPassed = false;
         
     }
@@ -34,7 +37,7 @@ public class HitDetection : MonoBehaviour
        //Debug.Log("Collided Timer: " + timer);
         
 
-        if (timer > 15)
+        if (timer > requiredTime)
         {
            if(isPassed == false)
            {
@@ -57,6 +60,7 @@ public class HitDetection : MonoBehaviour
         lineDrawer.drawLine();
         laserStart.Play();
         lineDrawer.particleTrail.GetComponent<ParticleSystem>().Play();
+
     }
 
     void OnTriggerStay(Collider other)
@@ -65,15 +69,29 @@ public class HitDetection : MonoBehaviour
         timer += 1 * Time.deltaTime;
         lineDrawer.drawLine();
         //laserStay.Play();
+        lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.Lerp(lineDrawer.beamColour, new Color(255,255,0),Time.deltaTime/requiredTime));
         
     }
 
     void OnTriggerExit(Collider other)
     {
-        timer = 0;
+        timerDecrease();
         isPassed=false;
         lineDrawer.endLine();
         laserStay.Stop();
         lineDrawer.particleTrail.GetComponent<ParticleSystem>().Stop() ;
+        lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.white);
+    }
+
+    void timerDecrease()
+    {
+        while (timer >0)
+        {
+            timer -= 1;
+        }
+        if (timer <=0)
+        {
+            timer = 0;
+        }    
     }
 }

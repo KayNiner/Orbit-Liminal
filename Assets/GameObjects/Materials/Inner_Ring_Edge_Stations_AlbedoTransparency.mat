@@ -8,18 +8,30 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Inner_Ring_Edge_Stations_AlbedoTransparency
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 0652a6133feb0d54c953bd09f8359746,
+    type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2050
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_861576C5:
+        m_Texture: {fileID: 2800000, guid: 2e33ef8d5ce142b408ec4e4a7642a829, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D760A8D:
+        m_Texture: {fileID: 2800000, guid: 253c3b1f61069064e8712a3e982d9aed, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_FFE65A04:
+        m_Texture: {fileID: 2800000, guid: bc79792810f66c648a22e4c239506417, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -60,11 +72,23 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_287F250B_Texture:
+        m_Texture: {fileID: 2800000, guid: 45b6f67ee0ef37a46bee9b0abf0ab4fd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_144910C: 25
+    - Vector1_1DC4918: 0
+    - Vector1_223CEF10: 0.01
+    - Vector1_6C388CF: 0.1
+    - Vector1_7E55D6B4: 2
+    - Vector1_7F2FB7BE: 1
+    - Vector1_F06DE72D: 0.5
+    - Vector1_F5288487: 0.01
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -90,11 +114,18 @@ Material:
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _intensityAdjust: -1
     m_Colors:
+    - Color_7929EE86: {r: 0.4392157, g: 2.964706, b: 2.996078, a: 0}
+    - Vector2_628DF4D7: {r: 1, g: 1, b: 0, a: 0}
+    - Vector2_8F96E805: {r: -0.5, g: 0, b: 0, a: 0}
+    - Vector2_A97D111A: {r: -0.7, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _beamColour: {r: 1, g: 1, b: 1, a: 1}
+    - _starColorAdjust: {r: 0.5137255, g: 0.9686275, b: 0.9921569, a: 1}
 --- !u!114 &8451978199978254753
 MonoBehaviour:
   m_ObjectHideFlags: 11

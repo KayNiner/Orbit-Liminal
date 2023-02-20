@@ -97,6 +97,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _intensityAdjust: -1
     m_Colors:
     - Color_7929EE86: {r: 0.972549, g: 0.03137255, b: 0.03137255, a: 0}
     - Vector2_628DF4D7: {r: 1, g: 1, b: 0, a: 0}
@@ -104,3 +105,4 @@ Material:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _starColorAdjust: {r: 0.5137255, g: 0.9686275, b: 0.9921569, a: 1}
