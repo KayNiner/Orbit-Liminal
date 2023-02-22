@@ -20,6 +20,7 @@ public class StageManager : MonoBehaviour
 
     public ParticleSystem particle;
     public ParticleSystem endSceneParticle;
+    //public ShaderSystem emission;
 
     [Header("Stage 1")]
     [SerializeField]
@@ -55,7 +56,7 @@ public class StageManager : MonoBehaviour
     [Header("MISC")]
     Material starRendMat, laserBeamMat;
     float intensityValue = -1;
-    Color starColour;
+    Color starColour, ringColour;
     float t;
     public bool hasInput;
 
@@ -117,6 +118,7 @@ public class StageManager : MonoBehaviour
                 //hitDetection.timer = 0;
                 starRendMat = level1.GetComponent<Renderer>().material;
                 starColour = Color.red;
+                //ringColour = Color.red;
                 currentStage = Stages.STAGE2;
                 particle = level1.GetComponent<ParticleSystem>();
                 particle.Play();
@@ -130,6 +132,7 @@ public class StageManager : MonoBehaviour
                 //hitDetection.timer = 1;
                 starRendMat = level2.GetComponent<Renderer>().material;
                 starColour = Color.yellow;
+                //ringColour = Color.yellow;
                 currentStage = Stages.STAGE3;
                 particle = level2.GetComponent<ParticleSystem>();
                 particle.Play();
@@ -142,6 +145,7 @@ public class StageManager : MonoBehaviour
                 //hitDetection.timer = 2;
                 starRendMat = level3.GetComponent<Renderer>().material;
                 starColour = Color.blue;
+                //ringColour = Color.blue;
                 currentStage = Stages.STAGE4;
                 particle = level3.GetComponent<ParticleSystem>();
                 particle.Play();
@@ -155,6 +159,7 @@ public class StageManager : MonoBehaviour
                 //hitDetection.timer = 3;
                 starRendMat = level4.GetComponent<Renderer>().material;
                 starColour = Color.green;
+                //ringColour = Color.green;
                 currentStage = Stages.STAGE5;
                 particle = level4.GetComponent<ParticleSystem>();
                 particle.Play();
@@ -166,6 +171,7 @@ public class StageManager : MonoBehaviour
                 // hitDetection.timer = 4;
                 starRendMat = level5.GetComponent<Renderer>().material;
                 starColour = Color.cyan;
+                //ringColour = Color.cyan;
                 currentStage = Stages.STAGE6;
                 particle = level5.GetComponent<ParticleSystem>();
                 particle.Play();
@@ -175,6 +181,7 @@ public class StageManager : MonoBehaviour
                 StartCoroutine("lightUpStar");
                 starRendMat = level6.GetComponent<Renderer>().material;
                 starColour = Color.white;
+                //ringColour = Color.white;
                 particle = level6.GetComponent<ParticleSystem>();
                 particle.Play();
                 Debug.Log("Experience Over");
