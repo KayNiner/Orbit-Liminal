@@ -12,6 +12,7 @@ public class HitDetection : MonoBehaviour
     public float requiredTime;
     [SerializeField] AudioSource correctSound;
     public bool isPassed;
+    public bool isOverlapped;
 
     [Header("LineDraw Script")]
     [SerializeField]
@@ -20,6 +21,11 @@ public class HitDetection : MonoBehaviour
     [Header("LaserAudio")]
     [SerializeField] AudioSource laserStart, laserStay;
 
+    [Header("Outer Ring Color")]
+    [SerializeField]
+    outerRingColour ringColourScript;
+    [SerializeField]
+    StageManager stgManager;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +34,7 @@ public class HitDetection : MonoBehaviour
         timer = 0;
         requiredTime = 15f;
         isPassed = false;
+        isOverlapped = false;
         
     }
 
@@ -42,7 +49,7 @@ public class HitDetection : MonoBehaviour
            if(isPassed == false)
            {
                 correctSound.Play();
-                Debug.Log("Next Level");
+                //Debug.Log("Next Level");
                 isPassed = true;
            }
            else
@@ -60,7 +67,7 @@ public class HitDetection : MonoBehaviour
         lineDrawer.drawLine();
         laserStart.Play();
         lineDrawer.particleTrail.GetComponent<ParticleSystem>().Play();
-
+        isOverlapped = true;
     }
 
     void OnTriggerStay(Collider other)
@@ -68,8 +75,15 @@ public class HitDetection : MonoBehaviour
         //Debug.Log (other.name);
         timer += 1 * Time.deltaTime;
         lineDrawer.drawLine();
+        isOverlapped = true;
         //laserStay.Play();
         lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.Lerp(lineDrawer.beamColour, new Color(255,255,0),Time.deltaTime/requiredTime));
+
+        if (stgManager.currentStage == StageManager.Stages.STAGE1)
+        {
+            ringColourScript.materials[0].SetColor("_emission", Color.Lerp(ringColourScript.materials[0].GetColor("_emission"), Color.red, (0.1f+Time.deltaTime) / requiredTime));
+        }
+
         
     }
 
@@ -81,6 +95,7 @@ public class HitDetection : MonoBehaviour
         laserStay.Stop();
         lineDrawer.particleTrail.GetComponent<ParticleSystem>().Stop() ;
         lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.white);
+        isOverlapped = false;
     }
 
     void timerDecrease()
