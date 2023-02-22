@@ -17,6 +17,7 @@ public class StageManager : MonoBehaviour
     public GameObject hitChecker;
     public HitDetection hitDetection;
     public PlayerControlled playerControl;
+    public outerRingColour outerRingColour;
 
     public ParticleSystem particle;
     public ParticleSystem endSceneParticle;
@@ -94,7 +95,6 @@ public class StageManager : MonoBehaviour
         radialBar.fillAmount = 0;
         starRendMat = level1.GetComponent<Renderer>().material;
         starColour = Color.red;
-
         particle = gameObject.GetComponent<ParticleSystem>();
         //particle.Stop();
     }
@@ -217,9 +217,9 @@ public class StageManager : MonoBehaviour
         {
             t += Time.deltaTime;
             starRendMat.SetColor("_starColorAdjust", starColour);
-            Debug.Log("starColour: " +starColour.ToString());
+            //Debug.Log("starColour: " +starColour.ToString());
             starRendMat.SetFloat("_intensityAdjust", Mathf.Lerp(intensityValue, 0f,0.01f));
-            Debug.Log("intensity value "+intensityValue.ToString());
+           // Debug.Log("intensity value "+intensityValue.ToString());
             intensityValue = starRendMat.GetFloat("_intensityAdjust");
             yield return null ;
         }
@@ -256,9 +256,7 @@ public class StageManager : MonoBehaviour
         }
     }
 
-
 	#region Tutorials
-    
 	IEnumerator TUTORIAL1()
     {
 
@@ -331,7 +329,6 @@ public class StageManager : MonoBehaviour
 
         yield return null;
     }
-    
 	#endregion
 
 	#region Staging

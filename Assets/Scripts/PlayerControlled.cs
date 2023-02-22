@@ -49,7 +49,7 @@ public class PlayerControlled : MonoBehaviour
         }
         if (rVertSpeed !=0)
         {
-            Debug.Log(rVertSpeed);
+            //Debug.Log(rVertSpeed);
             hasYInput=true;
         }    
         else
