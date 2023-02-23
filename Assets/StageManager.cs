@@ -119,10 +119,9 @@ public class StageManager : MonoBehaviour
                 starRendMat = level1.GetComponent<Renderer>().material;
                 starColour = Color.red;
                 //ringColour = Color.red;
-                currentStage = Stages.STAGE2;
                 particle = level1.GetComponent<ParticleSystem>();
-                particle.Play();
-
+                particle.Play();;
+                currentStage = Stages.STAGE2;
 
             }
             else if (currentStage == Stages.STAGE2)
@@ -133,10 +132,9 @@ public class StageManager : MonoBehaviour
                 starRendMat = level2.GetComponent<Renderer>().material;
                 starColour = Color.yellow;
                 //ringColour = Color.yellow;
-                currentStage = Stages.STAGE3;
                 particle = level2.GetComponent<ParticleSystem>();
                 particle.Play();
-
+                currentStage = Stages.STAGE3;
             }
             else if (currentStage == Stages.STAGE3)
             {
@@ -146,9 +144,9 @@ public class StageManager : MonoBehaviour
                 starRendMat = level3.GetComponent<Renderer>().material;
                 starColour = Color.blue;
                 //ringColour = Color.blue;
-                currentStage = Stages.STAGE4;
                 particle = level3.GetComponent<ParticleSystem>();
                 particle.Play();
+                currentStage = Stages.STAGE4;
 
             }
             else if (currentStage == Stages.STAGE4)
@@ -160,9 +158,9 @@ public class StageManager : MonoBehaviour
                 starRendMat = level4.GetComponent<Renderer>().material;
                 starColour = Color.green;
                 //ringColour = Color.green;
-                currentStage = Stages.STAGE5;
                 particle = level4.GetComponent<ParticleSystem>();
                 particle.Play();
+                currentStage = Stages.STAGE5;
             }
             else if (currentStage == Stages.STAGE5)
             {
@@ -172,9 +170,9 @@ public class StageManager : MonoBehaviour
                 starRendMat = level5.GetComponent<Renderer>().material;
                 starColour = Color.cyan;
                 //ringColour = Color.cyan;
-                currentStage = Stages.STAGE6;
                 particle = level5.GetComponent<ParticleSystem>();
                 particle.Play();
+                currentStage = Stages.STAGE6;
             }
             else if (currentStage == Stages.STAGE6)
             {
@@ -210,6 +208,7 @@ public class StageManager : MonoBehaviour
 
         
     }
+
     IEnumerator lightUpStar()
     {
         t = 0;
@@ -226,6 +225,7 @@ public class StageManager : MonoBehaviour
 
         yield break;
     }
+
     void endScene()
     {
         endSceneParticle.Play();
@@ -497,7 +497,7 @@ public class StageManager : MonoBehaviour
 
     }
     
-    IEnumerator switchingLevel()
+    public IEnumerator switchingLevel()
     {
         t = 0;
         while (t < 1)

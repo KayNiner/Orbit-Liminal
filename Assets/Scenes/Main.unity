@@ -71729,6 +71729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outerRingObject: {fileID: 2141233616}
+  innerRingObject: {fileID: 1680835683}
   materials: []
   originalColour: {r: 0, g: 0, b: 0, a: 0}
   currentColour: {r: 0, g: 0, b: 0, a: 0}
