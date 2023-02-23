@@ -5,7 +5,7 @@ using UnityEngine;
 public class outerRingColour : MonoBehaviour
 {
     [SerializeField]
-    public GameObject outerRingObject;
+    public GameObject outerRingObject, innerRingObject;
     [SerializeField]
     public List<Material> materials = new List<Material>();
     public Color originalColour, currentColour;
@@ -15,6 +15,10 @@ public class outerRingColour : MonoBehaviour
     void Start()
     {
         foreach (Material m in outerRingObject.GetComponentInChildren<Renderer>().materials)
+        {
+            materials.Add(m);
+        }
+        foreach (Material m in innerRingObject.GetComponentInChildren<Renderer>().materials)
         {
             materials.Add(m);
         }
