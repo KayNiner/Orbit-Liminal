@@ -70,7 +70,7 @@ public class HitDetection : MonoBehaviour
         isOverlapped = true;
     }
 
-    public void OnTriggerStay(Collider other)
+    void OnTriggerStay(Collider other)
     {
         //Debug.Log (other.name);
         timer += 1 * Time.deltaTime;
@@ -78,31 +78,6 @@ public class HitDetection : MonoBehaviour
         isOverlapped = true;
         //laserStay.Play();
         lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.Lerp(lineDrawer.beamColour, new Color(255,255,0),Time.deltaTime/requiredTime));
-
-        if (stgManager.currentStage == StageManager.Stages.STAGE1)
-        {
-            ringColourScript.materials[0].SetColor("_emission", Color.Lerp(ringColourScript.materials[0].GetColor("_emission"), Color.red, (0.1f+Time.deltaTime) / requiredTime));
-        }
-        if (stgManager.currentStage == StageManager.Stages.STAGE2)
-        {
-            ringColourScript.materials[0].SetColor("_emission", Color.Lerp(ringColourScript.materials[0].GetColor("_emission"), Color.yellow, (0.1f + Time.deltaTime) / requiredTime));
-        }
-        if (stgManager.currentStage == StageManager.Stages.STAGE3)
-        {
-            ringColourScript.materials[0].SetColor("_emission", Color.Lerp(ringColourScript.materials[0].GetColor("_emission"), Color.blue, (0.1f + Time.deltaTime) / requiredTime));
-        }
-        if (stgManager.currentStage == StageManager.Stages.STAGE4)
-        {
-            ringColourScript.materials[0].SetColor("_emission", Color.Lerp(ringColourScript.materials[0].GetColor("_emission"), Color.green, (0.1f + Time.deltaTime) / requiredTime));
-        }
-        if (stgManager.currentStage == StageManager.Stages.STAGE5)
-        {
-            ringColourScript.materials[0].SetColor("_emission", Color.Lerp(ringColourScript.materials[0].GetColor("_emission"), Color.cyan, (0.1f + Time.deltaTime) / requiredTime));
-        }
-        if (stgManager.currentStage == StageManager.Stages.STAGE6)
-        {
-            ringColourScript.materials[0].SetColor("_emission", Color.Lerp(ringColourScript.materials[0].GetColor("_emission"), Color.white, (0.1f + Time.deltaTime) / requiredTime));
-        }
     }
 
     void OnTriggerExit(Collider other)
