@@ -71696,7 +71696,7 @@ MonoBehaviour:
   hitChecker: {fileID: 1244597313}
   hitDetection: {fileID: 0}
   playerControl: {fileID: 1680835685}
-  outerRingColour: {fileID: 0}
+  outerRingColour: {fileID: 1979851011}
   particle: {fileID: 0}
   endSceneParticle: {fileID: 1532279015}
   level1: {fileID: 1732459990}

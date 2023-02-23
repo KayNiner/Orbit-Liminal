@@ -78,13 +78,6 @@ public class HitDetection : MonoBehaviour
         isOverlapped = true;
         //laserStay.Play();
         lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.Lerp(lineDrawer.beamColour, new Color(255,255,0),Time.deltaTime/requiredTime));
-
-        if (stgManager.currentStage == StageManager.Stages.STAGE1)
-        {
-            ringColourScript.materials[0].SetColor("_emission", Color.Lerp(ringColourScript.materials[0].GetColor("_emission"), Color.red, (0.1f+Time.deltaTime) / requiredTime));
-        }
-
-        
     }
 
     void OnTriggerExit(Collider other)
