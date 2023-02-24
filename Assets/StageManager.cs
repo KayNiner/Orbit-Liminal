@@ -18,6 +18,7 @@ public class StageManager : MonoBehaviour
     public HitDetection hitDetection;
     public PlayerControlled playerControl;
     public outerRingColour outerRingColour;
+    public innerRingColour innerRingColour;
 
     public ParticleSystem particle;
     public ParticleSystem endSceneParticle;
@@ -338,6 +339,7 @@ public class StageManager : MonoBehaviour
         //Entering Stage 1
         fadeToBlackInTimer(1f);
         yield return new WaitForSeconds(1.5f);
+        //innerRingColour.materials[0].SetColor("_emission", Color.red);
         stage1Audio.Play();
         outerRing.transform.rotation = Quaternion.Euler(0, 0, 0);
         fadeToClearInTimer(1f);
@@ -355,10 +357,12 @@ public class StageManager : MonoBehaviour
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.red, (Time.deltaTime+0.05f)/hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.red, (Time.deltaTime+0.05f)/hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }      
     }
@@ -371,7 +375,7 @@ public class StageManager : MonoBehaviour
         hitDetection.enabled = true;
         stage2Audio.Play();
         outerRing.transform.rotation = Quaternion.Euler(0, 0, 180);
-        outerRingColour.materials[0].SetColor("_emission", outerRingColour.originalColour);
+        innerRingColour.materials[0].SetColor("_emission", innerRingColour.originalColour);
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = -10;
@@ -386,10 +390,12 @@ public class StageManager : MonoBehaviour
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.yellow, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.yellow, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
         
@@ -403,6 +409,7 @@ public class StageManager : MonoBehaviour
         stage3Audio.Play();
         outerRing.transform.rotation = Quaternion.Euler(0, 0, 90);
         outerRingColour.materials[0].SetColor("_emission", outerRingColour.originalColour);
+        innerRingColour.materials[0].SetColor("_emission", innerRingColour.originalColour);
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = 13;
@@ -417,10 +424,12 @@ public class StageManager : MonoBehaviour
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.blue, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.blue, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
         
@@ -434,6 +443,7 @@ public class StageManager : MonoBehaviour
         stage4Audio.Play();
         outerRing.transform.rotation = Quaternion.Euler(0, 0, -90);
         outerRingColour.materials[0].SetColor("_emission", outerRingColour.originalColour);
+        innerRingColour.materials[0].SetColor("_emission", innerRingColour.originalColour);
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = -14;
@@ -448,10 +458,12 @@ public class StageManager : MonoBehaviour
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.green, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.green, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
         
@@ -465,6 +477,7 @@ public class StageManager : MonoBehaviour
         stage5Audio.Play();
         outerRing.transform.Rotate(0, 0, 180);
         outerRingColour.materials[0].SetColor("_emission", outerRingColour.originalColour);
+        innerRingColour.materials[0].SetColor("_emission", innerRingColour.originalColour);
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = -15;
@@ -479,10 +492,12 @@ public class StageManager : MonoBehaviour
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.magenta, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.magenta, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
 
@@ -496,6 +511,7 @@ public class StageManager : MonoBehaviour
         stage6Audio.Play();
         outerRing.transform.Rotate(0, 0, 180);
         outerRingColour.materials[0].SetColor("_emission", outerRingColour.originalColour);
+        innerRingColour.materials[0].SetColor("_emission", innerRingColour.originalColour);
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = 15;
@@ -510,10 +526,12 @@ public class StageManager : MonoBehaviour
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.white, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.white, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
 

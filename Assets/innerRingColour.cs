@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class outerRingColour : MonoBehaviour
+public class innerRingColour : MonoBehaviour
 {
     [SerializeField]
-    public GameObject outerRingObject;
+    public GameObject innerRingObject;
     [SerializeField]
     public List<Material> materials = new List<Material>();
     public Color originalColour, currentColour;
@@ -14,7 +14,7 @@ public class outerRingColour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (Material m in outerRingObject.GetComponentInChildren<Renderer>().materials)
+        foreach (Material m in innerRingObject.GetComponentInChildren<Renderer>().materials)
         {
             materials.Add(m);
         }
