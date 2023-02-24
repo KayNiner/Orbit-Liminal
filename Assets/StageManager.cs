@@ -168,7 +168,7 @@ public class StageManager : MonoBehaviour
                 //hitDetection.isPassed = false;
                 // hitDetection.timer = 4;
                 starRendMat = level5.GetComponent<Renderer>().material;
-                starColour = Color.cyan;
+                starColour = Color.magenta;
                 //ringColour = Color.cyan;
                 particle = level5.GetComponent<ParticleSystem>();
                 particle.Play();
@@ -478,7 +478,7 @@ public class StageManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
-                outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.pink, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.magenta, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
