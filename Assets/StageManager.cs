@@ -121,7 +121,7 @@ public class StageManager : MonoBehaviour
                 starColour = Color.red;
                 //ringColour = Color.red;
                 particle = level1.GetComponent<ParticleSystem>();
-                particle.Play();;
+                particle.Play();
                 currentStage = Stages.STAGE2;
 
             }
@@ -375,6 +375,7 @@ public class StageManager : MonoBehaviour
         hitDetection.enabled = true;
         stage2Audio.Play();
         outerRing.transform.rotation = Quaternion.Euler(0, 0, 180);
+        outerRingColour.materials[0].SetColor("_emission", outerRingColour.originalColour);
         innerRingColour.materials[0].SetColor("_emission", innerRingColour.originalColour);
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
