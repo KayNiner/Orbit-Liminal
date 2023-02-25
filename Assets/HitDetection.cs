@@ -24,6 +24,11 @@ public class HitDetection : MonoBehaviour
     [Header("Outer Ring Color")]
     [SerializeField]
     outerRingColour ringColourScript;
+
+    [Header("Inner Ring Color")]
+    [SerializeField]
+    innerRingColour outerRingColour; //ringColourScript;
+
     [SerializeField]
     StageManager stgManager;
 

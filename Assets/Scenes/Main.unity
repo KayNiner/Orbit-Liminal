@@ -31939,7 +31939,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.9602337, a: 1}
+      maxColor: {r: 1, g: 0.42352942, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -33078,7 +33078,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.19215685, g: 0.99999964, b: 1, a: 1}
+        key0: {r: 1, g: 0.42352942, b: 1, a: 1}
         key1: {r: 0.1607843, g: 0.4391114, b: 1, a: 1}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -33086,7 +33086,7 @@ ParticleSystem:
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 0
+        ctime0: 22166
         ctime1: 65535
         ctime2: 65535
         ctime3: 0
@@ -36494,6 +36494,7 @@ MonoBehaviour:
   laserStart: {fileID: 1890834732}
   laserStay: {fileID: 701679831}
   ringColourScript: {fileID: 1979851011}
+  outerRingColour: {fileID: 0}
   stgManager: {fileID: 1979851010}
 --- !u!64 &1244597317
 MeshCollider:
@@ -61787,7 +61788,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 1, b: 0.9602337, a: 1}
+      maxColor: {r: 1, g: 0.42352942, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -62926,7 +62927,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.19215685, g: 0.99999964, b: 1, a: 1}
+        key0: {r: 1, g: 0.42352942, b: 1, a: 1}
         key1: {r: 0.1607843, g: 0.4391114, b: 1, a: 1}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -71659,6 +71660,7 @@ GameObject:
   - component: {fileID: 1979851009}
   - component: {fileID: 1979851010}
   - component: {fileID: 1979851011}
+  - component: {fileID: 1979851012}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -71697,6 +71699,7 @@ MonoBehaviour:
   hitDetection: {fileID: 0}
   playerControl: {fileID: 1680835685}
   outerRingColour: {fileID: 1979851011}
+  innerRingColour: {fileID: 1979851012}
   particle: {fileID: 0}
   endSceneParticle: {fileID: 1532279015}
   level1: {fileID: 1732459990}
@@ -71729,6 +71732,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outerRingObject: {fileID: 2141233616}
+  materials: []
+  originalColour: {r: 0, g: 0, b: 0, a: 0}
+  currentColour: {r: 0, g: 0, b: 0, a: 0}
+  stageManager: {fileID: 1979851010}
+--- !u!114 &1979851012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979851008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0147e9c860d6004e924b644cd949210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   innerRingObject: {fileID: 1680835683}
   materials: []
   originalColour: {r: 0, g: 0, b: 0, a: 0}
