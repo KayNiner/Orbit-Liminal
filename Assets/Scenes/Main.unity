@@ -51468,7 +51468,7 @@ MonoBehaviour:
   rVertSpeed: 0
   lHoriSpeed: 0
   lVertSpeed: 0
-  slerpSpeed: 0.015
+  slerpSpeed: 0.013
   tgt: {fileID: 2141233617}
   starter: {fileID: 736657596}
   destination: {fileID: 596655974}

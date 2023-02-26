@@ -26,8 +26,8 @@ public class PlayerControlled : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        horizontalInput = Input.GetAxis("Oculus_GearVR_LThumbstick");
-        verticalInput = Input.GetAxis("Oculus_GearVR_LThumbstickY");
+        //horizontalInput = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickHorizontal");
+        //verticalInput = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical");
         hasXInput = false;
         hasYInput = false;
         
@@ -68,25 +68,30 @@ public class PlayerControlled : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target2, slerpSpeed);
         }
-        else if (hasXInput == false && hasYInput == false &&distanceBetweenConnector >=4.5f)
+        else if (hasXInput == false && hasYInput == false &&distanceBetweenConnector >=2.5f)
         {
 
             //transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.3f*Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.001f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.0001f);
             
         }
-        else if (hasXInput ==false && hasYInput == false && distanceBetweenConnector >2.5f && distanceBetweenConnector <4.5f )
+        /*else if (hasXInput ==false && hasYInput == false && distanceBetweenConnector >2.5f && distanceBetweenConnector <4.5f )
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.0009f);
+        }*/
+        else if (hasXInput == false && hasYInput == false && distanceBetweenConnector < 2.5f)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.005f);
         }
-        else if (hasXInput == false && hasYInput == false && distanceBetweenConnector < 2.5f)
+        else if (hasXInput == false && hasYInput == false )
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.007f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation, 0.2f) ;
         }
         else 
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target, slerpSpeed);
         }
+
         #region commented out codes
         //transform.localRotation = Quaternion.Euler(0, 0, (rVertSpeed-rHoriSpeed)*2000*Time.deltaTime);
 

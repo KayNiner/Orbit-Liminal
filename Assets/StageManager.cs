@@ -91,10 +91,10 @@ public class StageManager : MonoBehaviour
         currentStage = Stages.TUTORIAL1;
         StartCoroutine(StagingMachine());
         playerControl.enabled = false;
-        intensityValue = starRendMat.GetFloat("_intensityAdjust");
         //noiseAdjust = laserBeamMat.GetFloat("noiseAmount");
         radialBar.fillAmount = 0;
         starRendMat = level1.GetComponent<Renderer>().material;
+        intensityValue = starRendMat.GetFloat("_intensityAdjust");
         starColour = Color.red;
         particle = gameObject.GetComponent<ParticleSystem>();
         //particle.Stop();
