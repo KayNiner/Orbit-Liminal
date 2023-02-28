@@ -23,8 +23,7 @@ public class RotationControll : MonoBehaviour
     {
         pcHorizontalInput = Input.GetAxis("Horizontal");
         pcVerticalInput = Input.GetAxis("Vertical");
-        //rightHorizontalInput = Input.GetAxis("Oculus_GearVR_RThumbstickX");
-        //rightVerticalInput = Input.GetAxis("Oculus_GearVR_RThumbstickY");
+
         string[] joyName = Input.GetJoystickNames();
         rb = GetComponent<Rigidbody>();
 
@@ -35,12 +34,6 @@ public class RotationControll : MonoBehaviour
     {
         float pclHoriSpeed = Input.GetAxis("Horizontal") * Time.deltaTime;
         float pclVertSpeed = Input.GetAxis("Vertical") * Time.deltaTime;
-        //float rHoriSpeed = Input.GetAxis("Oculus_GearVR_RThumbstickX") * Time.deltaTime;
-        //float rVertSpeed = Input.GetAxis("Oculus_GearVR_RThumbstickY") * Time.deltaTime;
-        //Debug.Log(pclHoriSpeed);
-        //Debug.Log(pclVertSpeed);
-        //Debug.Log(rVertSpeed);
-        //Debug.Log(rHoriSpeed);
 
         if (pcHorizontalInput != 0 || pcVerticalInput != 0)
         {
@@ -63,30 +56,5 @@ public class RotationControll : MonoBehaviour
 
         //Lerp to the target rotation to get a smooth movement.
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, lerpSpeed);
-
-
-        //transform.localRotation = Quaternion.Euler(0, 0, (rVertSpeed-rHoriSpeed)*2000*Time.deltaTime);
-
-        //MOVEMENT
-
-
-        //transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(lHoriSpeed, lVertSpeed, 0));
-
-        /*if (pcHorizontalInput != 0 || pcVerticalInput != 0)
-        {
-            Debug.Log(pcHorizontalInput);
-            Debug.Log(pcVerticalInput);
-        }
-        /*if (rightVerticalInput != 0 || rightHorizontalInput != 0)
-        {
-            Debug.Log(rightVerticalInput);
-            Debug.Log(rightHorizontalInput);
-        }
-        //transform.localRotation = Quaternion.Euler(0, 0, (rVertSpeed-rHoriSpeed)*2000*Time.deltaTime);
-
-        //MOVEMENT
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(pclHoriSpeed, pclVertSpeed, 0));
-        //transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(lHoriSpeed, lVertSpeed, 0));
-        */
     }
 }

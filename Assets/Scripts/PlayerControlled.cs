@@ -18,16 +18,10 @@ public class PlayerControlled : MonoBehaviour
 	public bool hasXInput, hasYInput;
     public float distanceBetweenConnector;
 
-
-    /*[Header("UI")]
-    [SerializeField]
-    Text uiOutPut;*/
-
     // Start is called before the first frame update
     void Start()
     {
-        //horizontalInput = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickHorizontal");
-        //verticalInput = Input.GetAxis("Oculus_CrossPlatform_SecondaryThumbstickVertical");
+
         hasXInput = false;
         hasYInput = false;
         
@@ -49,7 +43,6 @@ public class PlayerControlled : MonoBehaviour
         }
         if (rVertSpeed !=0)
         {
-            //Debug.Log(rVertSpeed);
             hasYInput=true;
         }    
         else
@@ -70,15 +63,9 @@ public class PlayerControlled : MonoBehaviour
         }
         else if (hasXInput == false && hasYInput == false &&distanceBetweenConnector >=2.5f)
         {
-
-            //transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.3f*Time.deltaTime);
             transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.0001f);
             
         }
-        /*else if (hasXInput ==false && hasYInput == false && distanceBetweenConnector >2.5f && distanceBetweenConnector <4.5f )
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.0009f);
-        }*/
         else if (hasXInput == false && hasYInput == false && distanceBetweenConnector < 2.5f)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, tgt.rotation, 0.005f);
@@ -91,21 +78,5 @@ public class PlayerControlled : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, target, slerpSpeed);
         }
-
-        #region commented out codes
-        //transform.localRotation = Quaternion.Euler(0, 0, (rVertSpeed-rHoriSpeed)*2000*Time.deltaTime);
-
-        //MOVEMENT
-        //Quaternion target = Quaternion.Euler(rVertSpeed, 0, -rHoriSpeed);
-
-
-        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed,rVertSpeed, 0)), slerpSpeed);
-        //transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.FromToRotation(Vector3.up, new Vector3(rHoriSpeed,rVertSpeed,0)), slerpSpeed);
-        //transform.rotation = Quaternion.FromToRotation(Vector3.up, new Vector3(lHoriSpeed, lVertSpeed, 0));
-
-        //Dampen toward the target roation
-        //transform.rotation = Quaternion.Slerp(transform.rotation, target, slerpSpeed);
-
-        #endregion
     }
 }

@@ -27,7 +27,7 @@ public class HitDetection : MonoBehaviour
 
     [Header("Inner Ring Color")]
     [SerializeField]
-    innerRingColour outerRingColour; //ringColourScript;
+    innerRingColour outerRingColour;
 
     [SerializeField]
     StageManager stgManager;
@@ -51,7 +51,6 @@ public class HitDetection : MonoBehaviour
            if(isPassed == false)
            {
                 correctSound.Play();
-                //Debug.Log("Next Level");
                 isPassed = true;
             }
            else
@@ -65,7 +64,6 @@ public class HitDetection : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other.name);
         Unmute();
         timer =+ 1 * Time.deltaTime;
         lineDrawer.drawLine();
@@ -77,7 +75,6 @@ public class HitDetection : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        //Debug.Log (other.name);
         timer += 1 * Time.deltaTime;
         lineDrawer.drawLine();
         isOverlapped = true;
