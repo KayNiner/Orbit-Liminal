@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
-    public enum Stages { TUTORIAL1, TUTORIAL2, TUTORIAL3, TUTORIAL4, STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 } 
+    public enum Stages {TUTORIAL3, STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 } 
     public Stages currentStage;
 
     float slerpSpeed;
@@ -22,7 +22,6 @@ public class StageManager : MonoBehaviour
 
     public ParticleSystem particle;
     public ParticleSystem endSceneParticle;
-    //public ShaderSystem emission;
 
     [Header("Stage 1")]
     [SerializeField]
@@ -88,22 +87,18 @@ public class StageManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentStage = Stages.TUTORIAL1;
+        currentStage = Stages.TUTORIAL3;
         StartCoroutine(StagingMachine());
         playerControl.enabled = false;
-        //noiseAdjust = laserBeamMat.GetFloat("noiseAmount");
         radialBar.fillAmount = 0;
         starRendMat = level1.GetComponent<Renderer>().material;
         intensityValue = starRendMat.GetFloat("_intensityAdjust");
-        starColour = Color.red;
         particle = gameObject.GetComponent<ParticleSystem>();
-        //particle.Stop();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //intensityValueUI.text = currentStage.ToString();
         barElaspeTIme = hitDetection.timer;
         radialBar.fillAmount = barElaspeTIme / hitDetection.requiredTime;
         if (radialBar.fillAmount >= maxBarAmount)
@@ -115,11 +110,8 @@ public class StageManager : MonoBehaviour
             if (currentStage == Stages.STAGE1)
             {
                 StartCoroutine("lightUpStar");
-                //hitDetection.isPassed = false;
-                //hitDetection.timer = 0;
                 starRendMat = level1.GetComponent<Renderer>().material;
                 starColour = Color.red;
-                //ringColour = Color.red;
                 particle = level1.GetComponent<ParticleSystem>();
                 particle.Play();
                 currentStage = Stages.STAGE2;
@@ -128,11 +120,8 @@ public class StageManager : MonoBehaviour
             else if (currentStage == Stages.STAGE2)
             {
                 StartCoroutine("lightUpStar");
-                //hitDetection.isPassed = false;
-                //hitDetection.timer = 1;
                 starRendMat = level2.GetComponent<Renderer>().material;
                 starColour = Color.yellow;
-                //ringColour = Color.yellow;
                 particle = level2.GetComponent<ParticleSystem>();
                 particle.Play();
                 currentStage = Stages.STAGE3;
@@ -140,11 +129,8 @@ public class StageManager : MonoBehaviour
             else if (currentStage == Stages.STAGE3)
             {
                 StartCoroutine("lightUpStar");
-                // hitDetection.isPassed = false;
-                //hitDetection.timer = 2;
                 starRendMat = level3.GetComponent<Renderer>().material;
                 starColour = Color.blue;
-                //ringColour = Color.blue;
                 particle = level3.GetComponent<ParticleSystem>();
                 particle.Play();
                 currentStage = Stages.STAGE4;
@@ -154,11 +140,8 @@ public class StageManager : MonoBehaviour
             {
 
                 StartCoroutine("lightUpStar");
-                //hitDetection.isPassed = false;
-                //hitDetection.timer = 3;
                 starRendMat = level4.GetComponent<Renderer>().material;
                 starColour = Color.green;
-                //ringColour = Color.green;
                 particle = level4.GetComponent<ParticleSystem>();
                 particle.Play();
                 currentStage = Stages.STAGE5;
@@ -166,11 +149,8 @@ public class StageManager : MonoBehaviour
             else if (currentStage == Stages.STAGE5)
             {
                 StartCoroutine("lightUpStar");
-                //hitDetection.isPassed = false;
-                // hitDetection.timer = 4;
                 starRendMat = level5.GetComponent<Renderer>().material;
                 starColour = Color.magenta;
-                //ringColour = Color.cyan;
                 particle = level5.GetComponent<ParticleSystem>();
                 particle.Play();
                 currentStage = Stages.STAGE6;
@@ -180,29 +160,19 @@ public class StageManager : MonoBehaviour
                 StartCoroutine("lightUpStar");
                 starRendMat = level6.GetComponent<Renderer>().material;
                 starColour = Color.white;
-                //ringColour = Color.white;
                 particle = level6.GetComponent<ParticleSystem>();
                 particle.Play();
                 Debug.Log("Experience Over");
                 Invoke("endScene", 5.0f);
             }
-            else if (currentStage == Stages.TUTORIAL1)
-            {
-                currentStage = Stages.TUTORIAL4;
-            }
-            else if (currentStage == Stages.TUTORIAL2)
-			{
-                currentStage = Stages.TUTORIAL3;                
-			}
             else if (currentStage == Stages.TUTORIAL3)
             {
-                currentStage = Stages.TUTORIAL4;
+                currentStage = Stages.STAGE1;
             }
-            else if (currentStage == Stages.TUTORIAL4)
+            else if (currentStage == Stages.TUTORIAL3)
             {
                 StartCoroutine("lightUpStar");
                 starRendMat = level1.GetComponent<Renderer>().material;
-                starColour = Color.red;
                 currentStage = Stages.STAGE1;
             }
         }
@@ -217,9 +187,7 @@ public class StageManager : MonoBehaviour
         {
             t += Time.deltaTime;
             starRendMat.SetColor("_starColorAdjust", starColour);
-            //Debug.Log("starColour: " +starColour.ToString());
             starRendMat.SetFloat("_intensityAdjust", Mathf.Lerp(intensityValue, 0f,0.01f));
-           // Debug.Log("intensity value "+intensityValue.ToString());
             intensityValue = starRendMat.GetFloat("_intensityAdjust");
             yield return null ;
         }
@@ -244,10 +212,6 @@ public class StageManager : MonoBehaviour
         fader.FadeToClear(t);
     }
 
-    //IEnumerator laserBeamAdjust()
-    //{
-    //need something here to adjust noice level in the laser beam material to focus the laser
-    //}
     IEnumerator StagingMachine()
     {
         while (true)
@@ -258,49 +222,12 @@ public class StageManager : MonoBehaviour
     }
 
 	#region Tutorials
-	IEnumerator TUTORIAL1()
-    {
-
-		//Start of the Experience
-		//Wait for a few seconds before starting.
-		outerRing.transform.Rotate(0, 0,180);
-        yield return new WaitForSeconds(1f);
-        expereinceStartAudio.Play();
-		yield return new WaitForSeconds(1f);
-        
-        Debug.Log("Start of Experience - Tutorial 1");
-        //Tutorial Settings
-        //Looping/ Stageing
-        while (currentStage == Stages.TUTORIAL1)
-        {
-            Debug.Log("Tutorial 1 - LOOPING");
-			outerRing.transform.Rotate(new Vector3(0,0, rotationAngle)* Time.deltaTime);
-			yield return new WaitForEndOfFrame();
-            
-        }    
-        yield return null;
-    } 
-    IEnumerator TUTORIAL2()
-    {
-        fadeToBlackInTimer(1f);
-        yield return new WaitForSeconds(1.5f);
-        outerRing.transform.Rotate(0, 0, 180);
-        fadeToClearInTimer(1f);
-        yield return new WaitForSeconds(1.5f);
-        while (currentStage ==Stages.TUTORIAL2)
-        {
-            Debug.Log("Tutorial 2 - LOOPING");
-            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
-
-        yield return null;
-    }
     IEnumerator TUTORIAL3()
     {
         fadeToBlackInTimer(1f);
+        outerRing.transform.Rotate(0, 0, 80);
         yield return new WaitForSeconds(1.5f);
-        outerRing.transform.rotation = Quaternion.Euler(0, 0,120);
+        expereinceStartAudio.Play();
         fadeToClearInTimer(1f);
         yield return new WaitForSeconds(1.5f);
         rotationAngle = 5;
@@ -313,23 +240,7 @@ public class StageManager : MonoBehaviour
 
         yield return null;
     }
-    IEnumerator TUTORIAL4()
-    {
-        fadeToBlackInTimer(1f);
-        yield return new WaitForSeconds(1.5f);
-        outerRing.transform.rotation = Quaternion.Euler(0, 0, -75);
-        fadeToClearInTimer(1f);
-        yield return new WaitForSeconds(1.5f);
-        rotationAngle = -10;
-        while (currentStage == Stages.TUTORIAL4)
-        {
-            Debug.Log("Tutorial 4 - LOOPING");
-            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
 
-        yield return null;
-    }
 	#endregion
 
 	#region Staging
@@ -339,7 +250,6 @@ public class StageManager : MonoBehaviour
         //Entering Stage 1
         fadeToBlackInTimer(1f);
         yield return new WaitForSeconds(1.5f);
-        //innerRingColour.materials[0].SetColor("_emission", Color.red);
         stage1Audio.Play();
         outerRing.transform.rotation = Quaternion.Euler(0, 0, 0);
         fadeToClearInTimer(1f);
