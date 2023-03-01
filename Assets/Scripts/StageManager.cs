@@ -280,7 +280,9 @@ public class StageManager : MonoBehaviour
     {
         //Entering Stage 2
         float t = 0;
-        Quaternion targetRot = Quaternion.Euler(0, 0, transform.rotation.z - 200);
+        Vector3 rot = outerRing.transform.rotation.eulerAngles;
+        rot = new Vector3(rot.x,rot.y,rot.z-179);
+        Quaternion targetRot = Quaternion.Euler(rot);
         while(t < 1.5)
         {
             t += Time.deltaTime;
@@ -322,11 +324,13 @@ public class StageManager : MonoBehaviour
     {
         //Entering Stage 3
         float t = 0;
-        Quaternion targetRot = Quaternion.Euler(0, 0, transform.rotation.z + 200);
+        Vector3 rot = outerRing.transform.rotation.eulerAngles;
+        rot = new Vector3(rot.x, rot.y, rot.z + 179);
+        Quaternion targetRot = Quaternion.Euler(rot);
         while (t < 1.5)
         {
             t += Time.deltaTime;
-            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.01f);
+            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.05f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
@@ -359,11 +363,13 @@ public class StageManager : MonoBehaviour
     {
         //Entering Stage 4
         float t = 0;
-        Quaternion targetRot = Quaternion.Euler(0, 0, transform.rotation.z - 200);
+        Vector3 rot = outerRing.transform.rotation.eulerAngles;
+        rot = new Vector3(rot.x, rot.y, rot.z - 179);
+        Quaternion targetRot = Quaternion.Euler(rot);
         while (t < 1.5)
         {
             t += Time.deltaTime;
-            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.01f);
+            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.05f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
@@ -397,11 +403,13 @@ public class StageManager : MonoBehaviour
     {
         //Entering Stage 5
         float t = 0;
-        Quaternion targetRot = Quaternion.Euler(0, 0, transform.rotation.z + 200);
+        Vector3 rot = outerRing.transform.rotation.eulerAngles;
+        rot = new Vector3(rot.x, rot.y, rot.z + 179);
+        Quaternion targetRot = Quaternion.Euler(rot);
         while (t < 1.5)
         {
             t += Time.deltaTime;
-            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.01f);
+            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.05f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
@@ -434,11 +442,13 @@ public class StageManager : MonoBehaviour
     {
         //Entering Stage 6
         float t = 0;
-        Quaternion targetRot = Quaternion.Euler(0, 0, transform.rotation.z - 200);
+        Vector3 rot = outerRing.transform.rotation.eulerAngles;
+        rot = new Vector3(rot.x, rot.y, rot.z + 180);
+        Quaternion targetRot = Quaternion.Euler(rot);
         while (t < 1.5)
         {
             t += Time.deltaTime;
-            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.01f);
+            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.05f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
