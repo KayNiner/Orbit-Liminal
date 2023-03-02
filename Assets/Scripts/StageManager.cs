@@ -81,7 +81,6 @@ public class StageManager : MonoBehaviour
     void Awake()
     {
         hitDetection = hitChecker.GetComponent<HitDetection>();
-
     }
 
     // Start is called before the first frame update
@@ -115,7 +114,6 @@ public class StageManager : MonoBehaviour
                 particle = level1.GetComponent<ParticleSystem>();
                 particle.Play();
                 currentStage = Stages.STAGE2;
-
             }
             else if (currentStage == Stages.STAGE2)
             {
@@ -134,11 +132,9 @@ public class StageManager : MonoBehaviour
                 particle = level3.GetComponent<ParticleSystem>();
                 particle.Play();
                 currentStage = Stages.STAGE4;
-
             }
             else if (currentStage == Stages.STAGE4)
             {
-
                 StartCoroutine("lightUpStar");
                 starRendMat = level4.GetComponent<Renderer>().material;
                 starColour = Color.green;
@@ -293,10 +289,6 @@ public class StageManager : MonoBehaviour
         }
         hitDetection.enabled = true;
         stage2Audio.Play();
-        //outerRing.transform.rotation = Quaternion.Euler(0, 0, 180);
-        //outerRingColour.materials[0].SetColor("_emission", outerRingColour.originalColour);
-        //innerRingColour.materials[0].SetColor("_emission", innerRingColour.originalColour);
-        //fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = -10;
         yield return new WaitForSeconds(0.5f);

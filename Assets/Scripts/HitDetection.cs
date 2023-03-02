@@ -40,7 +40,6 @@ public class HitDetection : MonoBehaviour
         requiredTime = 15f;
         isPassed = false;
         isOverlapped = false;
-        
     }
 
     // Update is called once per frame
