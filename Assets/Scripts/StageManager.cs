@@ -282,7 +282,7 @@ public class StageManager : MonoBehaviour
         while(t < 1.5)
         {
             t += Time.deltaTime;
-            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.05f);
+            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"),outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
@@ -322,7 +322,7 @@ public class StageManager : MonoBehaviour
         while (t < 1.5)
         {
             t += Time.deltaTime;
-            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.05f);
+            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
@@ -361,7 +361,7 @@ public class StageManager : MonoBehaviour
         while (t < 1.5)
         {
             t += Time.deltaTime;
-            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.05f);
+            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
@@ -370,6 +370,7 @@ public class StageManager : MonoBehaviour
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = -14;
+        hitDetection.requiredTime = 17f;
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -401,7 +402,7 @@ public class StageManager : MonoBehaviour
         while (t < 1.5)
         {
             t += Time.deltaTime;
-            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.05f);
+            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
@@ -409,6 +410,7 @@ public class StageManager : MonoBehaviour
         stage5Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = -15;
+        hitDetection.requiredTime = 18f;
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -440,7 +442,7 @@ public class StageManager : MonoBehaviour
         while (t < 1.5)
         {
             t += Time.deltaTime;
-            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.05f);
+            outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
@@ -448,6 +450,7 @@ public class StageManager : MonoBehaviour
         stage6Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = 15;
+        hitDetection.requiredTime = 20f;
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage6
@@ -477,7 +480,7 @@ public class StageManager : MonoBehaviour
         {
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * (Mathf.Lerp(0.35f, 0.1f,0.25f* Time.deltaTime)));
             t += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame(); 
         }
         yield break;
     }
