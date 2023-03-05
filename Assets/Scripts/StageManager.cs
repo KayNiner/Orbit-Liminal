@@ -68,7 +68,8 @@ public class StageManager : MonoBehaviour
 
     [SerializeField]
     GameObject outerRing;
-
+    [SerializeField]
+    GameObject innerRing;
 
     [SerializeField]
     bool stagePass;
@@ -284,16 +285,22 @@ public class StageManager : MonoBehaviour
         float t = 0;
         Vector3 rot = outerRing.transform.rotation.eulerAngles;
         rot = new Vector3(rot.x,rot.y,rot.z-179);
+        Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
+        rot2 = new Vector3(rot.x, rot.y, rot.z - 89);
+        Quaternion innerRot = Quaternion.Euler(rot2);
         Quaternion targetRot = Quaternion.Euler(rot);
+        playerControl.enabled = false;
         while(t < 1.5)
         {
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
+            innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, innerRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"),outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
         }
         hitDetection.enabled = true;
+        playerControl.enabled = true;
         stage2Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = -10;
@@ -325,15 +332,21 @@ public class StageManager : MonoBehaviour
         float t = 0;
         Vector3 rot = outerRing.transform.rotation.eulerAngles;;
         rot = new Vector3(rot.x, rot.y, rot.z + 179);
+        Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
+        rot2 = new Vector3(rot.x, rot.y, rot.z + 89);
+        Quaternion innerRot = Quaternion.Euler(rot2);
         Quaternion targetRot = Quaternion.Euler(rot);
+        playerControl.enabled = false;
         while (t < 1.5)
         {
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
+            innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, innerRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
         }
+        playerControl.enabled = true;
         stage3Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = 13;
@@ -365,15 +378,21 @@ public class StageManager : MonoBehaviour
         float t = 0;
         Vector3 rot = outerRing.transform.rotation.eulerAngles;
         rot = new Vector3(rot.x, rot.y, rot.z - 179);
+        Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
+        rot2 = new Vector3(rot.x, rot.y, rot.z - 89);
+        Quaternion innerRot = Quaternion.Euler(rot2);
         Quaternion targetRot = Quaternion.Euler(rot);
+        playerControl.enabled = false;
         while (t < 1.5)
         {
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
+            innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, innerRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
         }
+        playerControl.enabled = true;
         stage4Audio.Play();
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
@@ -406,15 +425,21 @@ public class StageManager : MonoBehaviour
         float t = 0;
         Vector3 rot = outerRing.transform.rotation.eulerAngles;
         rot = new Vector3(rot.x, rot.y, rot.z + 179);
+        Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
+        rot2 = new Vector3(rot.x, rot.y, rot.z + 89);
+        Quaternion innerRot = Quaternion.Euler(rot2);
         Quaternion targetRot = Quaternion.Euler(rot);
+        playerControl.enabled = false;
         while (t < 1.5)
         {
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
+            innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, innerRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
         }
+        playerControl.enabled = true;
         stage5Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = -15;
@@ -446,15 +471,21 @@ public class StageManager : MonoBehaviour
         float t = 0;
         Vector3 rot = outerRing.transform.rotation.eulerAngles;
         rot = new Vector3(rot.x, rot.y, rot.z + 180);
+        Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
+        rot2 = new Vector3(rot.x, rot.y, rot.z + 89);
+        Quaternion innerRot = Quaternion.Euler(rot2);
         Quaternion targetRot = Quaternion.Euler(rot);
+        playerControl.enabled = false;
         while (t < 1.5)
         {
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
+            innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, innerRot, 0.015f);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), innerRingColour.originalColour, 0.005f));
             yield return new WaitForEndOfFrame();
         }
+        playerControl.enabled = true;
         stage6Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = 15;
