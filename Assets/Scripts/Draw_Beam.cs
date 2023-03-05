@@ -93,7 +93,6 @@ public class Draw_Beam : MonoBehaviour
     {
         particleTrail.transform.position = origin.position;
         lineRenderer.SetPosition(0, origin.position);
-        
 
         if (distParticleToOrigin < 0.1f)
         {
@@ -104,9 +103,6 @@ public class Draw_Beam : MonoBehaviour
         else if (distParticleToDestination<0.1f)
         {
             particleTrail.transform.position = origin.position;
-            
         }
-       
     }
-
 }

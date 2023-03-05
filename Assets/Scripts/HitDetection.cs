@@ -19,7 +19,8 @@ public class HitDetection : MonoBehaviour
     Draw_Beam lineDrawer;
 
     [Header("LaserAudio")]
-    [SerializeField] AudioSource laserStart, laserStay, LaserOn, LaserBreak;
+    [SerializeField] 
+    public AudioSource laserStart, laserStay, LaserOn, LaserBreak;
 
     [Header("Outer Ring Color")]
     [SerializeField]
@@ -37,10 +38,9 @@ public class HitDetection : MonoBehaviour
     {
         coneCollider = GetComponent<Collider>();
         timer = 0;
-        requiredTime = 15f;
+        requiredTime = 10f;
         isPassed = false;
         isOverlapped = false;
-        
     }
 
     // Update is called once per frame

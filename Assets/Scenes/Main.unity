@@ -5785,7 +5785,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 371027075}
   serializedVersion: 6
-  lengthInSec: 1.5
+  lengthInSec: 7
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -5860,7 +5860,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -16555,7 +16555,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862717878}
   serializedVersion: 6
-  lengthInSec: 1.5
+  lengthInSec: 7
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -16630,7 +16630,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -26439,7 +26439,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 951156263}
   serializedVersion: 6
-  lengthInSec: 1.5
+  lengthInSec: 7
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -26514,7 +26514,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -42184,7 +42184,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1532279013}
   serializedVersion: 6
-  lengthInSec: 5
+  lengthInSec: 7
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -52047,7 +52047,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720918918}
   serializedVersion: 6
-  lengthInSec: 1.5
+  lengthInSec: 7
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -52122,7 +52122,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -62140,7 +62140,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821638643}
   serializedVersion: 6
-  lengthInSec: 1.5
+  lengthInSec: 7
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -62215,7 +62215,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -66950,7 +66950,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847540138}
   serializedVersion: 6
-  lengthInSec: 1.5
+  lengthInSec: 7
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -67025,7 +67025,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -72234,6 +72234,8 @@ MonoBehaviour:
   playerControl: {fileID: 1680835685}
   outerRingColour: {fileID: 1979851011}
   innerRingColour: {fileID: 1979851012}
+  lineDrawer: {fileID: 0}
+  lineRenderer: {fileID: 1056829033}
   particle: {fileID: 0}
   endSceneParticle: {fileID: 1532279015}
   level1: {fileID: 1732459990}
@@ -73438,6 +73440,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Outer_Ring
       objectReference: {fileID: 0}
+    - target: {fileID: 7529661597028026078, guid: b8c96c3541420f342a2db17feff7c0a7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 96906075960424669, guid: 55de824bf7f5e7b439cc8d25ac2dd263,
+        type: 3}
     - target: {fileID: 960566226514341241, guid: b8c96c3541420f342a2db17feff7c0a7,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -73476,6 +73484,11 @@ PrefabInstance:
     - target: {fileID: 960566226514341241, guid: b8c96c3541420f342a2db17feff7c0a7,
         type: 3}
       propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711801685795300068, guid: b8c96c3541420f342a2db17feff7c0a7,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1523832866873457896, guid: b8c96c3541420f342a2db17feff7c0a7,
@@ -73533,16 +73546,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8711801685795300068, guid: b8c96c3541420f342a2db17feff7c0a7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7529661597028026078, guid: b8c96c3541420f342a2db17feff7c0a7,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 96906075960424669, guid: 55de824bf7f5e7b439cc8d25ac2dd263,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8c96c3541420f342a2db17feff7c0a7, type: 3}
