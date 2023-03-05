@@ -19,7 +19,8 @@ public class HitDetection : MonoBehaviour
     Draw_Beam lineDrawer;
 
     [Header("LaserAudio")]
-    [SerializeField] AudioSource laserStart, laserStay, LaserOn, LaserBreak;
+    [SerializeField] 
+    public AudioSource laserStart, laserStay, LaserOn, LaserBreak;
 
     [Header("Outer Ring Color")]
     [SerializeField]

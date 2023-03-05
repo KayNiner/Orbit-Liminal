@@ -72234,6 +72234,8 @@ MonoBehaviour:
   playerControl: {fileID: 1680835685}
   outerRingColour: {fileID: 1979851011}
   innerRingColour: {fileID: 1979851012}
+  lineDrawer: {fileID: 0}
+  lineRenderer: {fileID: 1056829033}
   particle: {fileID: 0}
   endSceneParticle: {fileID: 1532279015}
   level1: {fileID: 1732459990}

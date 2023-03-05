@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using System.Timers;
 using System.Xml.Serialization;
@@ -10,7 +11,7 @@ using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
-    public enum Stages {TUTORIAL3, STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 } 
+    public enum Stages {TUTORIAL3, STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6, STAGE7 } 
     public Stages currentStage;
 
     float slerpSpeed;
@@ -21,6 +22,7 @@ public class StageManager : MonoBehaviour
     public outerRingColour outerRingColour;
     public innerRingColour innerRingColour;
     public Draw_Beam lineDrawer;
+    public LineRenderer lineRenderer;
 
     public ParticleSystem particle;
     public ParticleSystem endSceneParticle;
@@ -160,7 +162,11 @@ public class StageManager : MonoBehaviour
                 starColour = Color.white;
                 particle = level6.GetComponent<ParticleSystem>();
                 particle.Play();
-                Debug.Log("Experience Over");
+                currentStage = Stages.STAGE7;
+            }
+            else if (currentStage == Stages.STAGE7)
+            {
+                //Debug.Log("Experience Over");
                 Invoke("endScene", 5.0f);
             }
             else if (currentStage == Stages.TUTORIAL3)
@@ -173,9 +179,7 @@ public class StageManager : MonoBehaviour
                 starRendMat = level1.GetComponent<Renderer>().material;
                 currentStage = Stages.STAGE1;
             }
-        }
-
-        
+        } 
     }
 
     IEnumerator lightUpStar()
@@ -231,7 +235,7 @@ public class StageManager : MonoBehaviour
         rotationAngle = 5;
         while (currentStage == Stages.TUTORIAL3)
         {
-            Debug.Log("Tutorial 3 - LOOPING");
+            //Debug.Log("Tutorial 3 - LOOPING");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
@@ -250,7 +254,7 @@ public class StageManager : MonoBehaviour
         stage1Audio.Play();
         outerRing.transform.rotation = Quaternion.Euler(0, 0, 0);
         fadeToClearInTimer(1f);
-        Debug.Log("Start Stage 1");
+        //Debug.Log("Start Stage 1");
         slerpSpeed = 10f;
         rotationAngle = -5;
         hitDetection.requiredTime = 15f; //adjusts the time the stage takes to clear
@@ -259,7 +263,7 @@ public class StageManager : MonoBehaviour
         //Loop while in Stage1
         while(currentStage == Stages.STAGE1)
         {
-            Debug.Log("Looping Stage 1");
+            //Debug.Log("Looping Stage 1");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
@@ -299,7 +303,7 @@ public class StageManager : MonoBehaviour
         //Loop while in Stage1
         while (currentStage == Stages.STAGE2)
         {
-            Debug.Log("Stage2");
+            //Debug.Log("Stage2");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
@@ -319,7 +323,7 @@ public class StageManager : MonoBehaviour
     {
         //Entering Stage 3
         float t = 0;
-        Vector3 rot = outerRing.transform.rotation.eulerAngles;
+        Vector3 rot = outerRing.transform.rotation.eulerAngles;;
         rot = new Vector3(rot.x, rot.y, rot.z + 179);
         Quaternion targetRot = Quaternion.Euler(rot);
         while (t < 1.5)
@@ -339,7 +343,7 @@ public class StageManager : MonoBehaviour
         //Loop while in Stage1
         while (currentStage == Stages.STAGE3)
         {
-            Debug.Log("Stage 3");
+            //Debug.Log("Stage 3");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
@@ -380,7 +384,7 @@ public class StageManager : MonoBehaviour
         //Loop while in Stage1
         while (currentStage == Stages.STAGE4)
         {
-            Debug.Log("Stage 4");
+            //Debug.Log("Stage 4");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
@@ -420,7 +424,7 @@ public class StageManager : MonoBehaviour
         //Loop while in Stage1
         while (currentStage == Stages.STAGE5)
         {
-            Debug.Log("Stage 5");
+            //Debug.Log("Stage 5");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
@@ -454,13 +458,13 @@ public class StageManager : MonoBehaviour
         stage6Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = 15;
-        hitDetection.requiredTime = 38f; //adjusts the time the stage takes to clear
+        hitDetection.requiredTime = 5f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage6
         while (currentStage == Stages.STAGE6)
         {
-            Debug.Log("Stage 6");
+            //Debug.Log("Stage 6");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
@@ -475,7 +479,33 @@ public class StageManager : MonoBehaviour
             }
         }
     }
-    
+
+    IEnumerator STAGE7()
+    {
+        hitDetection.enabled = false;
+        //lineDrawer.enabled = false;
+        lineRenderer.enabled = false;
+        hitDetection.LaserOn.Stop();
+        hitDetection.LaserOn.mute = !hitDetection.LaserBreak.mute;
+        hitDetection.laserStart.Stop();
+        hitDetection.laserStart.mute = !hitDetection.laserStart.mute;
+        hitDetection.LaserBreak.Stop();
+        hitDetection.LaserBreak.mute = !hitDetection.LaserBreak.mute;
+        hitDetection.laserStay.Stop();
+        hitDetection.laserStay.mute = !hitDetection.laserStay.mute;
+        slerpSpeed = 10f;
+        rotationAngle = 15;
+        yield return new WaitForSeconds(0.5f);
+
+        while (currentStage == Stages.STAGE7)
+        {
+            //Debug.Log("Stage 6");
+            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+
     public IEnumerator switchingLevel()
     {
         t = 0;
