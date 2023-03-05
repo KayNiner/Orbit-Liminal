@@ -4991,12 +4991,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &10471792 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1260162969572976434, guid: 22276a8657744e04cba8ad0a2caf4195,
-    type: 3}
-  m_PrefabInstance: {fileID: 141072767}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &46778660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5420,16 +5414,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1260162970045296578, guid: 22276a8657744e04cba8ad0a2caf4195,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1260162969412560869, guid: 22276a8657744e04cba8ad0a2caf4195,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22276a8657744e04cba8ad0a2caf4195, type: 3}
 --- !u!4 &141072768 stripped
@@ -5699,12 +5683,6 @@ Transform:
   m_Father: {fileID: 955892636}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &321880546 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1260162969412560869, guid: 22276a8657744e04cba8ad0a2caf4195,
-    type: 3}
-  m_PrefabInstance: {fileID: 141072767}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &371027075
 GameObject:
   m_ObjectHideFlags: 0
@@ -61660,6 +61638,7 @@ GameObject:
   - component: {fileID: 46778661}
   - component: {fileID: 1737157660}
   - component: {fileID: 1737157659}
+  - component: {fileID: 1737157658}
   m_Layer: 0
   m_Name: Inner_Ring
   m_TagString: Untagged
@@ -61667,6 +61646,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1737157658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737157657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a964ac46f690046b962ef58768faf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1737157659
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -62007,36 +61998,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 10471792}
-=======
-      - m_Target: {fileID: 1867440725}
->>>>>>> Stashed changes
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-<<<<<<< Updated upstream
-      - m_Target: {fileID: 321880546}
-=======
-      - m_Target: {fileID: 1940945875}
->>>>>>> Stashed changes
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -71697,12 +71658,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1 &1867440725 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1260162969572976434, guid: 22276a8657744e04cba8ad0a2caf4195,
-    type: 3}
-  m_PrefabInstance: {fileID: 141072767}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1890834730
 GameObject:
   m_ObjectHideFlags: 0
@@ -72163,12 +72118,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1940945875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1260162969412560869, guid: 22276a8657744e04cba8ad0a2caf4195,
-    type: 3}
-  m_PrefabInstance: {fileID: 141072767}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1944219356
 GameObject:
   m_ObjectHideFlags: 0
@@ -72303,7 +72252,6 @@ MonoBehaviour:
   stage6Audio: {fileID: 943901853}
   hasInput: 0
   outerRing: {fileID: 2141233616}
-  innerRing: {fileID: 1680835683}
   stagePass: 0
   radialBar: {fileID: 1176486587}
   expereinceStartAudio: {fileID: 1926683216}
