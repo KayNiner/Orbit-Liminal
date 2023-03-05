@@ -458,7 +458,7 @@ public class StageManager : MonoBehaviour
         stage6Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = 15;
-        hitDetection.requiredTime = 5f; //adjusts the time the stage takes to clear
+        hitDetection.requiredTime = 38f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage6
