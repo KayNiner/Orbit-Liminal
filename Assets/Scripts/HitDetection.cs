@@ -37,7 +37,7 @@ public class HitDetection : MonoBehaviour
     {
         coneCollider = GetComponent<Collider>();
         timer = 0;
-        requiredTime = 15f;
+        requiredTime = 10f;
         isPassed = false;
         isOverlapped = false;
     }

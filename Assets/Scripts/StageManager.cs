@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Timers;
 using System.Xml.Serialization;
 using Liminal.Core.Fader;
 using Liminal.SDK.Core;
@@ -19,6 +20,7 @@ public class StageManager : MonoBehaviour
     public PlayerControlled playerControl;
     public outerRingColour outerRingColour;
     public innerRingColour innerRingColour;
+    public Draw_Beam lineDrawer;
 
     public ParticleSystem particle;
     public ParticleSystem endSceneParticle;
@@ -233,7 +235,6 @@ public class StageManager : MonoBehaviour
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
-
         yield return null;
     }
 
@@ -252,6 +253,7 @@ public class StageManager : MonoBehaviour
         Debug.Log("Start Stage 1");
         slerpSpeed = 10f;
         rotationAngle = -5;
+        hitDetection.requiredTime = 15f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(2f);
 
         //Loop while in Stage1
@@ -291,6 +293,7 @@ public class StageManager : MonoBehaviour
         stage2Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = -10;
+        hitDetection.requiredTime = 18f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -330,6 +333,7 @@ public class StageManager : MonoBehaviour
         stage3Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = 13;
+        hitDetection.requiredTime = 24f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -370,7 +374,7 @@ public class StageManager : MonoBehaviour
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = -14;
-        hitDetection.requiredTime = 17f;
+        hitDetection.requiredTime = 29f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -410,7 +414,7 @@ public class StageManager : MonoBehaviour
         stage5Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = -15;
-        hitDetection.requiredTime = 18f;
+        hitDetection.requiredTime = 34f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -450,7 +454,7 @@ public class StageManager : MonoBehaviour
         stage6Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = 15;
-        hitDetection.requiredTime = 20f;
+        hitDetection.requiredTime = 38f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage6
@@ -470,7 +474,6 @@ public class StageManager : MonoBehaviour
                 innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
-
     }
     
     public IEnumerator switchingLevel()
