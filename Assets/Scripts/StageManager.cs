@@ -265,7 +265,7 @@ public class StageManager : MonoBehaviour
         {
             //Debug.Log("Looping Stage 1");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
-            innerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
+            //innerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
