@@ -67,7 +67,7 @@ public class StageManager : MonoBehaviour
 
 
     [SerializeField]
-    GameObject outerRing;
+    GameObject outerRing, innerRing;
 
 
     [SerializeField]
@@ -257,7 +257,7 @@ public class StageManager : MonoBehaviour
         //Debug.Log("Start Stage 1");
         slerpSpeed = 10f;
         rotationAngle = -5;
-        hitDetection.requiredTime = 15f; //adjusts the time the stage takes to clear
+        hitDetection.requiredTime = 14f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(2f);
 
         //Loop while in Stage1
@@ -285,7 +285,7 @@ public class StageManager : MonoBehaviour
         Vector3 rot = outerRing.transform.rotation.eulerAngles;
         rot = new Vector3(rot.x,rot.y,rot.z-179);
         Quaternion targetRot = Quaternion.Euler(rot);
-        while(t < 1.5)
+        while (t < 1.5)
         {
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
@@ -297,7 +297,7 @@ public class StageManager : MonoBehaviour
         stage2Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = -10;
-        hitDetection.requiredTime = 18f; //adjusts the time the stage takes to clear
+        hitDetection.requiredTime = 17f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -337,7 +337,7 @@ public class StageManager : MonoBehaviour
         stage3Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = 13;
-        hitDetection.requiredTime = 24f; //adjusts the time the stage takes to clear
+        hitDetection.requiredTime = 22f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -378,7 +378,7 @@ public class StageManager : MonoBehaviour
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = -14;
-        hitDetection.requiredTime = 29f; //adjusts the time the stage takes to clear
+        hitDetection.requiredTime = 26f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -417,8 +417,8 @@ public class StageManager : MonoBehaviour
         }
         stage5Audio.Play();
         slerpSpeed = 10f;
-        rotationAngle = -15;
-        hitDetection.requiredTime = 34f; //adjusts the time the stage takes to clear
+        rotationAngle = -10;
+        hitDetection.requiredTime = 29f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage1
@@ -458,7 +458,7 @@ public class StageManager : MonoBehaviour
         stage6Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = 15;
-        hitDetection.requiredTime = 38f; //adjusts the time the stage takes to clear
+        hitDetection.requiredTime = 33f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage6
@@ -480,8 +480,9 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    IEnumerator STAGE7()
+    IEnumerator STAGE7() // end scene, handles all the turning off of stuff
     {
+        playerControl.enabled = false;
         hitDetection.enabled = false;
         //lineDrawer.enabled = false;
         lineRenderer.enabled = false;
@@ -494,13 +495,14 @@ public class StageManager : MonoBehaviour
         hitDetection.laserStay.Stop();
         hitDetection.laserStay.mute = !hitDetection.laserStay.mute;
         slerpSpeed = 10f;
-        rotationAngle = 15;
+        rotationAngle = 30f;
         yield return new WaitForSeconds(0.5f);
 
         while (currentStage == Stages.STAGE7)
         {
             //Debug.Log("Stage 6");
-            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
+            outerRing.transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime);
+            innerRing.transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
     }
@@ -511,8 +513,11 @@ public class StageManager : MonoBehaviour
         t = 0;
         while (t < 1)
         {
+            playerControl.enabled = false;
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * (Mathf.Lerp(0.35f, 0.1f,0.25f* Time.deltaTime)));
+            innerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * (Mathf.Lerp(0.35f, 0.1f, 0.25f * Time.deltaTime)));
             t += Time.deltaTime;
+            playerControl.enabled = true;
             yield return new WaitForEndOfFrame(); 
         }
         yield break;
