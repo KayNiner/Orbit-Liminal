@@ -480,8 +480,9 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    IEnumerator STAGE7()
+    IEnumerator STAGE7() // end scene, handles all the turning off of stuff
     {
+        playerControl.enabled = false;
         hitDetection.enabled = false;
         //lineDrawer.enabled = false;
         lineRenderer.enabled = false;
@@ -494,13 +495,14 @@ public class StageManager : MonoBehaviour
         hitDetection.laserStay.Stop();
         hitDetection.laserStay.mute = !hitDetection.laserStay.mute;
         slerpSpeed = 10f;
-        rotationAngle = 15;
+        rotationAngle = 30f;
         yield return new WaitForSeconds(0.5f);
 
         while (currentStage == Stages.STAGE7)
         {
             //Debug.Log("Stage 6");
-            outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
+            outerRing.transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime);
+            innerRing.transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
     }
@@ -511,8 +513,11 @@ public class StageManager : MonoBehaviour
         t = 0;
         while (t < 1)
         {
+            playerControl.enabled = false;
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * (Mathf.Lerp(0.35f, 0.1f,0.25f* Time.deltaTime)));
+            innerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * (Mathf.Lerp(0.35f, 0.1f, 0.25f * Time.deltaTime)));
             t += Time.deltaTime;
+            playerControl.enabled = true;
             yield return new WaitForEndOfFrame(); 
         }
         yield break;
