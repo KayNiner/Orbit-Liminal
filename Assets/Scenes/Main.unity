@@ -72252,6 +72252,7 @@ MonoBehaviour:
   stage6Audio: {fileID: 943901853}
   hasInput: 0
   outerRing: {fileID: 2141233616}
+  innerRing: {fileID: 1680835683}
   stagePass: 0
   radialBar: {fileID: 1176486587}
   expereinceStartAudio: {fileID: 1926683216}
