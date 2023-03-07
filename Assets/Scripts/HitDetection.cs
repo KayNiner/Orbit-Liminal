@@ -78,7 +78,7 @@ public class HitDetection : MonoBehaviour
         timer += 1 * Time.deltaTime;
         lineDrawer.drawLine();
         isOverlapped = true;
-        lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.Lerp(lineDrawer.beamColour, new Color(255,255,0),Time.deltaTime/requiredTime));
+        //lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.Lerp(lineDrawer.beamColour, new Color(255,255,0),Time.deltaTime/requiredTime));
     }
 
     void OnTriggerExit(Collider other)
@@ -90,7 +90,7 @@ public class HitDetection : MonoBehaviour
         LaserBreak.Play();
         LaserOn.Stop();
         lineDrawer.particleTrail.GetComponent<ParticleSystem>().Stop() ;
-        lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.white);
+        //lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.white);
         isOverlapped = false;
     }
 

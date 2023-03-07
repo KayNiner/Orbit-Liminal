@@ -31492,9 +31492,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.18867922, g: 0.95164114, b: 1, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 1, g: 1, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -31502,14 +31502,14 @@ LineRenderer:
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 1735
       atime2: 0
       atime3: 0
       atime4: 0
@@ -72268,7 +72268,6 @@ MonoBehaviour:
   playerControl: {fileID: 1680835685}
   outerRingColour: {fileID: 1979851011}
   innerRingColour: {fileID: 1979851012}
-  lineDrawer: {fileID: 0}
   lineRenderer: {fileID: 1056829033}
   particle: {fileID: 0}
   endSceneParticle: {fileID: 1532279015}
@@ -72284,6 +72283,7 @@ MonoBehaviour:
   stage5Audio: {fileID: 152877451}
   level6: {fileID: 535309371}
   stage6Audio: {fileID: 943901853}
+  lineDrawer: {fileID: 1056829032}
   hasInput: 0
   outerRing: {fileID: 2141233616}
   innerRing: {fileID: 1680835683}

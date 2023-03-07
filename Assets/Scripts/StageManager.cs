@@ -21,7 +21,6 @@ public class StageManager : MonoBehaviour
     public PlayerControlled playerControl;
     public outerRingColour outerRingColour;
     public innerRingColour innerRingColour;
-    public Draw_Beam lineDrawer;
     public LineRenderer lineRenderer;
 
     public ParticleSystem particle;
@@ -57,6 +56,10 @@ public class StageManager : MonoBehaviour
     GameObject level6;
     [SerializeField]
     AudioSource stage6Audio;
+
+    [Header("LineDraw Script")]
+    [SerializeField]
+    Draw_Beam lineDrawer;
 
     [Header("MISC")]
     Material starRendMat, laserBeamMat;
@@ -231,6 +234,7 @@ public class StageManager : MonoBehaviour
         expereinceStartAudio.Play();
         fadeToClearInTimer(1f);
         yield return new WaitForSeconds(1.5f);
+        lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.cyan);
         rotationAngle = 5;
         while (currentStage == Stages.TUTORIAL3)
         {
@@ -251,6 +255,7 @@ public class StageManager : MonoBehaviour
         stage1Audio.Play();
         outerRing.transform.rotation = Quaternion.Euler(0, 0, 0);
         innerRingColour.materials[0].SetColor("_emission", Color.red);
+        lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.red);
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = -5;
@@ -286,6 +291,7 @@ public class StageManager : MonoBehaviour
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, targetRot2, 0.015f);
+            lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.yellow);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"),outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.yellow, 0.1f));
             yield return new WaitForEndOfFrame();
@@ -326,6 +332,7 @@ public class StageManager : MonoBehaviour
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, targetRot2, 0.015f);
+            lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.blue);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.blue, 0.1f));
             yield return new WaitForEndOfFrame();
@@ -365,6 +372,7 @@ public class StageManager : MonoBehaviour
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, targetRot2, 0.015f);
+            lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.green);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.green, 0.1f));
             yield return new WaitForEndOfFrame();
@@ -405,6 +413,7 @@ public class StageManager : MonoBehaviour
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, targetRot2, 0.015f);
+            lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.magenta);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.magenta, 0.1f));
             yield return new WaitForEndOfFrame();
@@ -444,6 +453,7 @@ public class StageManager : MonoBehaviour
             t += Time.deltaTime;
             outerRing.transform.rotation = Quaternion.Lerp(outerRing.transform.rotation, targetRot, 0.015f);
             innerRing.transform.rotation = Quaternion.Lerp(innerRing.transform.rotation, targetRot2, 0.015f);
+            lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.white);
             outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), outerRingColour.originalColour, 0.005f));
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.white, 0.1f));
             yield return new WaitForEndOfFrame();
