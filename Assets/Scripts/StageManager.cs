@@ -166,7 +166,6 @@ public class StageManager : MonoBehaviour
             }
             else if (currentStage == Stages.STAGE7)
             {
-                //Debug.Log("Experience Over");
                 Invoke("endScene", 5.0f);
             }
             else if (currentStage == Stages.TUTORIAL3)
@@ -235,7 +234,6 @@ public class StageManager : MonoBehaviour
         rotationAngle = 5;
         while (currentStage == Stages.TUTORIAL3)
         {
-            //Debug.Log("Tutorial 3 - LOOPING");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
@@ -248,14 +246,12 @@ public class StageManager : MonoBehaviour
 	IEnumerator STAGE1()
     {
         radialBar.enabled = false;
-        //Entering Stage 1
         fadeToBlackInTimer(1f);
         yield return new WaitForSeconds(1.5f);
         stage1Audio.Play();
         outerRing.transform.rotation = Quaternion.Euler(0, 0, 0);
         innerRingColour.materials[0].SetColor("_emission", Color.red);
         fadeToClearInTimer(1f);
-        //Debug.Log("Start Stage 1");
         slerpSpeed = 10f;
         rotationAngle = -5;
         hitDetection.requiredTime = 14f; //adjusts the time the stage takes to clear
@@ -264,25 +260,20 @@ public class StageManager : MonoBehaviour
         //Loop while in Stage1
         while(currentStage == Stages.STAGE1)
         {
-            //Debug.Log("Looping Stage 1");
-
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.red, (Time.deltaTime+0.05f)/hitDetection.requiredTime));
-                //innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.red, (Time.deltaTime+0.05f)/hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-                //innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }      
     }
     IEnumerator STAGE2()
     {
-        //Entering Stage 2
         float t = 0;
         Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
         rot2 = new Vector3(rot2.x,rot2.y, rot2.z+90);
@@ -306,28 +297,23 @@ public class StageManager : MonoBehaviour
         hitDetection.requiredTime = 17f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
-        //Loop while in Stage1
         while (currentStage == Stages.STAGE2)
         {
-            //Debug.Log("Stage2");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.yellow, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-                //innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.yellow, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-                //innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
         
     }
     IEnumerator STAGE3()
     {
-        //Entering Stage 3
         float t = 0;
         Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
         rot2 = new Vector3(rot2.x, rot2.y, rot2.z - 90);
@@ -350,28 +336,23 @@ public class StageManager : MonoBehaviour
         hitDetection.requiredTime = 22f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
-        //Loop while in Stage1
         while (currentStage == Stages.STAGE3)
         {
-            //Debug.Log("Stage 3");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.blue, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-                //innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.blue, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-               // innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
         
     }
     IEnumerator STAGE4()
     {
-        //Entering Stage 4
         float t = 0;
         Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
         rot2 = new Vector3(rot2.x, rot2.y, rot2.z + 90);
@@ -395,28 +376,23 @@ public class StageManager : MonoBehaviour
         hitDetection.requiredTime = 26f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
-        //Loop while in Stage1
         while (currentStage == Stages.STAGE4)
         {
-            //Debug.Log("Stage 4");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.green, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-               // innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.green, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-                //innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
         
     }
     IEnumerator STAGE5()
     {
-        //Entering Stage 5
         float t = 0;
         Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
         rot2 = new Vector3(rot2.x, rot2.y, rot2.z - 90);
@@ -439,28 +415,23 @@ public class StageManager : MonoBehaviour
         hitDetection.requiredTime = 29f; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
-        //Loop while in Stage1
         while (currentStage == Stages.STAGE5)
         {
-            //Debug.Log("Stage 5");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.magenta, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-                //innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.magenta, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-                //innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
 
     }
     IEnumerator STAGE6()
     {
-        //Entering Stage 6
         float t = 0;
         Vector3 rot2 = innerRing.transform.rotation.eulerAngles;
         rot2 = new Vector3(rot2.x, rot2.y, rot2.z - 90);
@@ -486,18 +457,15 @@ public class StageManager : MonoBehaviour
         //Loop while in Stage6
         while (currentStage == Stages.STAGE6)
         {
-            //Debug.Log("Stage 6");
             outerRing.transform.Rotate(new Vector3(0, 0, rotationAngle) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.white, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-                //innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.white, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
                 outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
-               // innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.cyan, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
         }
     }
@@ -506,7 +474,6 @@ public class StageManager : MonoBehaviour
     {
         playerControl.enabled = false;
         hitDetection.enabled = false;
-        //lineDrawer.enabled = false;
         lineRenderer.enabled = false;
         hitDetection.LaserOn.Stop();
         hitDetection.LaserOn.mute = !hitDetection.LaserBreak.mute;
@@ -522,7 +489,6 @@ public class StageManager : MonoBehaviour
 
         while (currentStage == Stages.STAGE7)
         {
-            //Debug.Log("Stage 6");
             outerRing.transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime);
             innerRing.transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime);
             yield return new WaitForEndOfFrame();
