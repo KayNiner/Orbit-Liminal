@@ -461,7 +461,7 @@ public class StageManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
-                outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.white, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.magenta, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
