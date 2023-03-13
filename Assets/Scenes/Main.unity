@@ -72275,26 +72275,32 @@ MonoBehaviour:
   stage1Audio: {fileID: 770464098}
   stage1RequiredTimer: 14
   stage1RotAngle: -5
+  stage1Colour: {r: 1, g: 0, b: 0, a: 1}
   level2: {fileID: 892343727}
   stage2Audio: {fileID: 2044861768}
   stage2RequiredTimer: 17
   stage2RotAngle: -10
+  stage2Colour: {r: 1, g: 1, b: 0, a: 1}
   level3: {fileID: 1374925535}
   stage3Audio: {fileID: 379282831}
   stage3RequiredTimer: 22
   stage3RotAngle: 13
+  stage3Colour: {r: 0, g: 0, b: 1, a: 1}
   level4: {fileID: 8709396}
   stage4Audio: {fileID: 606865866}
   stage4RequiredTimer: 26
   stage4RotAngle: -14
+  stage4Colour: {r: 0, g: 1, b: 0, a: 1}
   level5: {fileID: 1207336662}
   stage5Audio: {fileID: 152877451}
   stage5RequiredTimer: 29
   stage5RotAngle: -10
+  stage5Colour: {r: 1, g: 0, b: 1, a: 1}
   level6: {fileID: 535309371}
   stage6Audio: {fileID: 943901853}
   stage6RequiredTimer: 33
   stage6RotAngle: 15
+  stage6Colour: {r: 0.24313726, g: 0.39215687, b: 0.32941177, a: 1}
   lineDrawer: {fileID: 1056829032}
   hasInput: 0
   outerRing: {fileID: 2141233616}
