@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading;
 using System.Timers;
 using System.Xml.Serialization;
@@ -31,31 +30,61 @@ public class StageManager : MonoBehaviour
     GameObject level1;
     [SerializeField]
     AudioSource stage1Audio;
+    [SerializeField]
+    float stage1RequiredTimer;
+    [SerializeField,Tooltip("Rotation angle started are should be range from -15 to 15 for a doable completion. Numbers in the negative will make the ring rotate another way.")]
+    float stage1RotAngle;
+    
+
     [Header("Star 2")]
     [SerializeField]
     GameObject level2;
     [SerializeField]
     AudioSource stage2Audio;
+    [SerializeField]
+    float stage2RequiredTimer;
+    [SerializeField, Tooltip("Rotation angle started are should be range from -15 to 15 for a doable completion. Numbers in the negative will make the ring rotate another way.")]
+    float stage2RotAngle;
+
     [Header("Star 3")]
     [SerializeField]
     GameObject level3;
     [SerializeField]
     AudioSource stage3Audio;
+    [SerializeField]
+    float stage3RequiredTimer;
+    [SerializeField, Tooltip("Rotation angle started are should be range from -15 to 15 for a doable completion. Numbers in the negative will make the ring rotate another way.")]
+    float stage3RotAngle;
+
     [Header("Star 4")]
     [SerializeField]
     GameObject level4;
     [SerializeField]
     AudioSource stage4Audio;
+    [SerializeField] 
+    float stage4RequiredTimer;
+    [SerializeField, Tooltip("Rotation angle started are should be range from -15 to 15 for a doable completion. Numbers in the negative will make the ring rotate another way.")]
+    float stage4RotAngle;
+        
     [Header("Star 5")]
     [SerializeField]
     GameObject level5;
     [SerializeField]
     AudioSource stage5Audio;
+    [SerializeField]
+    float stage5RequiredTimer;
+    [SerializeField, Tooltip("Rotation angle started are should be range from -15 to 15 for a doable completion. Numbers in the negative will make the ring rotate another way.")]
+    float stage5RotAngle;
+
     [Header("Star 6")]
     [SerializeField]
     GameObject level6;
     [SerializeField]
     AudioSource stage6Audio;
+    [SerializeField]
+    float stage6RequiredTimer;
+    [SerializeField, Tooltip("Rotation angle started are should be range from -15 to 15 for a doable completion. Numbers in the negative will make the ring rotate another way.")]
+    float stage6RotAngle;
 
     [Header("LineDraw Script")]
     [SerializeField]
@@ -201,6 +230,7 @@ public class StageManager : MonoBehaviour
 
     void endScene()
     {
+        Debug.Log("Particle Play");
         endSceneParticle.Play();
         ExperienceApp.End();
     }
@@ -258,8 +288,8 @@ public class StageManager : MonoBehaviour
         lineDrawer.lineRenderer.material.SetColor("_beamColour", Color.red);
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
-        rotationAngle = -5;
-        hitDetection.requiredTime = 14f; //adjusts the time the stage takes to clear
+        rotationAngle = stage1RotAngle;
+        hitDetection.requiredTime = stage1RequiredTimer; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(2f);
 
         //Loop while in Stage1
@@ -299,8 +329,8 @@ public class StageManager : MonoBehaviour
         hitDetection.enabled = true;
         stage2Audio.Play();
         slerpSpeed = 10f;
-        rotationAngle = -10;
-        hitDetection.requiredTime = 17f; //adjusts the time the stage takes to clear
+        rotationAngle = stage2RotAngle;
+        hitDetection.requiredTime = stage2RequiredTimer; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         while (currentStage == Stages.STAGE2)
@@ -339,8 +369,8 @@ public class StageManager : MonoBehaviour
         }
         stage3Audio.Play();
         slerpSpeed = 10f;
-        rotationAngle = 13;
-        hitDetection.requiredTime = 22f; //adjusts the time the stage takes to clear
+        rotationAngle = stage3RotAngle;
+        hitDetection.requiredTime = stage3RequiredTimer; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         while (currentStage == Stages.STAGE3)
@@ -380,8 +410,8 @@ public class StageManager : MonoBehaviour
         stage4Audio.Play();
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
-        rotationAngle = -14;
-        hitDetection.requiredTime = 26f; //adjusts the time the stage takes to clear
+        rotationAngle = stage4RotAngle;
+        hitDetection.requiredTime = stage4RequiredTimer; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         while (currentStage == Stages.STAGE4)
@@ -420,8 +450,8 @@ public class StageManager : MonoBehaviour
         }
         stage5Audio.Play();
         slerpSpeed = 10f;
-        rotationAngle = -10;
-        hitDetection.requiredTime = 29f; //adjusts the time the stage takes to clear
+        rotationAngle = stage5RotAngle;
+        hitDetection.requiredTime = stage5RequiredTimer; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         while (currentStage == Stages.STAGE5)
@@ -430,7 +460,7 @@ public class StageManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
             if (hitDetection.isOverlapped == true)
             {
-                outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.magenta, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
+                outerRingColour.materials[0].SetColor("_emission", Color.Lerp(outerRingColour.materials[0].GetColor("_emission"), Color.white, (Time.deltaTime + 0.05f) / hitDetection.requiredTime));
             }
             else
             {
@@ -460,8 +490,8 @@ public class StageManager : MonoBehaviour
         }
         stage6Audio.Play();
         slerpSpeed = 10f;
-        rotationAngle = 15;
-        hitDetection.requiredTime = 33f; //adjusts the time the stage takes to clear
+        rotationAngle = stage6RotAngle;
+        hitDetection.requiredTime = stage6RequiredTimer; //adjusts the time the stage takes to clear
         yield return new WaitForSeconds(0.5f);
 
         //Loop while in Stage6
@@ -495,6 +525,7 @@ public class StageManager : MonoBehaviour
         hitDetection.laserStay.mute = !hitDetection.laserStay.mute;
         slerpSpeed = 10f;
         rotationAngle = 30f;
+        //Invoke("endScene", 1.0f);
         yield return new WaitForSeconds(0.5f);
 
         while (currentStage == Stages.STAGE7)
