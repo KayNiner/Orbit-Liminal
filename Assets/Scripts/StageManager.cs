@@ -328,7 +328,7 @@ public class StageManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         hitDetection.enabled = true;
-        stage2Audio.Play();
+        //stage2Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = stage2RotAngle;
         hitDetection.requiredTime = stage2RequiredTimer; //adjusts the time the stage takes to clear
@@ -368,7 +368,7 @@ public class StageManager : MonoBehaviour
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.blue, 0.1f));
             yield return new WaitForEndOfFrame();
         }
-        stage3Audio.Play();
+        //stage3Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = stage3RotAngle;
         hitDetection.requiredTime = stage3RequiredTimer; //adjusts the time the stage takes to clear
@@ -408,7 +408,7 @@ public class StageManager : MonoBehaviour
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.green, 0.1f));
             yield return new WaitForEndOfFrame();
         }
-        stage4Audio.Play();
+        //stage4Audio.Play();
         fadeToClearInTimer(1f);
         slerpSpeed = 10f;
         rotationAngle = stage4RotAngle;
@@ -449,7 +449,7 @@ public class StageManager : MonoBehaviour
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.magenta, 0.1f));
             yield return new WaitForEndOfFrame();
         }
-        stage5Audio.Play();
+        //stage5Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = stage5RotAngle;
         hitDetection.requiredTime = stage5RequiredTimer; //adjusts the time the stage takes to clear
@@ -489,7 +489,7 @@ public class StageManager : MonoBehaviour
             innerRingColour.materials[0].SetColor("_emission", Color.Lerp(innerRingColour.materials[0].GetColor("_emission"), Color.red, 0.1f));
             yield return new WaitForEndOfFrame();
         }
-        stage6Audio.Play();
+        //stage6Audio.Play();
         slerpSpeed = 10f;
         rotationAngle = stage6RotAngle;
         hitDetection.requiredTime = stage6RequiredTimer; //adjusts the time the stage takes to clear
