@@ -16232,7 +16232,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4a7562f867f942a4aab56e9800abc6cd, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f7cfdc3c1ef7f734198db536568c0482, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -72066,7 +72066,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 551443ce6d581724698bce10c7b291b6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 98be6f07343b20a41ade207f37dfa4fa, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -72112,7 +72112,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -72275,32 +72275,26 @@ MonoBehaviour:
   stage1Audio: {fileID: 770464098}
   stage1RequiredTimer: 14
   stage1RotAngle: -5
-  stage1Colour: {r: 1, g: 0, b: 0, a: 1}
   level2: {fileID: 892343727}
   stage2Audio: {fileID: 2044861768}
   stage2RequiredTimer: 17
   stage2RotAngle: -10
-  stage2Colour: {r: 1, g: 1, b: 0, a: 1}
   level3: {fileID: 1374925535}
   stage3Audio: {fileID: 379282831}
   stage3RequiredTimer: 22
   stage3RotAngle: 13
-  stage3Colour: {r: 0, g: 0, b: 1, a: 1}
   level4: {fileID: 8709396}
   stage4Audio: {fileID: 606865866}
   stage4RequiredTimer: 26
   stage4RotAngle: -14
-  stage4Colour: {r: 0, g: 1, b: 0, a: 1}
   level5: {fileID: 1207336662}
   stage5Audio: {fileID: 152877451}
   stage5RequiredTimer: 29
   stage5RotAngle: -10
-  stage5Colour: {r: 1, g: 0, b: 1, a: 1}
   level6: {fileID: 535309371}
   stage6Audio: {fileID: 943901853}
   stage6RequiredTimer: 33
   stage6RotAngle: 15
-  stage6Colour: {r: 0.24313726, g: 0.39215687, b: 0.32941177, a: 1}
   lineDrawer: {fileID: 1056829032}
   hasInput: 0
   outerRing: {fileID: 2141233616}
@@ -72587,7 +72581,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 64ca70ee06d54aa4488f7dffd01115c1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 59fe367f946e109439a4a063f83817f8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
